@@ -7,14 +7,19 @@
 
 import SwiftUI
 
-struct GridView: View {
-	var body: some View {
-		Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-	}
-}
-
+// MARK: - PREVIEW
 struct GridView_Previews: PreviewProvider {
 	static var previews: some View {
 		GridView()
+	}
+}
+
+
+struct GridView: View {
+	// MARK: - PROPS
+	
+	// MARK: - BODY
+	var body: some View {
+		Text("Hello, World!")
 	}
 }
