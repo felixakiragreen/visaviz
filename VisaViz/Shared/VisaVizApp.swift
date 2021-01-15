@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct VisaVizApp: App {
+	@ObservedObject private var archive = TweetArchive()
+	
 	var body: some Scene {
 		WindowGroup {
-			ContentView()
+			NavigationView {
+				ContentView(tweets: $archive.tweets)
+			}
+			.onAppear {
+				archive.load()
+			}
 		}
 	}
 }
