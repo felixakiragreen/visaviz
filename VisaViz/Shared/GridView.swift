@@ -10,13 +10,16 @@ import SwiftUI
 // MARK: - PREVIEW
 struct GridView_Previews: PreviewProvider {
 	static var previews: some View {
-		GridView()
+//		GridView(tweets: .constant([]))
+		GridView(tweets: .constant(Tweet.previewData))
 	}
 }
 
 
 struct GridView: View {
 	// MARK: - PROPS
+	
+	@Binding var tweets: [Tweet]
 	
 	struct Config {
 		var quantity: Int = 100
@@ -29,12 +32,15 @@ struct GridView: View {
 	// MARK: - BODY
 	var body: some View {
 		LazyVGrid(columns: [GridItem(.adaptive(minimum: config.size, maximum: 100.0), spacing: config.space)], spacing: config.space, content: {
-			ForEach(0..<config.quantity) { n in
+			ForEach(tweets) { tweet in
 				Rectangle()
 					.foregroundColor(.blue)
 					.frame(height: config.size)
+//					.overlay(
+//						Text("\(tweet.id)")
+//					)
 			}
 		})
-		.frame(maxWidth: .infinity, maxHeight: .infinity)
+		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
 	}
 }
