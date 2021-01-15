@@ -10,44 +10,51 @@ import SwiftUI
 // MARK: - PREVIEW
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView()
+		NavigationView {
+		ContentView(tweets: .constant(Tweet.previewData))
+		}
 	}
 }
 
 struct ContentView: View {
 	// MARK: - PROPS
 	
+	@Binding var tweets: [Tweet]
+	
 	@State var gridViewConfig = GridView.Config(
-		quantity: 100000,
-		size: 4,
-		space: 1
+		quantity: 100,
+		size: 36,
+		space: 6
 	)
 	
-	@State var show = false
+	@State var show = true
 	
 	// MARK: - BODY
 	var body: some View {
 		VStack {
-			HStack {
-//				Text("testz")
-				Button("\(show ? "hide()" :  "show()")") {
-					show.toggle()
-				}
-//				Button("set q to 100") {
-//					gridViewConfig.quantity = 100
-//				}
-//				Button("set q to 1000") {
-//					gridViewConfig.quantity = 1000
-//				}
-			}
+			Text("sidebar")
 			Divider()
-			if show {
-				GridView(config: gridViewConfig)
-					.drawingGroup()
-			} else {
-				Spacer()
+			Button("\(show ? "hide()" :  "show()")") {
+				show.toggle()
 			}
-		}
-		.frame(minWidth: 1000, minHeight: 800)
+			
+			
+			
+		}//: Sidebar
+		VStack {
+			GeometryReader { geometry in
+				if show {
+					ScrollView {
+					GridView(tweets: $tweets, config: gridViewConfig)
+	//					.drawingGroup()
+					}
+				} else {
+					Spacer()
+				}
+			}
+		}//: MainView
+		.padding()
+//		.frame(minWidth: 1000, minHeight: 800)
 	}
+	
 }
