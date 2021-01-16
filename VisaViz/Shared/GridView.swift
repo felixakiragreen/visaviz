@@ -45,29 +45,53 @@ struct GridView: View {
 				
 				let hue = randomColor.getHue()
 				let isHovering = hovering?.id == tweet.id
+				let isPinned = pinning.contains(tweet)
 //				ColorPreset.randomHue(luminance: .normal).getColor()
 				
-				let color = ColorPreset(hue: hue, lum: isHovering ? .normal : .semiDark, sys: false).getColor()
+				let popularity = (tweet.metrics.rt + 1) * (tweet.metrics.fav + 1)
+				let lum: ColorLuminance = {
+					switch popularity {
+					case 20..<200:
+						return .extraLight
+					case 10..<20:
+						return .normal
+					case 5..<10:
+						return .semiDark
+					case 1..<5:
+						return .extraDark
+					default:
+						return .extraDark
+					}
+				}()
+
+				let color = ColorPreset(hue: hue, lum: lum, sys: false).getColor()
 				
 				Rectangle()
 					.foregroundColor(color)
 					.frame(height: config.size)
-//					.overlay(
-//						isHovering ?
-//							Text("\(tweets[tweetIndex].id)")
-//						: Text("")
-//					)
+					.overlay(
+						Text("\(tweet.metrics.rt) \(tweet.metrics.fav)")
+							.foregroundColor(popularity > 10 ? .black : .white)
+					)
+					.overlay(
+						isHovering || isPinned ?
+							Rectangle()
+							.stroke(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 4)
+							: nil
+					)
 					.onHover { onHovering in
 						if onHovering {
 							hovering = tweet
 						} else {
 //							hoveredTweet = nil
 						}
-//						tweets[tweetIndex].hovering = hovering
 					}
 					.onTapGesture {
 						if pinning.contains(tweet) {
-							
+							guard let index = pinning.firstIndex(of: tweet) else {
+								return
+							}
+							pinning.remove(at: index)
 						} else {
 							pinning.append(tweet)
 						}
