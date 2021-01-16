@@ -19,10 +19,10 @@ Going to use Metal for this.
 
 ### Open ideas
 - filtering based on words
+- If you can get the rendering fast enough, having a search bar and varying brightness of each box based on how many tri's it shares with the search term would be awesome (as an alternative to varying by popularity)
 
-
-@visakanv my plan is to give I'm going once I can give you a dev build to play around in, I expect that you'll encounter "flows" that you want, so I'll make those
- (just different ways of slicing/viewing, since ~100K is so  many fucking tweets. holy shit I have a new appreciation of how big 100K is.)
+@visakanv my plan is to give you a dev build ASAP to play around in, and I expect that you'll encounter "flows" that you want to have, so I'll make those
+ (just different ways of slicing/viewing, since ~100K is almost too many to view at once.)
 
 ## Changelog
 
