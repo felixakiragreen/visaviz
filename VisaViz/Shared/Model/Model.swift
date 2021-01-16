@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Tweet: Identifiable, Decodable {
+struct Tweet: Identifiable, Equatable, Decodable {
 	var id: String
 	var fullText: String
 	var createdAt: Date
@@ -111,8 +111,15 @@ first step could be programmatically changing `window.YTD.tweet.part0 = [ {` to 
 
 class TweetArchive: ObservableObject {
 	@Published var tweets: [Tweet] = []
-	@Published var hoveredTweet: Tweet?
+	@Published var hovering: Tweet?
+	@Published var pinning: [Tweet] = []
 
+	init() {}
+	
+	init(tweets: [Tweet]) {
+		self.tweets = tweets
+	}
+	
 	func load() {
 		if let localData = readLocalFile(forName: "tweet") {
 			print(localData)
@@ -193,10 +200,11 @@ class TweetArchive: ObservableObject {
 	}
 }
 
-//extension TweetArchive {
-//
-//
-//}
+extension TweetArchive {
+
+	static var previewData: TweetArchive = TweetArchive(tweets: Tweet.previewData)
+
+}
 
 //
 // let decoder = JSONDecoder()
