@@ -14,7 +14,7 @@ struct VisaVizApp: App {
 	var body: some Scene {
 		WindowGroup {
 			NavigationView {
-				ContentView(tweets: $archive.tweets)
+				ContentView(tweets: $archive.tweets, hoveredTweet: $archive.hoveredTweet)
 			}
 			.onAppear {
 				archive.load()
