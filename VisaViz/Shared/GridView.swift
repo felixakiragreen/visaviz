@@ -11,7 +11,10 @@ import SwiftUI
 struct GridView_Previews: PreviewProvider {
 	static var previews: some View {
 //		GridView(tweets: .constant([]))
-		GridView(tweets: .constant(Tweet.previewData))
+		GridView(
+			tweets: .constant(Tweet.previewData),
+			hoveredTweet: .constant(nil)
+		)
 	}
 }
 
@@ -20,6 +23,7 @@ struct GridView: View {
 	// MARK: - PROPS
 	
 	@Binding var tweets: [Tweet]
+	@Binding var hoveredTweet: Tweet?
 	
 	struct Config {
 		var quantity: Int = 100
@@ -29,16 +33,34 @@ struct GridView: View {
 	
 	var config = Config()
 	
+	var randomColor = ColorRandom()
+	
 	// MARK: - BODY
 	var body: some View {
 		LazyVGrid(columns: [GridItem(.adaptive(minimum: config.size, maximum: 100.0), spacing: config.space)], spacing: config.space, content: {
-			ForEach(tweets) { tweet in
+			ForEach(tweets.indices, id: \.self) { tweetIndex in
+				let hue = randomColor.getHue()
+				let isHovering = hoveredTweet?.id == tweets[tweetIndex].id
+//				ColorPreset.randomHue(luminance: .normal).getColor()
+				
+				let color = ColorPreset(hue: hue, lum: isHovering ? .normal : .semiDark, sys: false).getColor()
+				
 				Rectangle()
-					.foregroundColor(.blue)
+					.foregroundColor(color)
 					.frame(height: config.size)
 //					.overlay(
-//						Text("\(tweet.id)")
+//						isHovering ?
+//							Text("\(tweets[tweetIndex].id)")
+//						: Text("")
 //					)
+					.onHover { hovering in
+						if hovering {
+							hoveredTweet = tweets[tweetIndex]
+						} else {
+//							hoveredTweet = nil
+						}
+//						tweets[tweetIndex].hovering = hovering
+					}
 			}
 		})
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
