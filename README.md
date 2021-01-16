@@ -16,6 +16,9 @@ An app to visualize all the tweets
 
 - figure out a popularity value system for tweets (probably configurable, should consult Visa)
 
+
+
+
 ### Metal Frontend
 
 The whole grid view will need to be rewritten in order to support >10K tweets.
@@ -24,8 +27,15 @@ Going to use Metal for this.
 ### Open ideas
 - filtering based on words
 - TRIGRAPH from → @ollybot: If you can get the rendering fast enough, having a search bar and varying brightness of each box based on how many tri's it shares with the search term would be awesome (as an alternative to varying by popularity)
+- add some neat stats
+
+
 
 ## Changelog
+
+
+**12021·01·16**
+- adding thread support
 
 **12021·01·15**
 - display all the tweets in a LazyGrid with random colors (sorted by date)
