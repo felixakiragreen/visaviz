@@ -111,6 +111,7 @@ first step could be programmatically changing `window.YTD.tweet.part0 = [ {` to 
 
 class TweetArchive: ObservableObject {
 	@Published var tweets: [Tweet] = []
+	@Published var hoveredTweet: Tweet?
 
 	func load() {
 		if let localData = readLocalFile(forName: "tweet") {
@@ -118,7 +119,8 @@ class TweetArchive: ObservableObject {
 			if let jsonData = self.parse(jsonData: localData) {
 //				print("error")
 //				return
-				tweets = jsonData
+//				let sortedTweets =
+				tweets = jsonData.sorted { $0.createdAt < $1.createdAt }
 			}
 		}
 //		DispatchQueue.global(qos: .background).async { [weak self] in
