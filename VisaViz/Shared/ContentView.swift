@@ -33,7 +33,7 @@ struct ContentView: View {
 	
 	@State var gridViewConfig = GridView.Config(
 		quantity: 100,
-		size: 36,
+		size: 40,
 		space: 6
 	)
 	
