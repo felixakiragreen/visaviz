@@ -7,27 +7,50 @@
 
 import Foundation
 
-struct Tweet: Identifiable, Equatable, Decodable {
+struct Tweet: Identifiable, Equatable {
 	var id: String
 	var fullText: String
 	var createdAt: Date
 
+	// MARK: - Metrics
+	var metrics: Metrics
 	struct Metrics: Equatable, Decodable {
-		var rt: Int
-		var fav: Int
+		var retweets: Int
+		var likes: Int
 		
-		init(rt: Int = 0, fav: Int = 0) {
-			self.rt = rt
-			self.fav = fav
+		init(rts: Int = 0, fav: Int = 0) {
+			self.retweets = rts
+			self.likes = fav
 		}
 	}
 	
-	var metrics: Metrics
+	// MARK: - Links
 	
+	var links: Links
+	struct Links: Equatable, Decodable {
+		var replyUserName: String?
+		var replyUserId: String?
+		var replyTweetId: String?
+//		var urls: []
+//		var mentions: []
+	}
+}
 
-	/*
-	 TODO: Entities
-	 */
+// MARK: - PREVIEW
+extension Tweet {
+	static var previewData: [Tweet] {
+		[
+			Tweet(fullText: "abcde"),
+			Tweet(fullText: "fghij"),
+			Tweet(fullText: "klmno"),
+			Tweet(fullText: "pqrst"),
+			Tweet(fullText: "uvwxyz")
+		]
+	}
+}
+
+// MARK: - DECODING
+extension Tweet: Decodable {
 
 	enum CodingKeys: String, CodingKey {
 		case tweet
@@ -36,6 +59,10 @@ struct Tweet: Identifiable, Equatable, Decodable {
 		case fullText
 		case retweetCount
 		case favoriteCount
+		case inReplyToScreenName
+		case inReplyToUserId
+		case inReplyToStatusId
+		// TODO: urls, mentions
 	}
 	
 	init(fullText: String) {
@@ -43,86 +70,45 @@ struct Tweet: Identifiable, Equatable, Decodable {
 		self.createdAt = Date()
 		self.fullText = fullText
 		self.metrics = Metrics()
+		self.links = Links()
 	}
 
 	init(from decoder: Decoder) throws {
-//		decoder.keyDecodingStrategy = JSONDecoder.KeyDecodingStrategy.convertFromSnakeCase
 
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		let tweet = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .tweet)
-
-//		self = container try container.decode(String.self, forKey: )
 
 		self.id = try tweet.decode(String.self, forKey: .id)
 		self.fullText = try tweet.decode(String.self, forKey: .fullText)
 		self.createdAt = try tweet.decode(Date.self, forKey: .createdAt)
 		
-//		guard let idInt = Int(try values.decode(String.self, forKey: .id)) else {
-//						fatalError("The id is not an Int")
-//				  }
-		
-//		TODO: add guards here
 		let rtCount = Int(try tweet.decode(String.self, forKey: .retweetCount)) ?? 0
 		let favCount = Int(try tweet.decode(String.self, forKey: .favoriteCount)) ?? 0
+		self.metrics = Metrics(rts: rtCount, fav: favCount)
 		
-		self.metrics = Metrics(rt: rtCount, fav: favCount)
+		let replyUserName = try? tweet.decode(String.self, forKey: .inReplyToScreenName)
+		let replyUserId = try? tweet.decode(String.self, forKey: .inReplyToUserId)
+		let replyTweetId = try? tweet.decode(String.self, forKey: .inReplyToStatusId)
+		self.links = Links(replyUserName: replyUserName, replyUserId: replyUserId, replyTweetId: replyTweetId)
 	}
 }
 
-extension Tweet {
-	static var previewData: [Tweet] {
-		[
-			Tweet(fullText: "abcde"),
-			Tweet(fullText: "abcde"),
-			Tweet(fullText: "abcde"),
-			Tweet(fullText: "abcde"),
-			Tweet(fullText: "abcde")
-		]
-//		Array.init(repeating: Tweet(fullText: "abcde"), count: 20)
-	}
-}
-
-// struct Tweets: Decodable {
-//	var tweets: [Tweet]
-//
-//	enum CodingKeys: String, CodingKey {
-//		case window
-//		case ytd = "YTD"
-//		case tweet
-//		case part = "part"
-////		  case bestFriend = "Best"
-////		  case funnyGuy = "FunnyGuy"
-////		  case favoriteWeirdo = "FavoriteWeirdo"
-//	}
-//
-//	// Decoding
-//	init(from decoder: Decoder) throws {
-////		let decoder = JSONDecoder()
-//
-////		let container = try decoder.container(keyedBy: CodingKeys.self)
-//
-////		tweets = try decoder.
-//
-//
-////		let step1 = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .window)
-////		let step2 = try step1.nestedContainer(keyedBy: CodingKeys.self, forKey: .ytd)
-////		let step3 = try step2.nestedContainer(keyedBy: CodingKeys.self, forKey: .tweet)
-////		let step4 = try step3.nestedContainer(keyedBy: CodingKeys.self, forKey: .tweet)
-////		tweets = try container.decode([Tweet].self, forKey: .tweet)
-////			  bar = try response.decode(Bool.self, forKey: .bar)
-////			  baz = try response.decode(String.self, forKey: .baz)
-////			  let friends = try response.nestedContainer(keyedBy: CodingKeys.self, forKey: .friends)
-////			  bestFriend = try friends.decode(String.self, forKey: .bestFriend)
-////			  funnyGuy = try friends.decode(String.self, forKey: .funnyGuy)
-////			  favoriteWeirdo = try friends.decode(String.self, forKey: .favoriteWeirdo)
-//	}
-// }
 
 /**
-
 Later on:
 first step could be programmatically changing `window.YTD.tweet.part0 = [ {` to `[ {` to make valid JSON
 
+How olybot does it
+```
+function loadTweets(text, color, archiveName){
+	 text = text.slice(text.indexOf("["));
+	 data = JSON.parse(text);
+	 flattenTweets(data).forEach((tweet) => {
+		  let t = new TweetWrapper(tweet, false, color, archiveName);//These tweets are being pulled from the archive, so not foreign
+		  loadedTweets[t.tweet.id] = t;
+	 });
+}
+```
 */
 
 class TweetArchive: ObservableObject {
@@ -222,19 +208,9 @@ extension TweetArchive {
 
 }
 
-//
-// let decoder = JSONDecoder()
-// decoder.keyDecodingStrategy = .convertFromSnakeCase
-//
-// let blog: Blog = try! decoder.decode(Blog.self, from: jsonData)
-// print(blog.numberOfPosts) // Prints: 47093
-//
-// let decoder = JSONDecoder()
-// let dateFormatter = DateFormatter()
-// dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-// dateFormatter.locale = Locale(identifier: "en_US")
-// dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-// decoder.dateDecodingStrategy = .formatted(dateFormatter)
 
 
-//Mon Aug 22 18:27:44 +0000 2016
+
+
+
+
