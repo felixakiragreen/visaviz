@@ -48,9 +48,11 @@ struct GridView: View {
 				let isPinned = pinning.contains(tweet)
 //				ColorPreset.randomHue(luminance: .normal).getColor()
 				
-				let popularity = (tweet.metrics.rt + 1) * (tweet.metrics.fav + 1)
+				let popularity = (tweet.metrics.retweets + 1) * (tweet.metrics.likes + 1)
 				let lum: ColorLuminance = {
 					switch popularity {
+					case 200..<Int.max:
+						return .nearWhite
 					case 20..<200:
 						return .extraLight
 					case 10..<20:
@@ -70,7 +72,7 @@ struct GridView: View {
 					.foregroundColor(color)
 					.frame(height: config.size)
 					.overlay(
-						Text("\(tweet.metrics.rt) \(tweet.metrics.fav)")
+						Text("\(tweet.metrics.retweets) \(tweet.metrics.likes)")
 							.foregroundColor(popularity > 10 ? .black : .white)
 					)
 					.overlay(
@@ -99,5 +101,6 @@ struct GridView: View {
 			}
 		})
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+		.padding(config.space)
 	}
 }
