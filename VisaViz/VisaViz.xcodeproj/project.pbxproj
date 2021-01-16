@@ -77,13 +77,22 @@
 		1D9241AF25B24F12009EC4EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1D92419425B1EDF1009EC4EC /* Model.swift */,
 				1D92419925B1F810009EC4EC /* tweet.json */,
+				1D92419425B1EDF1009EC4EC /* Model.swift */,
 				1D9241A025B23D53009EC4EC /* ColorPreset.swift */,
 				1D9241A525B244BF009EC4EC /* ColorRandom.swift */,
 				1D9241AA25B24F08009EC4EC /* DateFormatter.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1D9241C625B39471009EC4EC /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				1D9241B225B253D2009EC4EC /* WIP.swift */,
+				1D9241BC25B287D6009EC4EC /* TweetView.swift */,
+			);
+			path = Items;
 			sourceTree = "<group>";
 		};
 		1DE4409925AFCAEC0064C35C = {
@@ -102,12 +111,11 @@
 			children = (
 				1DE4409F25AFCAEC0064C35C /* VisaVizApp.swift */,
 				1DE440A025AFCAEC0064C35C /* ContentView.swift */,
-				1DE440A125AFCAEF0064C35C /* Assets.xcassets */,
 				1D92418B25AFD5F5009EC4EC /* GridView.swift */,
-				1D9241AF25B24F12009EC4EC /* Model */,
-				1D9241B225B253D2009EC4EC /* WIP.swift */,
-				1D9241BC25B287D6009EC4EC /* TweetView.swift */,
 				1D9241C125B288A7009EC4EC /* SideView.swift */,
+				1D9241AF25B24F12009EC4EC /* Model */,
+				1D9241C625B39471009EC4EC /* Items */,
+				1DE440A125AFCAEF0064C35C /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";

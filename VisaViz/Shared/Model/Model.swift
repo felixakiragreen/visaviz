@@ -112,14 +112,20 @@ function loadTweets(text, color, archiveName){
 */
 
 class TweetArchive: ObservableObject {
-	@Published var tweets: [Tweet] = []
-	@Published var hovering: Tweet?
-	@Published var pinning: [Tweet] = []
+//	@Published var tweets: [Tweet] = []
+	@Published var allSorted: [Tweet] = []
+//	@Published var allLookup = [String: Tweet]()
+	// should these move out of here?
+//	@Published var hovering: Tweet?
+//	@Published var pinning: [Tweet] = []
+	
+//	@Published var hovered: Tweet.ID?
+//	@Published var pinned: [Tweet.ID] = []
 
 	init() {}
 	
 	init(tweets: [Tweet]) {
-		self.tweets = tweets
+		populate(allTweets: tweets)
 	}
 	
 	func load() {
@@ -129,7 +135,12 @@ class TweetArchive: ObservableObject {
 //				print("error")
 //				return
 //				let sortedTweets =
-				tweets = jsonData.sorted { $0.createdAt < $1.createdAt }
+//				tweets = . jsonData.sorted { $0.createdAt < $1.createdAt }
+
+				// FOR PERFORMANCE TESTING
+//				populate(allTweets: jsonData.dropLast(350))
+				
+				populate(allTweets: jsonData)
 			}
 		}
 //		DispatchQueue.global(qos: .background).async { [weak self] in
@@ -150,6 +161,15 @@ class TweetArchive: ObservableObject {
 //		}
 	}
 
+	private func populate(allTweets: [Tweet]) -> Void {
+		print("POPULATING ——————————")
+//		tweets = allTweets
+		allSorted = allTweets.sorted { $0.createdAt < $1.createdAt }
+//		for eachTweet in allTweets {
+//			allLookup[eachTweet.id] = eachTweet
+//		}
+	}
+	
 	private func readLocalFile(forName name: String) -> Data? {
 		do {
 			if let bundlePath = Bundle.main.path(forResource: name,
@@ -203,14 +223,15 @@ class TweetArchive: ObservableObject {
 }
 
 extension TweetArchive {
-
 	static var previewData: TweetArchive = TweetArchive(tweets: Tweet.previewData)
-
 }
 
 
+class TweetInteraction: ObservableObject {
 
+	@Published var hovered: Tweet?
+	@Published var pinned: [Tweet] = []
 
-
-
-
+	init() {}
+	
+}

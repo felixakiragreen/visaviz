@@ -12,11 +12,14 @@ struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
 			ContentView(
-//				archive: .constant(TweetArchive.previewData)
-				tweets: .constant(Tweet.previewData),
-				hovering: .constant(nil),
-				pinning: .constant([])
+				archive: TweetArchive.previewData,
+				interaction: TweetInteraction()
+//				tweets: .constant(Tweet.previewData),
+//				hovering: .constant(nil),
+//				pinning: .constant([])
 			)
+//			.environmentObject(TweetArchive())
+//			.environmentObject(TweetInteraction())
 		}
 	}
 }
@@ -24,9 +27,15 @@ struct ContentView_Previews: PreviewProvider {
 struct ContentView: View {
 	// MARK: - PROPS
 	
-	@Binding var tweets: [Tweet]
-	@Binding var hovering: Tweet?
-	@Binding var pinning: [Tweet]
+//	@EnvironmentObject var testArchive: TweetArchive
+//	@EnvironmentObject var interaction: TweetInteraction
+	
+	@ObservedObject var archive: TweetArchive
+	@ObservedObject var interaction: TweetInteraction
+	
+//	@Binding var tweets: [Tweet]
+//	@Binding var hovering: Tweet?
+//	@Binding var pinning: [Tweet]
 	
 //	@Binding var archive: TweetArchive
 //	@EnvironmentObject var archive: TweetArchive
@@ -43,17 +52,24 @@ struct ContentView: View {
 	// MARK: - BODY
 	var body: some View {
 		SideView(
-			hovering: $hovering,
-			pinning: $pinning
+			interaction: interaction
+//			hovering: $hovering,
+//			pinning: $pinning
 		)
+//		.environmentObject(testArchive)
+//		.environmentObject(interaction)
 		VStack {
 			GeometryReader { geometry in
 				GridView(
-					tweets: $tweets,
-					hovering: $hovering,
-					pinning: $pinning,
+					archive: archive,
+//					interaction: $interaction,
+//					tweets: $tweets,
+					hovered: $interaction.hovered,
+					pinned: $interaction.pinned,
 					config: gridViewConfig
 				)
+//				.environmentObject(interaction)
+//				.environmentObject(testArchive)
 				.drawingGroup()
 			}
 		}//: MainView
