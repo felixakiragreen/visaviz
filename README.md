@@ -2,6 +2,10 @@
 An app to visualize all the tweets
 
 
+@visakanv my plan is to give you a dev build ASAP to play around in, and I expect that you'll encounter "flows" that you want to have, so I'll make those
+ (just different ways of slicing/viewing, since ~100K is almost too many to view at once.)
+
+
 ## Upcoming
 
 - choose color based on Threads
@@ -19,10 +23,7 @@ Going to use Metal for this.
 
 ### Open ideas
 - filtering based on words
-- If you can get the rendering fast enough, having a search bar and varying brightness of each box based on how many tri's it shares with the search term would be awesome (as an alternative to varying by popularity)
-
-@visakanv my plan is to give you a dev build ASAP to play around in, and I expect that you'll encounter "flows" that you want to have, so I'll make those
- (just different ways of slicing/viewing, since ~100K is almost too many to view at once.)
+- TRIGRAPH from → @ollybot: If you can get the rendering fast enough, having a search bar and varying brightness of each box based on how many tri's it shares with the search term would be awesome (as an alternative to varying by popularity)
 
 ## Changelog
 
