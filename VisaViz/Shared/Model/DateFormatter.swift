@@ -8,47 +8,37 @@
 import Foundation
 
 extension DateFormatter {
-	static let mediumDateFormatter: DateFormatter = {
+	static let bestDateFormatter: DateFormatter = {
 		let df = DateFormatter()
-		df.dateStyle = .medium
-		df.timeStyle = .none
+		df.dateFormat = "y MMM dd"
 
 		return df
 	}()
-
-	static let mediumTimeFormatter: DateFormatter = {
+	
+	static let goodDateFormatter: DateFormatter = {
 		let df = DateFormatter()
-		df.dateStyle = .none
-		df.timeStyle = .medium
+		df.dateFormat = "dd MMM y"
 
 		return df
 	}()
-
-//	static let dayHourFormatter: DateFormatter = {
-//		let df = DateFormatter()
-//		df.dateFormat = "'d'DD_'h'HH"
-//
-//		return df
-//	}()
-//
-//	static let hourFormatter: DateFormatter = {
-//		let df = DateFormatter()
-//		df.dateFormat = "HH"
-//
-//		return df
-//	}()
-//
-//	static let timeFormatter: DateFormatter = {
-//		let df = DateFormatter()
-//		df.dateFormat = "HH:mm"
-//
-//		return df
-//	}()
-
-	static let mediumDateTimeFormatter: DateFormatter = {
+	
+	static let worstDateFormatter: DateFormatter = {
 		let df = DateFormatter()
-		df.dateStyle = .medium
-		df.timeStyle = .medium
+		df.dateFormat = "MMM/dd/y"
+
+		return df
+	}()
+	
+	static let bestTimeFormatter: DateFormatter = {
+		let df = DateFormatter()
+		df.dateFormat = "HH:mm"
+
+		return df
+	}()
+	
+	static let worstTimeFormatter: DateFormatter = {
+		let df = DateFormatter()
+		df.dateFormat = "hh:mm"
 
 		return df
 	}()
