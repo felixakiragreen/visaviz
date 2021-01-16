@@ -13,7 +13,8 @@ struct GridView_Previews: PreviewProvider {
 //		GridView(tweets: .constant([]))
 		GridView(
 			tweets: .constant(Tweet.previewData),
-			hoveredTweet: .constant(nil)
+			hovering: .constant(nil),
+			pinning: .constant([])
 		)
 	}
 }
@@ -23,7 +24,8 @@ struct GridView: View {
 	// MARK: - PROPS
 	
 	@Binding var tweets: [Tweet]
-	@Binding var hoveredTweet: Tweet?
+	@Binding var hovering: Tweet?
+	@Binding var pinning: [Tweet]
 	
 	struct Config {
 		var quantity: Int = 100
@@ -39,8 +41,10 @@ struct GridView: View {
 	var body: some View {
 		LazyVGrid(columns: [GridItem(.adaptive(minimum: config.size, maximum: 100.0), spacing: config.space)], spacing: config.space, content: {
 			ForEach(tweets.indices, id: \.self) { tweetIndex in
+				let tweet = tweets[tweetIndex]
+				
 				let hue = randomColor.getHue()
-				let isHovering = hoveredTweet?.id == tweets[tweetIndex].id
+				let isHovering = hovering?.id == tweet.id
 //				ColorPreset.randomHue(luminance: .normal).getColor()
 				
 				let color = ColorPreset(hue: hue, lum: isHovering ? .normal : .semiDark, sys: false).getColor()
@@ -53,13 +57,20 @@ struct GridView: View {
 //							Text("\(tweets[tweetIndex].id)")
 //						: Text("")
 //					)
-					.onHover { hovering in
-						if hovering {
-							hoveredTweet = tweets[tweetIndex]
+					.onHover { onHovering in
+						if onHovering {
+							hovering = tweet
 						} else {
 //							hoveredTweet = nil
 						}
 //						tweets[tweetIndex].hovering = hovering
+					}
+					.onTapGesture {
+						if pinning.contains(tweet) {
+							
+						} else {
+							pinning.append(tweet)
+						}
 					}
 			}
 		})
