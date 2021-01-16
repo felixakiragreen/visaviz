@@ -23,6 +23,10 @@
 		1D9241B425B253D2009EC4EC /* WIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9241B225B253D2009EC4EC /* WIP.swift */; };
 		1D9241B825B27A19009EC4EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1D9241B725B27A19009EC4EC /* README.md */; };
 		1D9241B925B27A19009EC4EC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1D9241B725B27A19009EC4EC /* README.md */; };
+		1D9241BD25B287D6009EC4EC /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9241BC25B287D6009EC4EC /* TweetView.swift */; };
+		1D9241BE25B287D6009EC4EC /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9241BC25B287D6009EC4EC /* TweetView.swift */; };
+		1D9241C225B288A7009EC4EC /* SideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9241C125B288A7009EC4EC /* SideView.swift */; };
+		1D9241C325B288A7009EC4EC /* SideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9241C125B288A7009EC4EC /* SideView.swift */; };
 		1DE440B225AFCAEF0064C35C /* VisaVizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE4409F25AFCAEC0064C35C /* VisaVizApp.swift */; };
 		1DE440B325AFCAEF0064C35C /* VisaVizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE4409F25AFCAEC0064C35C /* VisaVizApp.swift */; };
 		1DE440B425AFCAEF0064C35C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE440A025AFCAEC0064C35C /* ContentView.swift */; };
@@ -40,6 +44,8 @@
 		1D9241AA25B24F08009EC4EC /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		1D9241B225B253D2009EC4EC /* WIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WIP.swift; sourceTree = "<group>"; };
 		1D9241B725B27A19009EC4EC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1D9241BC25B287D6009EC4EC /* TweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetView.swift; sourceTree = "<group>"; };
+		1D9241C125B288A7009EC4EC /* SideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideView.swift; sourceTree = "<group>"; };
 		1DE4409F25AFCAEC0064C35C /* VisaVizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaVizApp.swift; sourceTree = "<group>"; };
 		1DE440A025AFCAEC0064C35C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1DE440A125AFCAEF0064C35C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +106,8 @@
 				1D92418B25AFD5F5009EC4EC /* GridView.swift */,
 				1D9241AF25B24F12009EC4EC /* Model */,
 				1D9241B225B253D2009EC4EC /* WIP.swift */,
+				1D9241BC25B287D6009EC4EC /* TweetView.swift */,
+				1D9241C125B288A7009EC4EC /* SideView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -236,8 +244,10 @@
 				1DE440B225AFCAEF0064C35C /* VisaVizApp.swift in Sources */,
 				1D9241AB25B24F08009EC4EC /* DateFormatter.swift in Sources */,
 				1D9241B325B253D2009EC4EC /* WIP.swift in Sources */,
+				1D9241C225B288A7009EC4EC /* SideView.swift in Sources */,
 				1D9241A125B23D53009EC4EC /* ColorPreset.swift in Sources */,
 				1D9241A625B244BF009EC4EC /* ColorRandom.swift in Sources */,
+				1D9241BD25B287D6009EC4EC /* TweetView.swift in Sources */,
 				1D92419525B1EDF1009EC4EC /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,8 +261,10 @@
 				1DE440B325AFCAEF0064C35C /* VisaVizApp.swift in Sources */,
 				1D9241AC25B24F08009EC4EC /* DateFormatter.swift in Sources */,
 				1D9241B425B253D2009EC4EC /* WIP.swift in Sources */,
+				1D9241C325B288A7009EC4EC /* SideView.swift in Sources */,
 				1D9241A225B23D53009EC4EC /* ColorPreset.swift in Sources */,
 				1D9241A725B244BF009EC4EC /* ColorRandom.swift in Sources */,
+				1D9241BE25B287D6009EC4EC /* TweetView.swift in Sources */,
 				1D92419625B1EDF1009EC4EC /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

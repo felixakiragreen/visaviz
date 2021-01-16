@@ -12,8 +12,10 @@ struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
 			ContentView(
+//				archive: .constant(TweetArchive.previewData)
 				tweets: .constant(Tweet.previewData),
-				hoveredTweet: .constant(nil)
+				hovering: .constant(nil),
+				pinning: .constant([])
 			)
 		}
 	}
@@ -23,59 +25,52 @@ struct ContentView: View {
 	// MARK: - PROPS
 	
 	@Binding var tweets: [Tweet]
-	@Binding var hoveredTweet: Tweet?
+	@Binding var hovering: Tweet?
+	@Binding var pinning: [Tweet]
+	
+//	@Binding var archive: TweetArchive
+//	@EnvironmentObject var archive: TweetArchive
 	
 	@State var gridViewConfig = GridView.Config(
 		quantity: 100,
 		size: 36,
 		space: 6
 	)
+	
+//	@State var autoSize: Bool = false
 
 	
 	// MARK: - BODY
 	var body: some View {
-		VStack {
-			Text("sidebar")
-			Divider()
-			
-			Text("Sorting → Date.Asc")
-			WIP(label: "sorting selection", vertical: true)
-//			Picker(selection: $config.coloring.mode, label: ArrowLabel("mode")) {
-//				Text("single").tag(ColorMode.single)
-//				Text("main").tag(ColorMode.main)
-//				Text("group").tag(ColorMode.group)
-//				Text("random").tag(ColorMode.random)
-//			}.pickerStyle(SegmentedPickerStyle())
-			
-			Spacer()
-			
-			if let tweet = hoveredTweet  {
-				
-				Text("\(tweet.createdAt, formatter: DateFormatter.mediumDateTimeFormatter)")
-				Text("\(tweet.fullText)")
-			}
-			
-			Spacer()
-			
-		}//: Sidebar
+		SideView(
+			hovering: $hovering,
+			pinning: $pinning
+		)
 		VStack {
 			GeometryReader { geometry in
-//				if show {
-					ScrollView {
-						GridView(
-							tweets: $tweets,
-							hoveredTweet: $hoveredTweet,
-							config: gridViewConfig
-						)
-	//					.drawingGroup()
-					}
-//				} else {
-//					Spacer()
-//				}
+				GridView(
+					tweets: $tweets,
+					hovering: $hovering,
+					pinning: $pinning,
+					config: gridViewConfig
+				)
+				.drawingGroup()
 			}
 		}//: MainView
 //		.padding()
 //		.frame(minWidth: 1000, minHeight: 800)
 	}
 	
+///	TODO: calculate
+//	func calculateGridSize(size: CGSize) {
+//		let ratio = size.width / size.height
+//
+//
+//		repeat {
+//
+//		} while
+//	}
+	
 }
+
+
