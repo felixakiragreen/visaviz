@@ -12,15 +12,21 @@ struct Tweet: Identifiable, Equatable, Decodable {
 	var fullText: String
 	var createdAt: Date
 
-	/*
-	 struct Metrics {
-	 	var rt: Int
-	 	var likes: Int
-	 }
-	 */
+	struct Metrics: Equatable, Decodable {
+		var rt: Int
+		var fav: Int
+		
+		init(rt: Int = 0, fav: Int = 0) {
+			self.rt = rt
+			self.fav = fav
+		}
+	}
+	
+	var metrics: Metrics
+	
 
 	/*
-	 Entities
+	 TODO: Entities
 	 */
 
 	enum CodingKeys: String, CodingKey {
@@ -28,12 +34,15 @@ struct Tweet: Identifiable, Equatable, Decodable {
 		case id
 		case createdAt
 		case fullText
+		case retweetCount
+		case favoriteCount
 	}
 	
 	init(fullText: String) {
 		self.id = UUID().uuidString
 		self.createdAt = Date()
 		self.fullText = fullText
+		self.metrics = Metrics()
 	}
 
 	init(from decoder: Decoder) throws {
@@ -48,8 +57,15 @@ struct Tweet: Identifiable, Equatable, Decodable {
 		self.fullText = try tweet.decode(String.self, forKey: .fullText)
 		self.createdAt = try tweet.decode(Date.self, forKey: .createdAt)
 		
-//		self = try container.decode(Tweet.self, forKey: .tweet)
+//		guard let idInt = Int(try values.decode(String.self, forKey: .id)) else {
+//						fatalError("The id is not an Int")
+//				  }
 		
+//		TODO: add guards here
+		let rtCount = Int(try tweet.decode(String.self, forKey: .retweetCount)) ?? 0
+		let favCount = Int(try tweet.decode(String.self, forKey: .favoriteCount)) ?? 0
+		
+		self.metrics = Metrics(rt: rtCount, fav: favCount)
 	}
 }
 
