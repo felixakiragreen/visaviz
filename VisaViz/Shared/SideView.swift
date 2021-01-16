@@ -44,6 +44,8 @@ struct SideView: View {
 //				Text("autoSize")
 //			}
 //			Divider()
+			
+			Group {
 
 			ForEach(Array(pinning.enumerated()), id: \.offset) { offset, pinnedTweet in
 				TweetView(tweet: pinnedTweet)
@@ -60,6 +62,9 @@ struct SideView: View {
 			}
 
 			Spacer()
-		} //: Sidebar
+				
+			}//: Group
+			.padding(.horizontal)
+		}//: Sidebar
 	}
 }
