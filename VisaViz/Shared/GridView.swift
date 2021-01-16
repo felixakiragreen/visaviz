@@ -12,10 +12,15 @@ struct GridView_Previews: PreviewProvider {
 	static var previews: some View {
 //		GridView(tweets: .constant([]))
 		GridView(
-			tweets: .constant(Tweet.previewData),
-			hovering: .constant(nil),
-			pinning: .constant([])
+			archive: TweetArchive.previewData,
+//			interaction: .constant(TweetInteraction())
+//			tweets: .constant(Tweet.previewData),
+			hovered: .constant(nil),
+			pinned: .constant([])
 		)
+//		.environmentObject(TweetArchive())
+//		.environmentObject(TweetInteraction())
+//		.environmentObject(ColorRandom())
 	}
 }
 
@@ -23,9 +28,17 @@ struct GridView_Previews: PreviewProvider {
 struct GridView: View {
 	// MARK: - PROPS
 	
-	@Binding var tweets: [Tweet]
-	@Binding var hovering: Tweet?
-	@Binding var pinning: [Tweet]
+//	@EnvironmentObject var testArchive: TweetArchive
+//	@EnvironmentObject var interaction: TweetInteraction
+	
+//	@EnvironmentObject var randomColor: ColorRandom
+	
+	@ObservedObject var archive: TweetArchive
+//	@Binding var interaction: TweetInteraction
+	
+//	@Binding var tweets: [Tweet]
+	@Binding var hovered: Tweet?
+	@Binding var pinned: [Tweet]
 	
 	struct Config {
 		var quantity: Int = 100
@@ -35,17 +48,21 @@ struct GridView: View {
 	
 	var config = Config()
 	
-	var randomColor = ColorRandom()
+//	let randomColor = ColorRandom(seed: "test")
 	
 	// MARK: - BODY
 	var body: some View {
+		let randomColor = ColorRandom()
+		
 		LazyVGrid(columns: [GridItem(.adaptive(minimum: config.size, maximum: 100.0), spacing: config.space)], spacing: config.space, content: {
-			ForEach(tweets.indices, id: \.self) { tweetIndex in
-				let tweet = tweets[tweetIndex]
+			ForEach(archive.allSorted.indices, id: \.self) { tweetIndex in
+				let tweet = archive.allSorted[tweetIndex]
 				
 				let hue = randomColor.getHue()
-				let isHovering = hovering?.id == tweet.id
-				let isPinned = pinning.contains(tweet)
+//				let isHovering = hovering?.id == tweet.id
+//				let isPinned = pinning.contains(tweet)
+				let isHovering = hovered == tweet
+				let isPinned = pinned.contains(tweet)
 //				ColorPreset.randomHue(luminance: .normal).getColor()
 				
 				let popularity = (tweet.metrics.retweets + 1) * (tweet.metrics.likes + 1)
@@ -83,19 +100,20 @@ struct GridView: View {
 					)
 					.onHover { onHovering in
 						if onHovering {
-							hovering = tweet
+							hovered = tweet
+//							interaction.hovered = tweet
 						} else {
 //							hoveredTweet = nil
 						}
 					}
 					.onTapGesture {
-						if pinning.contains(tweet) {
-							guard let index = pinning.firstIndex(of: tweet) else {
+						if isPinned {
+							guard let index = pinned.firstIndex(of: tweet) else {
 								return
 							}
-							pinning.remove(at: index)
+							pinned.remove(at: index)
 						} else {
-							pinning.append(tweet)
+							pinned.append(tweet)
 						}
 					}
 			}
