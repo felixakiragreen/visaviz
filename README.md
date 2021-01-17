@@ -12,7 +12,7 @@ An app to visualize all the tweets
 - calculate gridItem size so that it fills the space, doesn't exceed it
 - figure out a popularity value system for tweets (probably configurable, should consult Visa)
 - set Timezone & DateFormat
-
+- open link in browser
 
 ### Metal Frontend
 
@@ -23,7 +23,7 @@ Going to use Metal for this.
 - filtering based on words
 - TRIGRAPH from → @ollybot: If you can get the rendering fast enough, having a search bar and varying brightness of each box based on how many tri's it shares with the search term would be awesome (as an alternative to varying by popularity)
 - add some neat stats
-
+- color setting: nonthreads grey, threads colors 
 
 
 ## Changelog
@@ -33,6 +33,7 @@ Going to use Metal for this.
 - add support for threads
 - display threads with same color
 - highlight all tweets in the same thread
+- make the Tweet preview a bit prettier
 
 **12021·01·15**
 - display all the tweets in a LazyGrid with random colors (sorted by date)
