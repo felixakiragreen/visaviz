@@ -49,6 +49,9 @@ extension ColorPreset {
 	}
 }
 
+/// TODO: an extension that lets you pull a "secondary" version, lighter for darker, darker for lighter, &c (tertiary for less contrast)
+/// TODO: an extension that lets you pull a "accessible color" - a black or white color for text
+
 // MARK: - ColorHue
 
 enum ColorHue: String, CaseIterable {

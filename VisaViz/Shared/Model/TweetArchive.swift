@@ -42,7 +42,8 @@ class TweetArchive: ObservableObject {
 //		allSorted = allTweets.sorted { $0.createdAt < $1.createdAt }
 		allSorted = allTweets.sorted(by: { (a, b) -> Bool in
 			if a.createdAt == b.createdAt {
-				print("FUCK")
+				// TODO: handle this situation
+				// print("exact same timestamp :P")
 				return true
 			} else {
 				return a.createdAt < b.createdAt
