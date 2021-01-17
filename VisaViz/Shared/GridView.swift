@@ -139,10 +139,10 @@ struct TweetBlock: View {
 			}
 		}()
 
-		let color = ColorPreset(hue: hue, lum: lum, sys: false).getColor()
+		let color = ColorPreset(hue: hue, lum: lum, sys: false)
 		
 		Rectangle()
-			.foregroundColor(color)
+			.foregroundColor(isOverThread ? color.getQuarternaryColor() : color.getColor())
 			.frame(height: height)
 //			.overlay(
 ////				Text("\(tweet.metrics.retweets) \(tweet.metrics.likes)")
@@ -150,30 +150,22 @@ struct TweetBlock: View {
 //					.foregroundColor(popularity >= 10 ? .black : .white)
 //			)
 			.overlay(
-				isOverTweet ?
-					Rectangle()
-					.strokeBorder(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 3)
-					: nil
-			)
-			.overlay(
-				isOverThread || isPinned ?
+				isPinned ?
 					Rectangle()
 					.inset(by: -3)
-					.strokeBorder(ColorPreset(hue: hue, lum: .dark, sys: false).getColor(), lineWidth: 3)
+					.strokeBorder(color.getQuarternaryColor(), lineWidth: 3)
 					: nil
 			)
 			.overlay(
-				isStartOfThread ?
+				isInAThread ?
 					Circle()
-//					.inset(by: -2)
-					.strokeBorder(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 4)
+					.strokeBorder(isOverThread ? color.getSecondaryColor() : color.getTertiaryColor(), lineWidth: isStartOfThread ? 4 : 2)
 					: nil
 			)
 			.overlay(
-				!isStartOfThread && isInAThread ?
-					Circle()
-//					.inset(by: 4)
-					.strokeBorder(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 2)
+				isOverTweet ?
+					Rectangle()
+					.strokeBorder(color.getSecondaryColor(), lineWidth: 3)
 					: nil
 			)
 	}
