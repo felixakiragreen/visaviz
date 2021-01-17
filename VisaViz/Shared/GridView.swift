@@ -57,53 +57,18 @@ struct GridView: View {
 		LazyVGrid(columns: [GridItem(.adaptive(minimum: config.size, maximum: 100.0), spacing: config.space)], spacing: config.space, content: {
 			ForEach(archive.allSorted.indices, id: \.self) { tweetIndex in
 				let tweet = archive.allSorted[tweetIndex]
-				
 				let hue = randomColor.getHue()
-//				let isHovering = hovering?.id == tweet.id
-//				let isPinned = pinning.contains(tweet)
+				
 				let isHovering = hovered == tweet
 				let isPinned = pinned.contains(tweet)
-//				ColorPreset.randomHue(luminance: .normal).getColor()
 				
-				let popularity = (tweet.metrics.retweets + 1) * (tweet.metrics.likes + 1)
-				let lum: ColorLuminance = {
-					switch popularity {
-					case 200..<Int.max:
-						return .nearWhite
-					case 20..<200:
-						return .extraLight
-					case 10..<20:
-						return .normal
-					case 5..<10:
-						return .semiDark
-					case 1..<5:
-						return .extraDark
-					default:
-						return .extraDark
-					}
-				}()
-
-				let color = ColorPreset(hue: hue, lum: lum, sys: false).getColor()
-				
-				Rectangle()
-					.foregroundColor(color)
-					.frame(height: config.size)
-					.overlay(
-						Text("\(tweet.metrics.retweets) \(tweet.metrics.likes)")
-							.foregroundColor(popularity > 10 ? .black : .white)
-					)
-					.overlay(
-						isHovering || isPinned ?
-							Rectangle()
-							.stroke(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 4)
-							: nil
-					)
+				TweetBlock(tweet: tweet, hue: hue, isHovering: isHovering, isPinned: isPinned, height: config.size)
 					.onHover { onHovering in
 						if onHovering {
 							hovered = tweet
-//							interaction.hovered = tweet
+		//							interaction.hovered = tweet
 						} else {
-//							hoveredTweet = nil
+		//							hoveredTweet = nil
 						}
 					}
 					.onTapGesture {
@@ -120,5 +85,74 @@ struct GridView: View {
 		})
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
 		.padding(config.space)
+	}
+
+//	var shape: some View {
+//
+//	}
+}
+
+
+struct TweetBlock: View {
+	let tweet: Tweet
+	let hue: ColorHue
+	
+	let isHovering: Bool
+	let isPinned: Bool
+	
+	let height: CGFloat
+	
+	var body: some View {
+		
+		let isStartOfThread = tweet.links.threadId == tweet.id
+		let isInAThread = tweet.links.threadId != nil
+		
+		let popularity = (tweet.metrics.retweets + 1) * (tweet.metrics.likes + 1)
+		let lum: ColorLuminance = {
+			switch popularity {
+			case 200..<Int.max:
+				return .nearWhite
+			case 20..<200:
+				return .extraLight
+			case 10..<20:
+				return .normal
+			case 5..<10:
+				return .semiDark
+			case 1..<5:
+				return .extraDark
+			default:
+				return .extraDark
+			}
+		}()
+
+		let color = ColorPreset(hue: hue, lum: lum, sys: false).getColor()
+		
+		Rectangle()
+			.foregroundColor(color)
+			.frame(height: height)
+			.overlay(
+				Text("\(tweet.metrics.retweets) \(tweet.metrics.likes)")
+					.foregroundColor(popularity > 10 ? .black : .white)
+			)
+			.overlay(
+				isHovering || isPinned ?
+					Rectangle()
+					.stroke(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 4)
+					: nil
+			)
+			.overlay(
+				isStartOfThread ?
+					Circle()
+					.inset(by: -2)
+					.stroke(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 4)
+					: nil
+			)
+			.overlay(
+				!isStartOfThread && isInAThread ?
+					Circle()
+					.inset(by: 4)
+					.stroke(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 1)
+					: nil
+			)
 	}
 }
