@@ -29,7 +29,14 @@ class TweetArchive: ObservableObject {
 //	@Published var allLookup = [String: Tweet]()
 	@Published var threads: [TweetThread] = []
 //	nonthreads
+	
+	@Published var stats: TweetStats = TweetStats()
 
+	struct TweetStats {
+		var tweetCount: Int = 0
+		var threadCount: Int = 0
+	}
+	
 	init() {}
 	
 	init(tweets: [Tweet]) {
@@ -198,6 +205,7 @@ extension TweetArchive {
 			                                     from: jsonData)
 
 			print("Count: ", decodedData.count)
+			stats.tweetCount = decodedData.count
 			print("===================================")
 			
 			return decodedData
