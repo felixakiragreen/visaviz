@@ -17,6 +17,10 @@ An app to visualize all the tweets
 - set Timezone & DateFormat
 - make entities (URLs, users, &c) linkable
 
+- open any "tweet.js" file
+
+### TO FIX
+- grid colors don't adapt to system yet
 
 ### Metal Frontend
 
@@ -31,8 +35,14 @@ Going to use Metal for this.
 - variety of color schemes
 	- threads colors, nonthreads grey
 	- retweets, quotes, replies
+	- create your own (assign colors to threads, entities, keywords, &c)
 - something with emojis
 - configurable popularity value system for tweets
+
+### Distant
+
+- show media assets in preview
+- show newest tweets using twitter integration
 
 ## Changelog
 
