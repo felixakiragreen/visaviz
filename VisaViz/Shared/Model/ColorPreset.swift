@@ -49,7 +49,23 @@ extension ColorPreset {
 	}
 }
 
-/// TODO: an extension that lets you pull a "secondary" version, lighter for darker, darker for lighter, &c (tertiary for less contrast)
+extension ColorPreset {
+	func getSecondaryColor() -> Color {
+		let string = ColorPreset.toString((hue, lum.secondary), sys: sys)
+		return Color(string)
+	}
+	
+	func getTertiaryColor() -> Color {
+		let string = ColorPreset.toString((hue, lum.tertiary), sys: sys)
+		return Color(string)
+	}
+	
+	func getQuarternaryColor() -> Color {
+		let string = ColorPreset.toString((hue, lum.quarternary), sys: sys)
+		return Color(string)
+	}
+}
+
 /// TODO: an extension that lets you pull a "accessible color" - a black or white color for text
 
 // MARK: - ColorHue
@@ -78,6 +94,50 @@ enum ColorLuminance: Int, CaseIterable {
 
 extension ColorLuminance: Identifiable {
 	 var id: Int { rawValue }
+}
+
+extension ColorLuminance {
+	var secondary: ColorLuminance {
+		switch self {
+		case .nearWhite: return .normal
+		case .extraLight: return .medium
+		case .light: return .semiDark
+		case .normal: return .dark
+		case .medium: return .extraDark
+		case .semiDark: return .light
+		case .dark: return .normal
+		case .extraDark: return .medium
+		case .nearBlack: return .semiDark
+		}
+	}
+	
+	var tertiary: ColorLuminance {
+		switch self {
+		case .nearWhite: return .light
+		case .extraLight: return .normal
+		case .light: return .medium
+		case .normal: return .semiDark
+		case .medium: return .dark
+		case .semiDark: return .normal
+		case .dark: return .medium
+		case .extraDark: return .semiDark
+		case .nearBlack: return .dark
+		}
+	}
+	
+	var quarternary: ColorLuminance {
+		switch self {
+		case .nearWhite: return .extraLight
+		case .extraLight: return .light
+		case .light: return .normal
+		case .normal: return .medium
+		case .medium: return .semiDark
+		case .semiDark: return .medium
+		case .dark: return .semiDark
+		case .extraDark: return .dark
+		case .nearBlack: return .extraDark
+		}
+	}
 }
 
 // MARK: - Hueable
