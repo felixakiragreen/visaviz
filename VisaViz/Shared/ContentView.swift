@@ -13,7 +13,7 @@ struct ContentView_Previews: PreviewProvider {
 		NavigationView {
 			ContentView(
 				archive: TweetArchive.previewData,
-				interaction: TweetInteraction()
+				interface: TweetInterface()
 //				tweets: .constant(Tweet.previewData),
 //				hovering: .constant(nil),
 //				pinning: .constant([])
@@ -31,7 +31,7 @@ struct ContentView: View {
 //	@EnvironmentObject var interaction: TweetInteraction
 	
 	@ObservedObject var archive: TweetArchive
-	@ObservedObject var interaction: TweetInteraction
+	@ObservedObject var interface: TweetInterface
 	
 //	@Binding var tweets: [Tweet]
 //	@Binding var hovering: Tweet?
@@ -52,7 +52,7 @@ struct ContentView: View {
 	// MARK: - BODY
 	var body: some View {
 		SideView(
-			interaction: interaction
+			interface: interface
 //			hovering: $hovering,
 //			pinning: $pinning
 		)
@@ -64,8 +64,8 @@ struct ContentView: View {
 					archive: archive,
 //					interaction: $interaction,
 //					tweets: $tweets,
-					hovered: $interaction.hovered,
-					pinned: $interaction.pinned,
+					hovered: $interface.hovered,
+					pinned: $interface.pinned,
 					config: gridViewConfig
 				)
 //				.environmentObject(interaction)

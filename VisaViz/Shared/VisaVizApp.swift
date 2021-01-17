@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct VisaVizApp: App {
 	@ObservedObject private var archive = TweetArchive()
-	@ObservedObject private var interaction = TweetInteraction()
+	@ObservedObject private var interface = TweetInterface()
 //	@StateObject var testArchive = TweetArchive()
 //	@StateObject var interaction = TweetInteraction()
 	
@@ -21,7 +21,7 @@ struct VisaVizApp: App {
 			NavigationView {
 				ContentView(
 					archive: archive,
-					interaction: interaction
+					interface: interface
 					
 //					tweets: $archive.tweets,
 //					hovering: $archive.hovering,

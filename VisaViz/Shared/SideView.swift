@@ -12,7 +12,7 @@ import SwiftUI
 struct SideView_Previews: PreviewProvider {
 	static var previews: some View {
 		SideView(
-			interaction: TweetInteraction()
+			interface: TweetInterface()
 //			hovering: .constant(nil),
 //			pinning: .constant([])
 		)
@@ -27,7 +27,7 @@ struct SideView: View {
 //	@EnvironmentObject var testArchive: TweetArchive
 //	@EnvironmentObject var interaction: TweetInteraction
 
-	@ObservedObject var interaction: TweetInteraction
+	@ObservedObject var interface: TweetInterface
 	
 //	@Binding var hovering: Tweet?
 //	@Binding var pinning: [Tweet]
@@ -55,17 +55,17 @@ struct SideView: View {
 			
 			Group {
 
-				ForEach(Array(interaction.pinned.enumerated()), id: \.offset) { offset, pinnedTweet in
+				ForEach(Array(interface.pinned.enumerated()), id: \.offset) { offset, pinnedTweet in
 				TweetView(tweet: pinnedTweet)
 					// TODO: cleanup
 					.onTapGesture {
-						interaction.pinned.remove(at: offset)
+						interface.pinned.remove(at: offset)
 					}
 			}
 
 			Spacer()
 
-			if let tweet = interaction.hovered {
+			if let tweet = interface.hovered {
 				TweetView(tweet: tweet)
 			}
 
