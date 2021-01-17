@@ -18,13 +18,10 @@ class ColorRandom {
 	var source: GKRandomSource
 	var idCounter: Int = 0
 	
-	func incrementId() -> Void {
-		self.idCounter += 1
-//		return idCounter
-	}
+	
 	
 	init() {
-		print("initcolorrandom", idCounter)
+//		print("initcolorrandom", idCounter)
 		let seedData = "0".data(using: .utf8)!
 		
 		self.seed = seedData
@@ -39,13 +36,12 @@ class ColorRandom {
 	}
 	
 	static func makeRandomSource(seed: Data) -> GKRandomSource {
-		print("makeRandomSource", seed)
+//		print("makeRandomSource", seed)
 		return GKARC4RandomSource.init(seed: seed)
-		
+	
+		/// Supposed to avoid duplication?
 //		return GKMersenneTwisterRandomSource.init(seed: 0)
 	}
-	
-//	GKMersenneTwisterRandomSource
 	
 	func getColor() -> Color {
 		return getColor(with: .medium)
@@ -59,8 +55,8 @@ class ColorRandom {
 	}
 	
 	func getHue() -> ColorHue {
-		incrementId()
-		print("getHue", idCounter)
+//		incrementId()
+//		print("getHue", idCounter)
 		let hueIndex = source.nextInt(upperBound: hues.count)
 		return hues[hueIndex]
 	}
@@ -78,4 +74,8 @@ class ColorRandom {
 //		}
 //
 //	}
+	
+	func incrementId() -> Void {
+		self.idCounter += 1
+	}
 }
