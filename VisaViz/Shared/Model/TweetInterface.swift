@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TweetInteraction: ObservableObject {
+class TweetInterface: ObservableObject {
 
 	@Published var hovered: Tweet?
 	@Published var pinned: [Tweet] = []
