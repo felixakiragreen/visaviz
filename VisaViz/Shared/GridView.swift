@@ -144,15 +144,22 @@ struct TweetBlock: View {
 		Rectangle()
 			.foregroundColor(color)
 			.frame(height: height)
+//			.overlay(
+////				Text("\(tweet.metrics.retweets) \(tweet.metrics.likes)")
+//				Text("\(popularity)")
+//					.foregroundColor(popularity >= 10 ? .black : .white)
+//			)
 			.overlay(
-//				Text("\(tweet.metrics.retweets) \(tweet.metrics.likes)")
-				Text("\(popularity)")
-					.foregroundColor(popularity >= 10 ? .black : .white)
+				isOverTweet ?
+					Rectangle()
+					.strokeBorder(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 3)
+					: nil
 			)
 			.overlay(
-				isOverTweet || isOverThread ?
+				isOverThread ?
 					Rectangle()
-					.strokeBorder(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: isOverTweet ? 6 : 3)
+					.inset(by: -3)
+					.strokeBorder(ColorPreset(hue: hue, lum: .dark, sys: false).getColor(), lineWidth: 3)
 					: nil
 			)
 			.overlay(
