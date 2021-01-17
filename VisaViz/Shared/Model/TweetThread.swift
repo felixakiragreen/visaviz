@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct TweetThread: Identifiable, Equatable {
+struct TweetThread: Identifiable, Equatable, Hueable {
 	var id: String
 
 	var tweets: [Tweet]
 	
+	var hue: ColorHue?
 }
