@@ -52,17 +52,25 @@ struct GridView: View {
 	
 	// MARK: - BODY
 	var body: some View {
-		let randomColor = ColorRandom()
+//		let randomColor = ColorRandom()
 		
 		LazyVGrid(columns: [GridItem(.adaptive(minimum: config.size, maximum: 100.0), spacing: config.space)], spacing: config.space, content: {
 			ForEach(archive.allSorted.indices, id: \.self) { tweetIndex in
 				let tweet = archive.allSorted[tweetIndex]
-				let hue = randomColor.getHue()
+				let hue = tweet.hue ?? .grey
 				
-				let isHovering = hovered == tweet
+				let isOverTweet = hovered == tweet
+				let isOverThread: Bool = {
+					if let threadId = hovered?.links.threadId,
+						let threadIndex = archive.threads.firstIndex(where: { $0.id == threadId }) {
+//						print("hey")
+						return archive.threads[threadIndex].tweets.contains(where: { $0.id == tweet.id })
+					}
+					return false
+				}()
 				let isPinned = pinned.contains(tweet)
 				
-				TweetBlock(tweet: tweet, hue: hue, isHovering: isHovering, isPinned: isPinned, height: config.size)
+				TweetBlock(tweet: tweet, hue: hue, isOverTweet: isOverTweet, isOverThread: isOverThread, isPinned: isPinned, height: config.size)
 					.onHover { onHovering in
 						if onHovering {
 							hovered = tweet
@@ -97,7 +105,8 @@ struct TweetBlock: View {
 	let tweet: Tweet
 	let hue: ColorHue
 	
-	let isHovering: Bool
+	let isOverTweet: Bool
+	let isOverThread: Bool
 	let isPinned: Bool
 	
 	let height: CGFloat
@@ -135,7 +144,7 @@ struct TweetBlock: View {
 					.foregroundColor(popularity > 10 ? .black : .white)
 			)
 			.overlay(
-				isHovering || isPinned ?
+				isOverTweet || isOverThread ?
 					Rectangle()
 					.stroke(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 4)
 					: nil
