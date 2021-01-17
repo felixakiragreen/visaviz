@@ -46,6 +46,8 @@ class TweetArchive: ObservableObject {
 		allSorted = allTweets.sorted { $0.createdAt < $1.createdAt }
 		
 		generateThreads()
+		
+//		generateColors()
 	}
 	
 	func generateThreads() -> Void {
@@ -57,8 +59,8 @@ class TweetArchive: ObservableObject {
 			if let inReplyTo = allSorted[tweetIndex].links.replyTweetId,
 			   let replyToSelfIndex = allSorted.firstIndex(where: { $0.id == inReplyTo })
 			{
-				
-				/// 3. Check if the tweet replied to has a `threadId`
+				/// 3. Update the tweets to show their thread
+				/// Check if the tweet replied to has a `threadId`
 				if allSorted[replyToSelfIndex].links.threadId == nil {
 					/// If NO, then set it to it itself, AND set this tweet's `threadId` to it
 					allSorted[replyToSelfIndex].links.threadId = allSorted[replyToSelfIndex].id
@@ -67,21 +69,25 @@ class TweetArchive: ObservableObject {
 					/// If YES, set this tweet's `threadId` to the replied to tweet's `threadId`
 					allSorted[tweetIndex].links.threadId = allSorted[replyToSelfIndex].links.threadId
 				}
-					
 				
-				/// 3. Check if there is a thread that includes either tweet
-//				if let threadIndex = threads.firstIndex(where: { $0.tweets.contains(where: { $0 == allSorted[tweetIndex] }) }) {
-//
-//				}
+				guard let threadId = allSorted[tweetIndex].links.threadId else {
+					print("FATAL ERROR, threadId wasn't created when it should have been")
+					return
+				}
 				
-				/// 4.
-//				print("HEY \(replyToSelfIndex)")
-//				allSorted[replyToSelfIndex].metrics.likes = 120
-//				allSorted[tweetIndex].metrics.retweets = 100
-				
-				/// 5.  Update the tweets to show their thread
+				/// 4. Update the threads
+				/// Check if there is a thread that includes either tweet
+				if let threadIndex = threads.firstIndex(where: { $0.id == threadId }) {
+					/// If YES, add this tweet to it
+					threads[threadIndex].tweets.append(allSorted[tweetIndex])
+				} else {
+					/// If NO, create it, and add both tweets to it
+					threads.append(TweetThread(id: threadId, tweets: [
+						allSorted[replyToSelfIndex],
+						allSorted[tweetIndex]
+					]))
+				}
 			}
-			
 		}
 	}
 }
