@@ -145,8 +145,9 @@ struct TweetBlock: View {
 			.foregroundColor(color)
 			.frame(height: height)
 			.overlay(
-				Text("\(tweet.metrics.retweets) \(tweet.metrics.likes)")
-					.foregroundColor(popularity > 10 ? .black : .white)
+//				Text("\(tweet.metrics.retweets) \(tweet.metrics.likes)")
+				Text("\(popularity)")
+					.foregroundColor(popularity >= 10 ? .black : .white)
 			)
 			.overlay(
 				isOverTweet || isOverThread ?
