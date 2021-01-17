@@ -39,15 +39,19 @@ class TweetArchive: ObservableObject {
 	private func populate(allTweets: [Tweet]) {
 		print("POPULATING ——————————")
 		
-//		for eachTweet in allTweets {
-//			allLookup[eachTweet.id] = eachTweet
-//		}
-		
-		allSorted = allTweets.sorted { $0.createdAt < $1.createdAt }
+//		allSorted = allTweets.sorted { $0.createdAt < $1.createdAt }
+		allSorted = allTweets.sorted(by: { (a, b) -> Bool in
+			if a.createdAt == b.createdAt {
+				print("FUCK")
+				return true
+			} else {
+				return a.createdAt < b.createdAt
+			}
+		})
 		
 		generateThreads()
 		
-//		generateColors()
+		generateColors()
 	}
 	
 	func generateThreads() -> Void {
@@ -87,6 +91,43 @@ class TweetArchive: ObservableObject {
 						allSorted[tweetIndex]
 					]))
 				}
+			}
+		}
+	}
+
+	func generateColors() -> Void {
+		let randomColor = ColorRandom()
+		
+		/// 1. Go through every tweet
+		allSorted.indices.forEach { tweetIndex in
+			
+			/// 2. Check the previous color to prevent duplicates
+			var previousHue: ColorHue = .grey
+			var newHue: ColorHue = .grey
+			if tweetIndex > 0 {
+				if let prevHue = allSorted[tweetIndex - 1].hue {
+					previousHue = prevHue
+				}
+				repeat {
+					newHue = randomColor.getHue()
+				} while newHue == previousHue
+			}
+			
+			/// 3. Check if the tweet belongs to a thread
+			if let threadId = allSorted[tweetIndex].links.threadId,
+				let threadIndex = threads.firstIndex(where: { $0.id == threadId }) {
+				/// If YES, check to see if thread has a hue
+				if let threadHue = threads[threadIndex].hue {
+					/// If YES, use it
+					allSorted[tweetIndex].hue = threadHue
+				} else {
+					/// If NO, use the new one & update thread
+					allSorted[tweetIndex].hue = newHue
+					threads[threadIndex].hue = newHue
+				}
+			} else {
+				/// If NO, then use the new one
+				allSorted[tweetIndex].hue = newHue
 			}
 		}
 	}
