@@ -133,8 +133,8 @@
 				1DE440A025AFCAEC0064C35C /* ContentView.swift */,
 				1D92418B25AFD5F5009EC4EC /* GridView.swift */,
 				1D9241C125B288A7009EC4EC /* SideView.swift */,
-				1D9241AF25B24F12009EC4EC /* Model */,
 				1D9241C625B39471009EC4EC /* Items */,
+				1D9241AF25B24F12009EC4EC /* Model */,
 				1DE440A125AFCAEF0064C35C /* Assets.xcassets */,
 			);
 			path = Shared;
