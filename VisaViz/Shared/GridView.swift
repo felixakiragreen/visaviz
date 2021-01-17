@@ -156,7 +156,7 @@ struct TweetBlock: View {
 					: nil
 			)
 			.overlay(
-				isOverThread ?
+				isOverThread || isPinned ?
 					Rectangle()
 					.inset(by: -3)
 					.strokeBorder(ColorPreset(hue: hue, lum: .dark, sys: false).getColor(), lineWidth: 3)
