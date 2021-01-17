@@ -157,10 +157,7 @@ struct TweetBlock: View {
 					: nil
 			)
 			.overlay(
-				isInAThread ?
-					Circle()
-					.strokeBorder(isOverThread ? color.getSecondaryColor() : color.getTertiaryColor(), lineWidth: isStartOfThread ? 4 : 2)
-					: nil
+				TweetBlockOverlay(isThreaded: isInAThread, isOverThread: isOverThread, isStartOfThread: isStartOfThread, color: color)
 			)
 			.overlay(
 				isOverTweet ?
@@ -168,5 +165,25 @@ struct TweetBlock: View {
 					.strokeBorder(color.getSecondaryColor(), lineWidth: 3)
 					: nil
 			)
+			.animation(.default)
+	}
+
+}
+
+struct TweetBlockOverlay: View {
+	let isThreaded: Bool
+	let isOverThread: Bool
+	let isStartOfThread: Bool
+	let color: ColorPreset
+	
+	var body: some View {
+		if isThreaded {
+			if isOverThread {
+				Circle().foregroundColor(color.getColor())
+			} else {
+				Circle()
+					.strokeBorder(color.getTertiaryColor(), lineWidth: isStartOfThread ? 6 : 3)
+			}
+		}
 	}
 }
