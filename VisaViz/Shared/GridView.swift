@@ -76,7 +76,7 @@ struct GridView: View {
 							hovered = tweet
 		//							interaction.hovered = tweet
 						} else {
-		//							hoveredTweet = nil
+//									hovered = nil
 						}
 					}
 					.onTapGesture {
@@ -93,6 +93,11 @@ struct GridView: View {
 		})
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
 		.padding(config.space)
+		.onHover { onHovering in
+			if !onHovering {
+				hovered = nil
+			}
+		}
 	}
 
 //	var shape: some View {
@@ -146,21 +151,21 @@ struct TweetBlock: View {
 			.overlay(
 				isOverTweet || isOverThread ?
 					Rectangle()
-					.stroke(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 4)
+					.strokeBorder(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: isOverTweet ? 6 : 3)
 					: nil
 			)
 			.overlay(
 				isStartOfThread ?
 					Circle()
-					.inset(by: -2)
-					.stroke(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 4)
+//					.inset(by: -2)
+					.strokeBorder(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 4)
 					: nil
 			)
 			.overlay(
 				!isStartOfThread && isInAThread ?
 					Circle()
-					.inset(by: 4)
-					.stroke(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 1)
+//					.inset(by: 4)
+					.strokeBorder(ColorPreset(hue: hue, lum: .medium, sys: false).getColor(), lineWidth: 2)
 					: nil
 			)
 	}
