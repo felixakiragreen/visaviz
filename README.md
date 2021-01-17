@@ -8,26 +8,37 @@ An app to visualize all the tweets
 
 ## Upcoming
 
+- generate a grid & use it place all blocks
+	- calculate gridItem size so that it fills the space, doesn't exceed it
+- move the "popup" to next to the hovered tweet (show/hide after brief delay)
+- show (2/5) on threads
 - add sorting/filtering options
-- calculate gridItem size so that it fills the space, doesn't exceed it
-- figure out a popularity value system for tweets (probably configurable, should consult Visa)
+
 - set Timezone & DateFormat
-- open link in browser
+- make entities (URLs, users, &c) linkable
+
 
 ### Metal Frontend
 
 The whole grid view will need to be rewritten in order to support >10K tweets.
 Going to use Metal for this.
 
+
 ### Open ideas
 - filtering based on words
 - TRIGRAPH from → @ollybot: If you can get the rendering fast enough, having a search bar and varying brightness of each box based on how many tri's it shares with the search term would be awesome (as an alternative to varying by popularity)
-- add some neat stats
-- color setting: nonthreads grey, threads colors 
-
+- add some neat stats (# tweets, # threads, tweet/thread ratio, most common entities/trigraphs/emojis?)
+- variety of color schemes
+	- threads colors, nonthreads grey
+	- retweets, quotes, replies
+- something with emojis
+- configurable popularity value system for tweets
 
 ## Changelog
 
+**12021·01·17**
+- visual polish grid (remove numbers, clean up strokes)
+- improve tweet preview (add metrics, open in browser link)
 
 **12021·01·16**
 - add support for threads
@@ -46,4 +57,4 @@ Going to use Metal for this.
 - load tweets from Twitter archive
 
 **12021·01·13**
-- testing performance with 10k - 100k rectangles
+- test performance with 10k - 100k rectangles (doens't work, need Metal)
