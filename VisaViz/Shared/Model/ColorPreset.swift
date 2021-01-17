@@ -76,3 +76,9 @@ enum ColorLuminance: Int, CaseIterable {
 extension ColorLuminance: Identifiable {
 	 var id: Int { rawValue }
 }
+
+// MARK: - Hueable
+
+protocol Hueable {
+	var hue: ColorHue? { get set }
+}

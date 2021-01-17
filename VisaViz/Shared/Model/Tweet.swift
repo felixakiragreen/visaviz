@@ -12,7 +12,7 @@ Should I store whether it's in a thread?
 Should I store color here?
 */
 
-struct Tweet: Identifiable, Equatable {
+struct Tweet: Identifiable, Equatable, Hueable {
 	var id: String
 	var fullText: String
 	var createdAt: Date
@@ -41,6 +41,8 @@ struct Tweet: Identifiable, Equatable {
 //		var urls: []
 //		var mentions: []
 	}
+	
+	var hue: ColorHue?
 }
 
 // MARK: - DECODING
