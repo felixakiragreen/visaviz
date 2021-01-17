@@ -16,7 +16,7 @@ An app to visualize all the tweets
 
 - figure out a popularity value system for tweets (probably configurable, should consult Visa)
 
-
+- set Timezone & DateFormat
 
 
 ### Metal Frontend
