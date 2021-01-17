@@ -8,14 +8,9 @@ An app to visualize all the tweets
 
 ## Upcoming
 
-- choose color based on Threads
 - add sorting/filtering options
-- showing threads with same color
-
 - calculate gridItem size so that it fills the space, doesn't exceed it
-
 - figure out a popularity value system for tweets (probably configurable, should consult Visa)
-
 - set Timezone & DateFormat
 
 
@@ -35,7 +30,9 @@ Going to use Metal for this.
 
 
 **12021·01·16**
-- adding thread support
+- add support for threads
+- display threads with same color
+- highlight all tweets in the same thread
 
 **12021·01·15**
 - display all the tweets in a LazyGrid with random colors (sorted by date)
