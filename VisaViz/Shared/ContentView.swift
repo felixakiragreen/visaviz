@@ -12,8 +12,8 @@ struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
 			ContentView(
-				archive: TweetArchive.previewData,
-				interface: TweetInterface()
+				archive: TweetArchive.previewData
+//				interface: TweetInterface()
 //				tweets: .constant(Tweet.previewData),
 //				hovering: .constant(nil),
 //				pinning: .constant([])
@@ -31,7 +31,12 @@ struct ContentView: View {
 //	@EnvironmentObject var interaction: TweetInteraction
 	
 	@ObservedObject var archive: TweetArchive
-	@ObservedObject var interface: TweetInterface
+//	@ObservedObject var interface: TweetInterface
+	@ObservedObject private var interface = TweetInterface()
+	
+	
+	
+	@State var generator = GridGenerator()
 	
 //	@Binding var tweets: [Tweet]
 //	@Binding var hovering: Tweet?
@@ -60,6 +65,8 @@ struct ContentView: View {
 //		.environmentObject(interaction)
 		VStack {
 			GeometryReader { geometry in
+				let size = geometry.size
+				
 				GridView(
 					archive: archive,
 //					interaction: $interaction,
@@ -71,6 +78,17 @@ struct ContentView: View {
 //				.environmentObject(interaction)
 //				.environmentObject(testArchive)
 				.drawingGroup()
+				.onChange(of: size, perform: { newSize in
+					print("size", size, "newSize", newSize)
+					if newSize.width.isNormal && newSize.height.isNormal {
+						
+						generator.calculateSize(cellCount: archive.stats.tweetCount, spaceSize: newSize)
+						
+						print("normal→ x: \(generator.xCellCount) y:\(generator.yCellCount)")
+					} else {
+						print("not normal")
+					}
+				})
 			}
 		}//: MainView
 //		.padding()
