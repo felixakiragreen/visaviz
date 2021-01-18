@@ -90,11 +90,9 @@ class GridGenerator: ObservableObject {
 					grid[i][j] = Block(
 						id: idCounter,
 						tweet: tweets[idCounter],
-						cell: (x: j, y: i)
-//						xCell: j,
-//						yCell: i
-//						offset: CGSize
-//						color: <#T##ColorPreset?#>
+						xCell: j,
+						yCell: i
+						// color: ColorPreset()
 					)
 					
 					tallyId()
@@ -112,10 +110,8 @@ class GridGenerator: ObservableObject {
 struct Block: Identifiable {
 	let id: Int
 	var tweet: Tweet?
-	var cell: (x: Int, y: Int) = (0, 0)
-//	var xCell: Int = 0
-//	var yCell: Int = 0
-//	var offset: CGSize = .zero - (can be calculated in the view)
+	var xCell: Int = 0
+	var yCell: Int = 0
 	var color: ColorPreset?
 }
 
@@ -137,8 +133,8 @@ func gridToRect(grid: [[Block]], size: CGFloat, pad: CGFloat) -> [BlockRect] {
 				rects.append(
 					BlockRect(
 						id: grid[i][j].id,
-						x: CGFloat(grid[i][j].cell.x) * (size + pad),
-						y: CGFloat(grid[i][j].cell.y) * (size + pad),
+						x: CGFloat(grid[i][j].xCell) * (size + pad),
+						y: CGFloat(grid[i][j].yCell) * (size + pad),
 						w: size, h: size,
 						t: tweet
 					)
