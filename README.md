@@ -49,6 +49,7 @@ Going to use Metal for this.
 **12021·01·17**
 - visual polish grid (remove numbers, clean up strokes)
 - improve tweet preview (add metrics, open in browser link)
+- new GridGenerator and new GridView driven by it
 
 **12021·01·16**
 - add support for threads
