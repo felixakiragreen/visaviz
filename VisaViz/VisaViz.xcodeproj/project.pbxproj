@@ -43,6 +43,10 @@
 		1DE440B525AFCAEF0064C35C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE440A025AFCAEC0064C35C /* ContentView.swift */; };
 		1DE440B625AFCAEF0064C35C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DE440A125AFCAEF0064C35C /* Assets.xcassets */; };
 		1DE440B725AFCAEF0064C35C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DE440A125AFCAEF0064C35C /* Assets.xcassets */; };
+		1DF2F60D25B4F63700BCB39D /* GeneratedGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F60C25B4F63700BCB39D /* GeneratedGridView.swift */; };
+		1DF2F60E25B4F63700BCB39D /* GeneratedGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F60C25B4F63700BCB39D /* GeneratedGridView.swift */; };
+		1DF2F61425B4F66000BCB39D /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F61325B4F66000BCB39D /* BlockView.swift */; };
+		1DF2F61525B4F66000BCB39D /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2F61325B4F66000BCB39D /* BlockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +73,8 @@
 		1DE440AE25AFCAEF0064C35C /* VisaViz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisaViz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DE440B025AFCAEF0064C35C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DE440B125AFCAEF0064C35C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		1DF2F60C25B4F63700BCB39D /* GeneratedGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedGridView.swift; sourceTree = "<group>"; };
+		1DF2F61325B4F66000BCB39D /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 			children = (
 				1D9241B225B253D2009EC4EC /* WIP.swift */,
 				1D9241BC25B287D6009EC4EC /* TweetView.swift */,
+				1DF2F61325B4F66000BCB39D /* BlockView.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 				1DE4409F25AFCAEC0064C35C /* VisaVizApp.swift */,
 				1DE440A025AFCAEC0064C35C /* ContentView.swift */,
 				1D92418B25AFD5F5009EC4EC /* GridView.swift */,
+				1DF2F60C25B4F63700BCB39D /* GeneratedGridView.swift */,
 				1D9241C125B288A7009EC4EC /* SideView.swift */,
 				1D9241C625B39471009EC4EC /* Items */,
 				1D9241AF25B24F12009EC4EC /* Model */,
@@ -267,8 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF2F61425B4F66000BCB39D /* BlockView.swift in Sources */,
 				1D44317125B3A53E001C79B3 /* TweetInterface.swift in Sources */,
 				1DE440B425AFCAEF0064C35C /* ContentView.swift in Sources */,
+				1DF2F60D25B4F63700BCB39D /* GeneratedGridView.swift in Sources */,
 				1D44316625B3A4EB001C79B3 /* Tweet.swift in Sources */,
 				1D92418C25AFD5F5009EC4EC /* GridView.swift in Sources */,
 				1D44318325B3A5D8001C79B3 /* PreviewData.swift in Sources */,
@@ -289,8 +299,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF2F61525B4F66000BCB39D /* BlockView.swift in Sources */,
 				1D44317225B3A53E001C79B3 /* TweetInterface.swift in Sources */,
 				1DE440B525AFCAEF0064C35C /* ContentView.swift in Sources */,
+				1DF2F60E25B4F63700BCB39D /* GeneratedGridView.swift in Sources */,
 				1D44316725B3A4EB001C79B3 /* Tweet.swift in Sources */,
 				1D92418D25AFD5F5009EC4EC /* GridView.swift in Sources */,
 				1D44318425B3A5D8001C79B3 /* PreviewData.swift in Sources */,

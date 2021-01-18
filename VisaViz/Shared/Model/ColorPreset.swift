@@ -26,6 +26,12 @@ struct ColorPreset: Equatable {
 		self.lum = lum
 		self.sys = sys
 	}
+	
+	/// Empty initialization
+	init() {
+		self.hue = .red
+		self.lum = .extraLight
+	}
 }
 
 extension ColorPreset {
