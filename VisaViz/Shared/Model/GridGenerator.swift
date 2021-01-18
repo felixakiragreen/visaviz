@@ -15,7 +15,7 @@ TODO: move color randomization to HERE
 - when calculating colors, because I'll know the grid, when I can also try not to do adjacent colors (to the top, not just to the left)
 */
 
-class GridGenerator {
+class GridGenerator: ObservableObject {
 
 	var cellCount: Int /// total number of blocks
 	var spaceSize: CGSize /// dimensions of the available space to fill
@@ -25,8 +25,8 @@ class GridGenerator {
 	var xCellCount: Int /// calculated number of cells along x-axis
 	var yCellCount: Int /// calculated number of cells along y-axis
 	
-	
-	
+	var idCounter: Int = 0
+	func tallyId() -> Void { self.idCounter += 1 }
 	
 //	var block
 	
@@ -39,9 +39,19 @@ class GridGenerator {
 		self.yCellCount = 0
 	}
 	
+	init(cellCount: Int, spaceSize: CGSize) {
+		self.cellCount = cellCount
+		self.spaceSize = spaceSize
+		self.cellSize = 0
+		self.cellSpace = 0
+		self.xCellCount = 0
+		self.yCellCount = 0
+	}
 	
+//	(x: Int, y: Int)
 	
-	func calculateSize(cellCount: Int, spaceSize: CGSize) -> Void {
+	/// Run at the beginning
+	func calculateCounts(cellCount: Int, spaceSize: CGSize) -> Void {
 		print("calculateSize(cellCount:\(cellCount), spaceSize:", spaceSize)
 		self.cellCount = cellCount
 		self.spaceSize = spaceSize
@@ -59,24 +69,83 @@ class GridGenerator {
 			xCellCount = Int(ceil(x))
 			yCellCount = Int(ceil(y))
 		}
-		
-		
 	}
 	
+//	func calculateSize()
 	
-	
-//	func generate() -> [[Block]] {
-//
-//
-//		return [[]]
-//	}
+	/// Run when tweets are loaded
+	func generate(tweets: [Tweet]) -> [[Block]] {
+
+		var grid = Array(
+			repeating: Array(
+				repeating: Block(id: 0), count: xCellCount
+			),
+			count: yCellCount
+		)
+		
+		for i in grid.indices {
+			for j in grid[i].indices {
+				
+				if idCounter < cellCount {
+					grid[i][j] = Block(
+						id: idCounter,
+						tweet: tweets[idCounter],
+						cell: (x: j, y: i)
+//						xCell: j,
+//						yCell: i
+//						offset: CGSize
+//						color: <#T##ColorPreset?#>
+					)
+					
+					tallyId()
+				}
+			}
+		}
+		
+		return grid
+	}
 	
 }
 
 
 
-struct Block {
-	var tweet: Tweet
+struct Block: Identifiable {
+	let id: Int
+	var tweet: Tweet?
+	var cell: (x: Int, y: Int) = (0, 0)
+//	var xCell: Int = 0
+//	var yCell: Int = 0
+//	var offset: CGSize = .zero - (can be calculated in the view)
+	var color: ColorPreset?
+}
+
+struct BlockRect: Identifiable, Equatable {
+	let id: Int
+	let x: CGFloat
+	let y: CGFloat
+	let w: CGFloat
+	let h: CGFloat
+	let t: Tweet
+}
+
+func gridToRect(grid: [[Block]], size: CGFloat, pad: CGFloat) -> [BlockRect] {
+	var rects = [BlockRect]()
 	
-	// dimensions
+	for i in grid.indices {
+		for j in grid[i].indices {
+			if let tweet = grid[i][j].tweet {
+				rects.append(
+					BlockRect(
+						id: grid[i][j].id,
+						x: CGFloat(grid[i][j].cell.x) * (size + pad),
+						y: CGFloat(grid[i][j].cell.y) * (size + pad),
+						w: size, h: size,
+						t: tweet
+					)
+				)
+			}
+		}
+	}
+	
+	return rects
 }
