@@ -48,11 +48,10 @@ class GridGenerator: ObservableObject {
 		self.yCellCount = 0
 	}
 	
-//	(x: Int, y: Int)
-	
+	/// TODO: make this a PURE function
 	/// Run at the beginning
 	func calculateCounts(cellCount: Int, spaceSize: CGSize) -> Void {
-		print("calculateSize(cellCount:\(cellCount), spaceSize:", spaceSize)
+//		print("calculateSize(cellCount:\(cellCount), spaceSize:", spaceSize)
 		self.cellCount = cellCount
 		self.spaceSize = spaceSize
 	
@@ -66,13 +65,34 @@ class GridGenerator: ObservableObject {
 		
 		if x.isNormal && y.isNormal {
 //			print("NORMAL")
-			xCellCount = Int(ceil(x))
-			yCellCount = Int(ceil(y))
+
+			let count = CGFloat(cellCount)
+			let xs = [round(x), floor(x), ceil(x)]
+			let ys = [round(y), floor(y), ceil(y)]
+			
+			var minX: CGFloat = 0
+			var minY: CGFloat = 0
+			var minCount: CGFloat = count * 2
+			
+			/// Get the smallest combination to fit everything
+			for x in xs {
+				for y in ys {
+					let newCount = x * y
+					if newCount >= count, newCount < minCount  {
+//						print("newCount: \(newCount) - x: \(x) y: \(y)")
+						minX = x
+						minY = y
+						minCount = newCount
+					}
+				}
+			}
+			
+			xCellCount = Int(minX)
+			yCellCount = Int(minY)
 		}
 	}
 	
-//	func calculateSize()
-	
+	/// TODO: make this a PURE function
 	/// Run when tweets are loaded
 	func generate(tweets: [Tweet]) -> [[Block]] {
 
