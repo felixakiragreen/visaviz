@@ -34,9 +34,8 @@ struct ContentView: View {
 //	@ObservedObject var interface: TweetInterface
 	@ObservedObject private var interface = TweetInterface()
 	
-	
-	
 	@State var generator = GridGenerator()
+	@State var grid: [[Block]] = [[]]
 	
 //	@Binding var tweets: [Tweet]
 //	@Binding var hovering: Tweet?
@@ -44,14 +43,6 @@ struct ContentView: View {
 	
 //	@Binding var archive: TweetArchive
 //	@EnvironmentObject var archive: TweetArchive
-	
-	@State var gridViewConfig = GridView.Config(
-		quantity: 100,
-		size: 40,
-		space: 6
-	)
-	
-//	@State var autoSize: Bool = false
 
 	
 	// MARK: - BODY
@@ -67,6 +58,14 @@ struct ContentView: View {
 			GeometryReader { geometry in
 				let size = geometry.size
 				
+				let cellX: CGFloat = (size.width / CGFloat(grid[0].count))
+				let cellY: CGFloat = (size.height / CGFloat(grid.count))
+				let cell: CGFloat = min(cellX, cellY)
+				let cellPad: CGFloat = cell * 0.1
+				let cellSize: CGFloat = cell - cellPad
+				
+		
+				/*
 				GridView(
 					archive: archive,
 //					interaction: $interaction,
@@ -75,18 +74,21 @@ struct ContentView: View {
 					pinned: $interface.pinned,
 					config: gridViewConfig
 				)
+				*/
+				GeneratedGridView(
+					grid: grid,
+					hovered: $interface.hovered,
+					pinned: $interface.pinned,
+					config: GridConfig(size: cellSize, pad: cellPad)
+				)
 //				.environmentObject(interaction)
 //				.environmentObject(testArchive)
 				.drawingGroup()
 				.onChange(of: size, perform: { newSize in
-					print("size", size, "newSize", newSize)
 					if newSize.width.isNormal && newSize.height.isNormal {
-						
-						generator.calculateSize(cellCount: archive.stats.tweetCount, spaceSize: newSize)
-						
-						print("normal→ x: \(generator.xCellCount) y:\(generator.yCellCount)")
+						update(size: newSize)
 					} else {
-						print("not normal")
+						print("WARNING: newSize isNOTnormal")
 					}
 				})
 			}
@@ -95,16 +97,13 @@ struct ContentView: View {
 //		.frame(minWidth: 1000, minHeight: 800)
 	}
 	
-///	TODO: calculate
-//	func calculateGridSize(size: CGSize) {
-//		let ratio = size.width / size.height
-//
-//
-//		repeat {
-//
-//		} while
-//	}
-	
+	func update(size: CGSize) {
+		generator = GridGenerator()
+		
+		generator.calculateCounts(cellCount: archive.stats.tweetCount, spaceSize: size)
+		
+		grid = generator.generate(tweets: archive.allSorted)
+	}
 }
 
 
