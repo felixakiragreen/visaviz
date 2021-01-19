@@ -5,20 +5,25 @@
 //  Created by Felix Akira Green on 1/19/21.
 //
 
-import SwiftUI
 import struct Forge.ForgeView
+import SwiftUI
 
 struct ContentView: View {
-	
-	let renderer = Renderer()
+	@State var textEntry: String = "initial"
 	
 	var body: some View {
-//		renderer.setup()
+		ZStack(alignment: .topLeading) {
+			SubContentView(text: $textEntry)
+			VStack {
+				Text("text → \(textEntry)")
+				Button("UPDATE") {
+					textEntry = "dudeness"
+				}
+			}
+			.padding()
+		}
 		
-		ZStack {
-			Text("Asd")
-			ForgeView(renderer: renderer)
-		}.frame(maxWidth: .infinity, maxHeight: .infinity)
+		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
 	}
 }
 
