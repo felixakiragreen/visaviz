@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D538BD525B73CE50015AE43 /* MetalExperimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BC225B73CE40015AE43 /* MetalExperimentsApp.swift */; };
+		1D538BD625B73CE50015AE43 /* MetalExperimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BC225B73CE40015AE43 /* MetalExperimentsApp.swift */; };
+		1D538BD725B73CE50015AE43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BC325B73CE40015AE43 /* ContentView.swift */; };
+		1D538BD825B73CE50015AE43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BC325B73CE40015AE43 /* ContentView.swift */; };
+		1D538BD925B73CE50015AE43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D538BC425B73CE50015AE43 /* Assets.xcassets */; };
+		1D538BDA25B73CE50015AE43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D538BC425B73CE50015AE43 /* Assets.xcassets */; };
+		1D538BFA25B73EE20015AE43 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BF925B73EE20015AE43 /* Renderer.swift */; };
+		1D538BFB25B73EE20015AE43 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BF925B73EE20015AE43 /* Renderer.swift */; };
+		1D538BFF25B7417A0015AE43 /* SwiftUIMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BFE25B7417A0015AE43 /* SwiftUIMetalView.swift */; };
+		1D538C0025B7417A0015AE43 /* SwiftUIMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BFE25B7417A0015AE43 /* SwiftUIMetalView.swift */; };
+		1D538C0425B741990015AE43 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C0325B741990015AE43 /* shaders.metal */; };
+		1D538C0525B741990015AE43 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C0325B741990015AE43 /* shaders.metal */; };
+		1D538C0925B742A20015AE43 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C0825B742A20015AE43 /* MetalView.swift */; };
+		1D538C0A25B742A20015AE43 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C0825B742A20015AE43 /* MetalView.swift */; };
+		D7D06F081F6332B683DCDC19 /* Pods_MetalExperiments__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A32E556CB11537E974FA0DB /* Pods_MetalExperiments__macOS_.framework */; };
+		D96E429B174ED3C192E180C4 /* Pods_MetalExperiments__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7172CD578F9C06942CAC898E /* Pods_MetalExperiments__iOS_.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D538BC225B73CE40015AE43 /* MetalExperimentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalExperimentsApp.swift; sourceTree = "<group>"; };
+		1D538BC325B73CE40015AE43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1D538BC425B73CE50015AE43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1D538BC925B73CE50015AE43 /* MetalExperiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalExperiments.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D538BCC25B73CE50015AE43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D538BD125B73CE50015AE43 /* MetalExperiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalExperiments.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D538BD325B73CE50015AE43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D538BD425B73CE50015AE43 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		1D538BF925B73EE20015AE43 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		1D538BFE25B7417A0015AE43 /* SwiftUIMetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIMetalView.swift; sourceTree = "<group>"; };
+		1D538C0325B741990015AE43 /* shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
+		1D538C0825B742A20015AE43 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		7172CD578F9C06942CAC898E /* Pods_MetalExperiments__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalExperiments__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80DF306D1073EC77BE66CDC9 /* Pods-MetalExperiments (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalExperiments (macOS).release.xcconfig"; path = "Target Support Files/Pods-MetalExperiments (macOS)/Pods-MetalExperiments (macOS).release.xcconfig"; sourceTree = "<group>"; };
+		8A32E556CB11537E974FA0DB /* Pods_MetalExperiments__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalExperiments__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABB10E23254217525E3E47A /* Pods-MetalExperiments (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalExperiments (iOS).debug.xcconfig"; path = "Target Support Files/Pods-MetalExperiments (iOS)/Pods-MetalExperiments (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		B228C3326E01FF0E512963C0 /* Pods-MetalExperiments (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalExperiments (iOS).release.xcconfig"; path = "Target Support Files/Pods-MetalExperiments (iOS)/Pods-MetalExperiments (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		CA3CE3E7EDD1ED5AE1E1D7A4 /* Pods-MetalExperiments (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalExperiments (macOS).debug.xcconfig"; path = "Target Support Files/Pods-MetalExperiments (macOS)/Pods-MetalExperiments (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D538BC625B73CE50015AE43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96E429B174ED3C192E180C4 /* Pods_MetalExperiments__iOS_.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D538BCE25B73CE50015AE43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7D06F081F6332B683DCDC19 /* Pods_MetalExperiments__macOS_.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D538BBC25B73CE30015AE43 = {
+			isa = PBXGroup;
+			children = (
+				1D538BC125B73CE40015AE43 /* Shared */,
+				1D538BCB25B73CE50015AE43 /* iOS */,
+				1D538BD225B73CE50015AE43 /* macOS */,
+				1D538BCA25B73CE50015AE43 /* Products */,
+				B03B07AC725D72CB7430DD17 /* Pods */,
+				CA520654B5826480C3CAB144 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1D538BC125B73CE40015AE43 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1D538BC225B73CE40015AE43 /* MetalExperimentsApp.swift */,
+				1D538BC325B73CE40015AE43 /* ContentView.swift */,
+				1D538BC425B73CE50015AE43 /* Assets.xcassets */,
+				1D538BF925B73EE20015AE43 /* Renderer.swift */,
+				1D538BFE25B7417A0015AE43 /* SwiftUIMetalView.swift */,
+				1D538C0325B741990015AE43 /* shaders.metal */,
+				1D538C0825B742A20015AE43 /* MetalView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		1D538BCA25B73CE50015AE43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D538BC925B73CE50015AE43 /* MetalExperiments.app */,
+				1D538BD125B73CE50015AE43 /* MetalExperiments.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1D538BCB25B73CE50015AE43 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1D538BCC25B73CE50015AE43 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		1D538BD225B73CE50015AE43 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				1D538BD325B73CE50015AE43 /* Info.plist */,
+				1D538BD425B73CE50015AE43 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		B03B07AC725D72CB7430DD17 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AABB10E23254217525E3E47A /* Pods-MetalExperiments (iOS).debug.xcconfig */,
+				B228C3326E01FF0E512963C0 /* Pods-MetalExperiments (iOS).release.xcconfig */,
+				CA3CE3E7EDD1ED5AE1E1D7A4 /* Pods-MetalExperiments (macOS).debug.xcconfig */,
+				80DF306D1073EC77BE66CDC9 /* Pods-MetalExperiments (macOS).release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CA520654B5826480C3CAB144 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7172CD578F9C06942CAC898E /* Pods_MetalExperiments__iOS_.framework */,
+				8A32E556CB11537E974FA0DB /* Pods_MetalExperiments__macOS_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D538BC825B73CE50015AE43 /* MetalExperiments (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D538BDD25B73CE50015AE43 /* Build configuration list for PBXNativeTarget "MetalExperiments (iOS)" */;
+			buildPhases = (
+				3E29EB10F0F96DB825D86760 /* [CP] Check Pods Manifest.lock */,
+				1D538BC525B73CE50015AE43 /* Sources */,
+				1D538BC625B73CE50015AE43 /* Frameworks */,
+				1D538BC725B73CE50015AE43 /* Resources */,
+				F9F8A818E120785E1B73F18C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MetalExperiments (iOS)";
+			productName = "MetalExperiments (iOS)";
+			productReference = 1D538BC925B73CE50015AE43 /* MetalExperiments.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1D538BD025B73CE50015AE43 /* MetalExperiments (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D538BE025B73CE50015AE43 /* Build configuration list for PBXNativeTarget "MetalExperiments (macOS)" */;
+			buildPhases = (
+				845456FA73EAA066980BDD9D /* [CP] Check Pods Manifest.lock */,
+				1D538BCD25B73CE50015AE43 /* Sources */,
+				1D538BCE25B73CE50015AE43 /* Frameworks */,
+				1D538BCF25B73CE50015AE43 /* Resources */,
+				61C194F38D058AA624013E69 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MetalExperiments (macOS)";
+			productName = "MetalExperiments (macOS)";
+			productReference = 1D538BD125B73CE50015AE43 /* MetalExperiments.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D538BBD25B73CE30015AE43 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					1D538BC825B73CE50015AE43 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					1D538BD025B73CE50015AE43 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = 1D538BC025B73CE30015AE43 /* Build configuration list for PBXProject "MetalExperiments" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1D538BBC25B73CE30015AE43;
+			productRefGroup = 1D538BCA25B73CE50015AE43 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D538BC825B73CE50015AE43 /* MetalExperiments (iOS) */,
+				1D538BD025B73CE50015AE43 /* MetalExperiments (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D538BC725B73CE50015AE43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D538BD925B73CE50015AE43 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D538BCF25B73CE50015AE43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D538BDA25B73CE50015AE43 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E29EB10F0F96DB825D86760 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MetalExperiments (iOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61C194F38D058AA624013E69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MetalExperiments (macOS)/Pods-MetalExperiments (macOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MetalExperiments (macOS)/Pods-MetalExperiments (macOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MetalExperiments (macOS)/Pods-MetalExperiments (macOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		845456FA73EAA066980BDD9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MetalExperiments (macOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9F8A818E120785E1B73F18C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MetalExperiments (iOS)/Pods-MetalExperiments (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MetalExperiments (iOS)/Pods-MetalExperiments (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MetalExperiments (iOS)/Pods-MetalExperiments (iOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D538BC525B73CE50015AE43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D538C0925B742A20015AE43 /* MetalView.swift in Sources */,
+				1D538BD725B73CE50015AE43 /* ContentView.swift in Sources */,
+				1D538C0425B741990015AE43 /* shaders.metal in Sources */,
+				1D538BFA25B73EE20015AE43 /* Renderer.swift in Sources */,
+				1D538BFF25B7417A0015AE43 /* SwiftUIMetalView.swift in Sources */,
+				1D538BD525B73CE50015AE43 /* MetalExperimentsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D538BCD25B73CE50015AE43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D538C0A25B742A20015AE43 /* MetalView.swift in Sources */,
+				1D538BD825B73CE50015AE43 /* ContentView.swift in Sources */,
+				1D538C0525B741990015AE43 /* shaders.metal in Sources */,
+				1D538BFB25B73EE20015AE43 /* Renderer.swift in Sources */,
+				1D538C0025B7417A0015AE43 /* SwiftUIMetalView.swift in Sources */,
+				1D538BD625B73CE50015AE43 /* MetalExperimentsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D538BDB25B73CE50015AE43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1D538BDC25B73CE50015AE43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		1D538BDE25B73CE50015AE43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AABB10E23254217525E3E47A /* Pods-MetalExperiments (iOS).debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AFEX2H2TBN;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = green.felix.MetalExperiments;
+				PRODUCT_NAME = MetalExperiments;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1D538BDF25B73CE50015AE43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B228C3326E01FF0E512963C0 /* Pods-MetalExperiments (iOS).release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AFEX2H2TBN;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = green.felix.MetalExperiments;
+				PRODUCT_NAME = MetalExperiments;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1D538BE125B73CE50015AE43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA3CE3E7EDD1ED5AE1E1D7A4 /* Pods-MetalExperiments (macOS).debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AFEX2H2TBN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = green.felix.MetalExperiments;
+				PRODUCT_NAME = MetalExperiments;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1D538BE225B73CE50015AE43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80DF306D1073EC77BE66CDC9 /* Pods-MetalExperiments (macOS).release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AFEX2H2TBN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = green.felix.MetalExperiments;
+				PRODUCT_NAME = MetalExperiments;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D538BC025B73CE30015AE43 /* Build configuration list for PBXProject "MetalExperiments" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D538BDB25B73CE50015AE43 /* Debug */,
+				1D538BDC25B73CE50015AE43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D538BDD25B73CE50015AE43 /* Build configuration list for PBXNativeTarget "MetalExperiments (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D538BDE25B73CE50015AE43 /* Debug */,
+				1D538BDF25B73CE50015AE43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D538BE025B73CE50015AE43 /* Build configuration list for PBXNativeTarget "MetalExperiments (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D538BE125B73CE50015AE43 /* Debug */,
+				1D538BE225B73CE50015AE43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1D538BBD25B73CE30015AE43 /* Project object */;
+}
