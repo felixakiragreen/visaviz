@@ -21,6 +21,10 @@
 		1D538C0525B741990015AE43 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C0325B741990015AE43 /* shaders.metal */; };
 		1D538C0925B742A20015AE43 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C0825B742A20015AE43 /* MetalView.swift */; };
 		1D538C0A25B742A20015AE43 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C0825B742A20015AE43 /* MetalView.swift */; };
+		1D538C1825B7734B0015AE43 /* RendererText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C1725B7734B0015AE43 /* RendererText.swift */; };
+		1D538C1925B7734B0015AE43 /* RendererText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C1725B7734B0015AE43 /* RendererText.swift */; };
+		1D538C1F25B774010015AE43 /* SubContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C1E25B774010015AE43 /* SubContentView.swift */; };
+		1D538C2025B774010015AE43 /* SubContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C1E25B774010015AE43 /* SubContentView.swift */; };
 		D7D06F081F6332B683DCDC19 /* Pods_MetalExperiments__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A32E556CB11537E974FA0DB /* Pods_MetalExperiments__macOS_.framework */; };
 		D96E429B174ED3C192E180C4 /* Pods_MetalExperiments__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7172CD578F9C06942CAC898E /* Pods_MetalExperiments__iOS_.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +42,8 @@
 		1D538BFE25B7417A0015AE43 /* SwiftUIMetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIMetalView.swift; sourceTree = "<group>"; };
 		1D538C0325B741990015AE43 /* shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
 		1D538C0825B742A20015AE43 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		1D538C1725B7734B0015AE43 /* RendererText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendererText.swift; sourceTree = "<group>"; };
+		1D538C1E25B774010015AE43 /* SubContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubContentView.swift; sourceTree = "<group>"; };
 		7172CD578F9C06942CAC898E /* Pods_MetalExperiments__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalExperiments__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80DF306D1073EC77BE66CDC9 /* Pods-MetalExperiments (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalExperiments (macOS).release.xcconfig"; path = "Target Support Files/Pods-MetalExperiments (macOS)/Pods-MetalExperiments (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		8A32E556CB11537E974FA0DB /* Pods_MetalExperiments__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalExperiments__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,8 +89,10 @@
 			children = (
 				1D538BC225B73CE40015AE43 /* MetalExperimentsApp.swift */,
 				1D538BC325B73CE40015AE43 /* ContentView.swift */,
+				1D538C1E25B774010015AE43 /* SubContentView.swift */,
 				1D538BC425B73CE50015AE43 /* Assets.xcassets */,
 				1D538BF925B73EE20015AE43 /* Renderer.swift */,
+				1D538C1725B7734B0015AE43 /* RendererText.swift */,
 				1D538BFE25B7417A0015AE43 /* SwiftUIMetalView.swift */,
 				1D538C0325B741990015AE43 /* shaders.metal */,
 				1D538C0825B742A20015AE43 /* MetalView.swift */,
@@ -322,10 +330,12 @@
 			files = (
 				1D538C0925B742A20015AE43 /* MetalView.swift in Sources */,
 				1D538BD725B73CE50015AE43 /* ContentView.swift in Sources */,
+				1D538C1825B7734B0015AE43 /* RendererText.swift in Sources */,
 				1D538C0425B741990015AE43 /* shaders.metal in Sources */,
 				1D538BFA25B73EE20015AE43 /* Renderer.swift in Sources */,
 				1D538BFF25B7417A0015AE43 /* SwiftUIMetalView.swift in Sources */,
 				1D538BD525B73CE50015AE43 /* MetalExperimentsApp.swift in Sources */,
+				1D538C1F25B774010015AE43 /* SubContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,10 +345,12 @@
 			files = (
 				1D538C0A25B742A20015AE43 /* MetalView.swift in Sources */,
 				1D538BD825B73CE50015AE43 /* ContentView.swift in Sources */,
+				1D538C1925B7734B0015AE43 /* RendererText.swift in Sources */,
 				1D538C0525B741990015AE43 /* shaders.metal in Sources */,
 				1D538BFB25B73EE20015AE43 /* Renderer.swift in Sources */,
 				1D538C0025B7417A0015AE43 /* SwiftUIMetalView.swift in Sources */,
 				1D538BD625B73CE50015AE43 /* MetalExperimentsApp.swift in Sources */,
+				1D538C2025B774010015AE43 /* SubContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
