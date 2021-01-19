@@ -1,0 +1,21 @@
+PODS:
+  - Forge (1.0.8)
+  - Satin (1.2.6)
+
+DEPENDENCIES:
+  - Forge (from `../../Hi-Rez/Forge`)
+  - Satin (from `../../Hi-Rez/Satin`)
+
+EXTERNAL SOURCES:
+  Forge:
+    :path: "../../Hi-Rez/Forge"
+  Satin:
+    :path: "../../Hi-Rez/Satin"
+
+SPEC CHECKSUMS:
+  Forge: 9e4267d3f0f72bb486a3b62f5cc0afca6dee6856
+  Satin: 20bd91e1ea9eb4b165ac5679978b366dd42185fe
+
+PODFILE CHECKSUM: 0e61cb66cff3bcfa218795d7cf85e3be84ac519d
+
+COCOAPODS: 1.10.0

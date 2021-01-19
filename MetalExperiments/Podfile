@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+use_frameworks!
+
+target 'MetalExperiments (iOS)' do  
+  platform :ios, '13.0'
+
+  # Pods for MetalExperiments (iOS)
+  pod 'Forge', :path => '../../Hi-Rez/Forge'
+  pod 'Satin', :path => '../../Hi-Rez/Satin'
+end
+
+target 'MetalExperiments (macOS)' do
+  platform :osx, '10.15'
+
+  # Pods for MetalExperiments (macOS)
+  pod 'Forge', :path => '../../Hi-Rez/Forge'
+  pod 'Satin', :path => '../../Hi-Rez/Satin'
+end
