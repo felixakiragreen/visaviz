@@ -30,7 +30,7 @@ Or am I thinking about this the wrong way?
 
 I’ve built the interface using SwiftUI. It works great as long as there <10K blocks. Then it slows down. A lot.
 
-Visa has 140k tweets and he’s not slowing down.
+I'm making this for [@visakanv](http://twitter.com/visakanv) who has 140k tweets and is not slowing down.
 
 ## Satin
 
@@ -61,10 +61,11 @@ This project is a single visualization in a series that I am working on under an
 
 golOS is a game about playing your own life as an RPG. It uses visualizations of life’s meaningful data to give a sense of progression and gamifies all the tedious “grindy” parts of life, like adulting & cleaning.
 
-I discovered Visa through Twitter because he’s shared a lot of ideas about a thing like this. We both think it would be really cool to be able to visualize ALL your tweets in a single interface and explore them that way.
+I discovered [Visa](http://twitter.com/visakanv) through Twitter because he’s shared a lot of ideas about a thing like this. We both think it would be really cool to be able to visualize ALL your tweets in a single interface and explore them that way.
 
-——//——
+
+---
 
 Other things:
-[CHANGELOG](./CHANGELOG.md)
-[DEVNOTES](./DEVNOTES.md)
+- [CHANGELOG](./CHANGELOG.md)
+- [DEVNOTES](./DEVNOTES.md)

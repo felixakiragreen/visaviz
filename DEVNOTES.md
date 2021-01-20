@@ -1,6 +1,6 @@
 #  Notes
 
-@visakanv my plan is to give you a dev build ASAP to play around in, and I expect that you'll encounter "flows" that you want to have, so I'll make those
+[@visakanv](http://twitter.com/visakanv) my plan is to give you a dev build ASAP to play around in, and I expect that you'll encounter "flows" that you want to have, so I'll make those
  (just different ways of slicing/viewing, since ~100K is almost too many to view at once.)
 
 
