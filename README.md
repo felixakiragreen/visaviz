@@ -6,6 +6,7 @@ VisaViz ToC
   * [Scope (Project)](#scope)
   * [Story (Context)](#story)
 
+![Screenshot](../Screen-Shot-2021-01-18.png)
 
 ## State
 
