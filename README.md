@@ -1,3 +1,6 @@
+TLDR: trying to make this in Metal ↓
+![Screenshot](./Screen-Shot-2021-01-18.png)
+
 # VisaViz ToC
 
 - [State (of current project)](#state)
@@ -5,8 +8,6 @@
 - [Satin (Solution)](#satin)
 - [Scope (Project)](#scope)
 - [Story (Context)](#story)
-
-![Screenshot](./Screen-Shot-2021-01-18.png)
 
 ## State
 
