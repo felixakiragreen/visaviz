@@ -41,15 +41,16 @@ I’m hoping to be able to render at least 200k blocks. I think it should be pos
 
 - Performance
 
-**Nice to have:**
+**Nice to haves:**
 
-- Interactive blocks (show a popup on hover with tweet details) - note: I can workaround using an overlay in SwiftUI if I can't figure it out
+- Interactive blocks (show a popup on hover with tweet details)
+	- note: I can workaround using an overlay in SwiftUI if I can't figure it out
 
 ## Scope
 
-1. Show ALL of a user’s tweets at once (no gimmicks, all of them)
-2. Every tweet is a square block
-   1. Position is determined by a sorting (time, popularity, +) along a path (h/v rows, snake) in a 2d grid
+1. Show ALL of a user’s tweets at once (no gimmicks, all of them — data is coming from a JSON file so no worry about API limits)
+2. Each tweet is a square block
+   1. Position is determined by a sorting (time, popularity, +) along a path (h/v rows, snake) in a 2D grid
       1. Size of grid is determined by view size
       2. Size of blocks is determined by how small they have to be to all fit in the view
    2. Color is determined by tweet properties:
@@ -62,11 +63,11 @@ This project is a single visualization in a series that I am working on under an
 
 golOS is a game about playing your own life as an RPG. It uses visualizations of life’s meaningful data to give a sense of progression and gamifies all the tedious “grindy” parts of life, like adulting & cleaning.
 
-I discovered [Visa](http://twitter.com/visakanv) through Twitter because he’s shared a lot of ideas about a thing like this. We both think it would be really cool to be able to visualize ALL your tweets in a single interface and explore them that way.
+I discovered [Visa](http://twitter.com/visakanv) through Twitter because he’s shared a lot of ideas about a thing like this. We both think it would be really cool to be able to visualize _all_ your tweets in a single interface and explore them that way.
 
 
 ---
 
 Other things:
 - [CHANGELOG](./CHANGELOG.md)
-- [DEVNOTES](./DEVNOTES.md)
+- [DEV NOTES](./DEVNOTES.md)
