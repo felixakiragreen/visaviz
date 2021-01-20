@@ -55,6 +55,8 @@
 		1D44317B25B3A569001C79B3 /* TweetThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetThread.swift; sourceTree = "<group>"; };
 		1D44318225B3A5D8001C79B3 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		1D44318D25B4AD9B001C79B3 /* GridGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridGenerator.swift; sourceTree = "<group>"; };
+		1D538C2525B7B3830015AE43 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		1D538C2625B7B3A40015AE43 /* DEVNOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DEVNOTES.md; sourceTree = "<group>"; };
 		1D92418B25AFD5F5009EC4EC /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		1D92419425B1EDF1009EC4EC /* TweetArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetArchive.swift; sourceTree = "<group>"; };
 		1D92419925B1F810009EC4EC /* tweet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweet.json; sourceTree = "<group>"; };
@@ -125,6 +127,8 @@
 		1DE4409925AFCAEC0064C35C = {
 			isa = PBXGroup;
 			children = (
+				1D538C2625B7B3A40015AE43 /* DEVNOTES.md */,
+				1D538C2525B7B3830015AE43 /* CHANGELOG.md */,
 				1D9241B725B27A19009EC4EC /* README.md */,
 				1DE4409E25AFCAEC0064C35C /* Shared */,
 				1DE440A825AFCAEF0064C35C /* iOS */,
