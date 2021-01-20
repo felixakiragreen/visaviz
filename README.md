@@ -1,21 +1,22 @@
-VisaViz ToC
-=========
-  * [State (of current project)](#state)
-  * [Swift (Problem)](#swift)
-  * [Satin (Solution)](#satin)
-  * [Scope (Project)](#scope)
-  * [Story (Context)](#story)
+# VisaViz ToC
 
-![Screenshot](../Screen-Shot-2021-01-18.png)
+- [State (of current project)](#state)
+- [Swift (Problem)](#swift)
+- [Satin (Solution)](#satin)
+- [Scope (Project)](#scope)
+- [Story (Context)](#story)
+
+![Screenshot](./Screen-Shot-2021-01-18.png)
 
 ## State
 
 There are 2 Xcode projects:
+
 1. VisaViz (working example in SwiftUI with 400 tweets)
 2. MetalExperiments (“playground” for setting up Satin and getting acquainted)
 
 I don’t really have anything done for the shader part.
-I’m not expecting any code @rezaali but any you do share is amazing & super appreciated. (Satin is already making it easier for me to figure out Metal) 
+I’m not expecting any code @rezaali but any you do share is amazing & super appreciated. (Satin is already making it easier for me to figure out Metal)
 
 I’m really looking for direction on:
 
@@ -36,22 +37,23 @@ Visa has 140k tweets and he’s not slowing down.
 I’m hoping to be able to render at least 200k blocks. I think it should be possible using Satin + Metal. I feel confident writing Swift code but I just started learning Metal this week.
 
 **Priorities:**
+
 - Performance
 
 **Nice to have:**
-- Interactive blocks (show a popup on hover with tweet details)
-	 - note: I can workaround using an overlay in SwiftUI if I can't figure it out
+
+- Interactive blocks (show a popup on hover with tweet details) - note: I can workaround using an overlay in SwiftUI if I can't figure it out
 
 ## Scope
 
 1. Show ALL of a user’s tweets at once (no gimmicks, all of them)
 2. Every tweet is a square block
-	 1. Position is determined by a sorting (time, popularity, +) along a path (h/v rows, snake) in a 2d grid
-		  1. Size of grid is determined by view size
-		  2. Size of blocks is determined by how small they have to be to all fit in the view 
-	 2. Color is determined by tweet properties:
-		  1. Brightness by popularity
-		  2. Hue is random except Tweet in a thread share the same hue
+   1. Position is determined by a sorting (time, popularity, +) along a path (h/v rows, snake) in a 2d grid
+      1. Size of grid is determined by view size
+      2. Size of blocks is determined by how small they have to be to all fit in the view
+   2. Color is determined by tweet properties:
+      1. Brightness by popularity
+      2. Hue is random except Tweet in a thread share the same hue
 
 ## Story
 
@@ -64,5 +66,5 @@ I discovered Visa through Twitter because he’s shared a lot of ideas about a t
 ——//——
 
 Other things:
-[CHANGELOG](../CHANGELOG.md)
-[DEVNOTES](../DEVNOTES.md)
+[CHANGELOG](./CHANGELOG.md)
+[DEVNOTES](./DEVNOTES.md)
