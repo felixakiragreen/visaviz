@@ -7,29 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D04B71325D5837A00A4A732 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 1D04B71225D5837A00A4A732 /* Assets */; };
+		1D04B71425D5837A00A4A732 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 1D04B71225D5837A00A4A732 /* Assets */; };
+		1D04B72125D5862500A4A732 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04B72025D5862500A4A732 /* Renderer.swift */; };
+		1D04B72225D5862500A4A732 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D04B72025D5862500A4A732 /* Renderer.swift */; };
 		1D538BD525B73CE50015AE43 /* MetalExperimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BC225B73CE40015AE43 /* MetalExperimentsApp.swift */; };
 		1D538BD625B73CE50015AE43 /* MetalExperimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BC225B73CE40015AE43 /* MetalExperimentsApp.swift */; };
 		1D538BD725B73CE50015AE43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BC325B73CE40015AE43 /* ContentView.swift */; };
 		1D538BD825B73CE50015AE43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BC325B73CE40015AE43 /* ContentView.swift */; };
 		1D538BD925B73CE50015AE43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D538BC425B73CE50015AE43 /* Assets.xcassets */; };
 		1D538BDA25B73CE50015AE43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D538BC425B73CE50015AE43 /* Assets.xcassets */; };
-		1D538BFA25B73EE20015AE43 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BF925B73EE20015AE43 /* Renderer.swift */; };
-		1D538BFB25B73EE20015AE43 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BF925B73EE20015AE43 /* Renderer.swift */; };
-		1D538BFF25B7417A0015AE43 /* SwiftUIMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BFE25B7417A0015AE43 /* SwiftUIMetalView.swift */; };
-		1D538C0025B7417A0015AE43 /* SwiftUIMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BFE25B7417A0015AE43 /* SwiftUIMetalView.swift */; };
+		1D538BFA25B73EE20015AE43 /* RendererMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BF925B73EE20015AE43 /* RendererMesh.swift */; };
+		1D538BFB25B73EE20015AE43 /* RendererMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538BF925B73EE20015AE43 /* RendererMesh.swift */; };
 		1D538C0425B741990015AE43 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C0325B741990015AE43 /* shaders.metal */; };
 		1D538C0525B741990015AE43 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C0325B741990015AE43 /* shaders.metal */; };
-		1D538C0925B742A20015AE43 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C0825B742A20015AE43 /* MetalView.swift */; };
-		1D538C0A25B742A20015AE43 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C0825B742A20015AE43 /* MetalView.swift */; };
 		1D538C1825B7734B0015AE43 /* RendererText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C1725B7734B0015AE43 /* RendererText.swift */; };
 		1D538C1925B7734B0015AE43 /* RendererText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C1725B7734B0015AE43 /* RendererText.swift */; };
 		1D538C1F25B774010015AE43 /* SubContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C1E25B774010015AE43 /* SubContentView.swift */; };
 		1D538C2025B774010015AE43 /* SubContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D538C1E25B774010015AE43 /* SubContentView.swift */; };
+		1DF38C0325D58DE8002D1F05 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF38C0225D58DE8002D1F05 /* Model.swift */; };
+		1DF38C0425D58DE8002D1F05 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF38C0225D58DE8002D1F05 /* Model.swift */; };
+		1DF38C0E25D59088002D1F05 /* Renderer+Inspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF38C0D25D59088002D1F05 /* Renderer+Inspector.swift */; };
+		1DF38C0F25D590DD002D1F05 /* Renderer+Inspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF38C0D25D59088002D1F05 /* Renderer+Inspector.swift */; };
 		D7D06F081F6332B683DCDC19 /* Pods_MetalExperiments__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A32E556CB11537E974FA0DB /* Pods_MetalExperiments__macOS_.framework */; };
 		D96E429B174ED3C192E180C4 /* Pods_MetalExperiments__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7172CD578F9C06942CAC898E /* Pods_MetalExperiments__iOS_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D04B71225D5837A00A4A732 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		1D04B72025D5862500A4A732 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		1D538BC225B73CE40015AE43 /* MetalExperimentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalExperimentsApp.swift; sourceTree = "<group>"; };
 		1D538BC325B73CE40015AE43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1D538BC425B73CE50015AE43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,12 +44,12 @@
 		1D538BD125B73CE50015AE43 /* MetalExperiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalExperiments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D538BD325B73CE50015AE43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D538BD425B73CE50015AE43 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		1D538BF925B73EE20015AE43 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
-		1D538BFE25B7417A0015AE43 /* SwiftUIMetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIMetalView.swift; sourceTree = "<group>"; };
+		1D538BF925B73EE20015AE43 /* RendererMesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendererMesh.swift; sourceTree = "<group>"; };
 		1D538C0325B741990015AE43 /* shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
-		1D538C0825B742A20015AE43 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		1D538C1725B7734B0015AE43 /* RendererText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendererText.swift; sourceTree = "<group>"; };
 		1D538C1E25B774010015AE43 /* SubContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubContentView.swift; sourceTree = "<group>"; };
+		1DF38C0225D58DE8002D1F05 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		1DF38C0D25D59088002D1F05 /* Renderer+Inspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Renderer+Inspector.swift"; sourceTree = "<group>"; };
 		7172CD578F9C06942CAC898E /* Pods_MetalExperiments__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalExperiments__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80DF306D1073EC77BE66CDC9 /* Pods-MetalExperiments (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetalExperiments (macOS).release.xcconfig"; path = "Target Support Files/Pods-MetalExperiments (macOS)/Pods-MetalExperiments (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		8A32E556CB11537E974FA0DB /* Pods_MetalExperiments__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetalExperiments__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,9 +78,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D04B71725D583A600A4A732 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				1D04B72025D5862500A4A732 /* Renderer.swift */,
+				1DF38C0D25D59088002D1F05 /* Renderer+Inspector.swift */,
+				1D538BF925B73EE20015AE43 /* RendererMesh.swift */,
+				1D538C1725B7734B0015AE43 /* RendererText.swift */,
+			);
+			path = Renderer;
+			sourceTree = "<group>";
+		};
 		1D538BBC25B73CE30015AE43 = {
 			isa = PBXGroup;
 			children = (
+				1D04B71225D5837A00A4A732 /* Assets */,
+				1D538BC425B73CE50015AE43 /* Assets.xcassets */,
 				1D538BC125B73CE40015AE43 /* Shared */,
 				1D538BCB25B73CE50015AE43 /* iOS */,
 				1D538BD225B73CE50015AE43 /* macOS */,
@@ -89,13 +108,10 @@
 			children = (
 				1D538BC225B73CE40015AE43 /* MetalExperimentsApp.swift */,
 				1D538BC325B73CE40015AE43 /* ContentView.swift */,
+				1D04B71725D583A600A4A732 /* Renderer */,
 				1D538C1E25B774010015AE43 /* SubContentView.swift */,
-				1D538BC425B73CE50015AE43 /* Assets.xcassets */,
-				1D538BF925B73EE20015AE43 /* Renderer.swift */,
-				1D538C1725B7734B0015AE43 /* RendererText.swift */,
-				1D538BFE25B7417A0015AE43 /* SwiftUIMetalView.swift */,
 				1D538C0325B741990015AE43 /* shaders.metal */,
-				1D538C0825B742A20015AE43 /* MetalView.swift */,
+				1DF38C0225D58DE8002D1F05 /* Model.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -229,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D538BD925B73CE50015AE43 /* Assets.xcassets in Resources */,
+				1D04B71325D5837A00A4A732 /* Assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D538BDA25B73CE50015AE43 /* Assets.xcassets in Resources */,
+				1D04B71425D5837A00A4A732 /* Assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,14 +346,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D538C0925B742A20015AE43 /* MetalView.swift in Sources */,
 				1D538BD725B73CE50015AE43 /* ContentView.swift in Sources */,
 				1D538C1825B7734B0015AE43 /* RendererText.swift in Sources */,
+				1D04B72125D5862500A4A732 /* Renderer.swift in Sources */,
 				1D538C0425B741990015AE43 /* shaders.metal in Sources */,
-				1D538BFA25B73EE20015AE43 /* Renderer.swift in Sources */,
-				1D538BFF25B7417A0015AE43 /* SwiftUIMetalView.swift in Sources */,
+				1D538BFA25B73EE20015AE43 /* RendererMesh.swift in Sources */,
+				1DF38C0F25D590DD002D1F05 /* Renderer+Inspector.swift in Sources */,
 				1D538BD525B73CE50015AE43 /* MetalExperimentsApp.swift in Sources */,
 				1D538C1F25B774010015AE43 /* SubContentView.swift in Sources */,
+				1DF38C0325D58DE8002D1F05 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,14 +362,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D538C0A25B742A20015AE43 /* MetalView.swift in Sources */,
 				1D538BD825B73CE50015AE43 /* ContentView.swift in Sources */,
 				1D538C1925B7734B0015AE43 /* RendererText.swift in Sources */,
+				1D04B72225D5862500A4A732 /* Renderer.swift in Sources */,
 				1D538C0525B741990015AE43 /* shaders.metal in Sources */,
-				1D538BFB25B73EE20015AE43 /* Renderer.swift in Sources */,
-				1D538C0025B7417A0015AE43 /* SwiftUIMetalView.swift in Sources */,
+				1D538BFB25B73EE20015AE43 /* RendererMesh.swift in Sources */,
+				1DF38C0E25D59088002D1F05 /* Renderer+Inspector.swift in Sources */,
 				1D538BD625B73CE50015AE43 /* MetalExperimentsApp.swift in Sources */,
 				1D538C2025B774010015AE43 /* SubContentView.swift in Sources */,
+				1DF38C0425D58DE8002D1F05 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
