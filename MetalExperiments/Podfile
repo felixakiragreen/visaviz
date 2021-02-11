@@ -17,4 +17,5 @@ target 'MetalExperiments (macOS)' do
   # Pods for MetalExperiments (macOS)
   pod 'Forge', :path => '../../Hi-Rez/Forge'
   pod 'Satin', :path => '../../Hi-Rez/Satin'
+	pod 'Youi', :path => '../../Hi-Rez/Youi'
 end

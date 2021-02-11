@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MetalExperimentsApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+	@StateObject var renderer = Renderer()
+
+	var body: some Scene {
+		WindowGroup {
+			ContentView()
+				.environmentObject(renderer)
+		}
+	}
 }

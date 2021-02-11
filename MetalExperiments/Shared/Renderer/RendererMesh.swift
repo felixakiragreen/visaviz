@@ -11,7 +11,7 @@ import MetalKit
 import Forge
 import Satin
 
-class Renderer: Forge.Renderer {
+class RendererMesh: Forge.Renderer, ObservableObject {
 //	 lazy var mesh: Mesh = {
 //		  let mesh = Mesh(geometry: PlaneGeometry(size: 700), material: UvColorMaterial())
 //		  mesh.label = "Quad"
