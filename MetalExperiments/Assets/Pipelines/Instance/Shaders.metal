@@ -7,21 +7,27 @@
 // on the CPU side i.e. colorScale os Color Scale, etc
 
 typedef struct {
-    float4 aColor; // color,0.2,1,0.5,1
-    float4 cColor; // color,0,0.5882352941,1,1
-    float4 gColor; // color,1,1,0,1
-    float4 tColor; // color,1,0.2,0,1
+    //float4 aColor; // color,0.2,1,0.5,1
+    //float4 cColor; // color,0,0.5882352941,1,1
+    //float4 gColor; // color,1,1,0,1
+    //float4 tColor; // color,1,0.2,0,1
     float4 backgroundColor;
-    float width; //slider,0,100,30
-    float height; //slider,0,100,10
-    float spacing; //slider,0,10,2.0
+	 float minValue; // slider,0,10,0
+	 float midValue; // slider,1,10,3
+	 float maxValue; // slider,1,20,3
+    float width; //slider,0,100,8
+    float height; //slider,0,100,8
+    float spacing; //slider,0,10,1.0
     float cornerRadius; //slider,0,1,0.0
-    int perRow; //input,200
+    int perRow; //input,333
     float time;
     float3 resolution;
     int instanceCount;
 
 } InstanceUniforms;
+
+
+//float midValue; // input,5
 
 typedef struct {
     float4 position [[position]];
@@ -34,15 +40,15 @@ vertex CustomVertexData instanceVertex(
     uint instanceID [[instance_id]],
     constant VertexUniforms &vertexUniforms [[buffer( VertexBufferVertexUniforms )]],
     constant InstanceUniforms &uniforms [[buffer( VertexBufferMaterialUniforms )]],
-    constant bool2 *sequence [[buffer( VertexBufferCustom0 )]] )
+    constant float *sequence [[buffer( VertexBufferCustom0 )]] )
 {
     const float fid = float( instanceID );
-    const float4 colors[4] = {
-        uniforms.aColor,
-        uniforms.cColor,
-        uniforms.gColor,
-        uniforms.tColor
-    };
+//    const float4 colors[4] = {
+//        uniforms.aColor,
+//        uniforms.cColor,
+//        uniforms.gColor,
+//        uniforms.tColor
+//    };
 
     const float2 uv = in.uv;
 
@@ -65,17 +71,31 @@ vertex CustomVertexData instanceVertex(
     position.xy *= 0.0;
     position.xy += float2( x * ( w + s ) - xOffset, -y * ( h + s ) + yOffset );
 
-    position.x += mix( -hw, hw, uv.x );
-    position.y += mix( hh, -hh, uv.y );
+	position.x += mix( -hw, hw, uv.x );
+	position.y += mix( hh, -hh, uv.y );
 
-    bool2 data = sequence[instanceID];
-    const int colorIndex = data[1] * 2 + data[0];
+	float data = sequence[instanceID];
+	const float minV = uniforms.minValue;
+	const float midV = pow(uniforms.midValue, 2.0);
+	const float maxV = pow(uniforms.maxValue, 3.0);
+    
+	float value;
+	if (data <= midV) {
+		value = smoothstep(minV, midV, data) * 0.5;
+	} else {
+		value = smoothstep(midV, maxV, data) * 0.5 + 0.5;
+	}
+	
+	// const float value = smoothstep(minV, maxV, data);
+	//clamp(value, 0.1, 1.0)
+	const float4 color = float4(0, value, 0, 1);
 
-    CustomVertexData out;
-    out.position = vertexUniforms.modelViewProjectionMatrix * position;
-    out.color = colors[colorIndex];
-    out.uv = in.uv;
-    return out;
+	CustomVertexData out;
+	out.position = vertexUniforms.modelViewProjectionMatrix * position;
+//    out.color = colors[colorIndex];
+	out.color = color;
+	out.uv = in.uv;
+	return out;
 }
 
 fragment float4 instanceFragment( CustomVertexData in [[stage_in]],
