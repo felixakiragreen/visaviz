@@ -90,7 +90,7 @@ class Renderer: Forge.Renderer, ObservableObject, MaterialDelegate {
 	}
 	
 	func setupData() {
-		var data: [Bool] = []
+		var data: [Float] = []
 		do {
 			let loadedTweets = try String(contentsOf: dataURL.appendingPathComponent("tweet.js"))
 			let beginningIndex = loadedTweets.firstIndex(of: "[")!
@@ -98,24 +98,23 @@ class Renderer: Forge.Renderer, ObservableObject, MaterialDelegate {
 			
 			if let sequence = String(loadedTweets[beginningIndex...]).data(using: .utf8),
 				let jsonData = parse(jsonData: sequence) {
+//				var popularityMax = 1
+				// calculate minmax
+//				for tweet in jsonData {
+//					let popularity = (tweet.metrics.rts + 1) * (tweet.metrics.fav + 1)
+//					if popularity > popularityMax {
+//						popularityMax = popularity
+//					}
+//				}
+				
+				
 				for tweet in jsonData {
-					let popularity = (tweet.metrics.rts + 1) * (tweet.metrics.fav + 1)
-					switch popularity {
-						case 0..<10:
-							data.append(false)
-							data.append(false)
-						case 0..<100:
-							data.append(false)
-							data.append(true)
-						case 100..<1000:
-							data.append(true)
-							data.append(false)
-						case 1000...:
-							data.append(true)
-							data.append(true)
-						default:
-							break
-					}
+//					let popularity = (tweet.metrics.rts + 1) * (tweet.metrics.fav + 1)
+					let popularity = ((tweet.metrics.rts + 1) + (tweet.metrics.fav + 1)) / 2
+//					print("pop", popularity, "popularityMax", popularityMax)
+//					let popFloat =
+//					print(popFloat)
+					data.append(Float(popularity))
 				}
 			}
 			
@@ -143,10 +142,12 @@ class Renderer: Forge.Renderer, ObservableObject, MaterialDelegate {
 			print(error.localizedDescription)
 		}
 		guard data.count > 0 else { return }
-		dataBuffer = context.device.makeBuffer(bytes: &data, length: MemoryLayout<simd_bool>.stride * data.count)
+		dataBuffer = context.device.makeBuffer(bytes: &data, length: MemoryLayout<Float>.stride * data.count)
 		// data.count/2 because we are representing each character a = 0 c = 1 g = 2 t = 3 using two bools (00, 01, 10, 11)
-		mesh.instanceCount = data.count/2
-		instanceMaterial.set("Instance Count", Int(data.count/2))
+//		let instanceCount = data.count/2
+		let instanceCount = data.count
+		mesh.instanceCount = instanceCount
+		instanceMaterial.set("Instance Count", Int(instanceCount))
 //		instanceMaterial.set("Width", 30.0)
 //		instanceMaterial.set("Height", 10.0)
 //		instanceMaterial.set("Spacing", 2.0)
