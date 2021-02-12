@@ -14,6 +14,7 @@ struct MetalExperimentsApp: App {
 	var body: some Scene {
 		WindowGroup {
 			ContentView()
+				.navigationTitle("VisaViz")
 				.environmentObject(renderer)
 		}
 	}
