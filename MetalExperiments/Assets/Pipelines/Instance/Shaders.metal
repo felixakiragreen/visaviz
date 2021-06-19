@@ -13,11 +13,11 @@ typedef struct {
     //float4 tColor; // color,1,0.2,0,1
     float4 backgroundColor;
 	 float minValue; // slider,0,10,0
-	 float midValue; // slider,1,10,3
-	 float maxValue; // slider,1,20,3
+	 float midValue; // slider,1,50,10
+	 float maxValue; // slider,10,100,50
     float width; //slider,0,100,8
     float height; //slider,0,100,8
-    float spacing; //slider,0,10,1.0
+    float spacing; //slider,0,10,0.0
     float cornerRadius; //slider,0,1,0.0
     int perRow; //input,333
     float time;
@@ -76,8 +76,10 @@ vertex CustomVertexData instanceVertex(
 
 	float data = sequence[instanceID];
 	const float minV = uniforms.minValue;
-	const float midV = pow(uniforms.midValue, 2.0);
-	const float maxV = pow(uniforms.maxValue, 3.0);
+	const float midV = uniforms.midValue;
+	const float maxV = uniforms.maxValue;
+	// const float midV = pow(uniforms.midValue, 2.0);
+	// const float maxV = pow(uniforms.maxValue, 3.0);
     
 	float value;
 	if (data <= midV) {
