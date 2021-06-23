@@ -43,12 +43,18 @@ class Renderer: Forge.Renderer, ObservableObject, MaterialDelegate {
 	var _updateInspector: Bool = true
 	var observers: [NSKeyValueObservation] = []
 	
-	var exportScaleParam = IntParameter("Export Scale", 4, .inputfield)
+	// var exportScaleParam = IntParameter("Export Scale", 4, .inputfield)
 	
-	lazy var params: ParameterGroup = {
-		var params = ParameterGroup("App Controls")
-		params.append(exportScaleParam)
-		return params
+	// var params: [ParameterGroup] = []
+	// lazy var params: ParameterGroup = ParameterGroup()
+	// (){
+		// var params = ParameterGroup("App Controls")
+	// 	params.append(exportScaleParam)
+		// return params
+	// }()
+	
+	lazy var raycaster: Raycaster = {
+		Raycaster(context: context)
 	}()
 	
 	lazy var mesh: Mesh = {
@@ -206,6 +212,7 @@ class Renderer: Forge.Renderer, ObservableObject, MaterialDelegate {
 		renderer.draw(renderPassDescriptor: renderPassDescriptor, commandBuffer: commandBuffer)
 	}
 	
+	// this is window resizing
 	override func resize(_ size: (width: Float, height: Float)) {
 		cameraController.resize(size)
 		renderer.resize(size)
@@ -226,4 +233,34 @@ class Renderer: Forge.Renderer, ObservableObject, MaterialDelegate {
 //			openEditor()
 		}
 	}
+	
+	override func mouseDown(with event: NSEvent) {
+		let m = event.locationInWindow
+		print("md", m)
+		let pt = normalizePoint(m, mtkView.frame.size)
+		raycaster.setFromCamera(camera, pt)
+		let results = raycaster.intersect(scene, true)
+		for result in results {
+			print(result.object.label)
+			print(result.position)
+		}
+	}
+	
+	func normalizePoint(_ point: CGPoint, _ size: CGSize) -> simd_float2 {
+		#if os(macOS)
+		return 2.0 * simd_make_float2(Float(point.x / size.width), Float(point.y / size.height)) - 1.0
+		#else
+		return 2.0 * simd_make_float2(Float(point.x / size.width), 1.0 - Float(point.y / size.height)) - 1.0
+		#endif
+	}
 }
+
+
+
+/*
+
+NSEvent: type=LMouseDragged loc=(714.434,401.574) time=89044.6 flags=0 win=0x158e5b360 winNum=77074 ctxt=0x0 evNum=11216 click=1 buttonNumber=0 pressure=1 deltaX=0.000000 deltaY=0.000000 deviceID:0x0 subtype=0
+
+NSEvent: type=LMouseDragged loc=(560.367,888.891) time=89094.4 flags=0 win=0x158e5b360 winNum=77074 ctxt=0x0 evNum=11230 click=1 buttonNumber=0 pressure=1 deltaX=-1.000000 deltaY=0.000000 deviceID:0x0 subtype=0
+
+*/
