@@ -32,7 +32,7 @@ extension Renderer {
 			}
 			
 			// add params here
-			inspectorViewController.addPanel(PanelViewController(params.label, parameters: params))
+			// inspectorViewController.addPanel(PanelViewController(params.label, parameters: params))
 			inspectorViewController.addPanel(PanelViewController(instanceMaterial.label + " Material", parameters: instanceMaterial.parameters))
 			
 			let panels = inspectorViewController.getPanels()
