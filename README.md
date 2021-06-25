@@ -1,3 +1,5 @@
+CURRENTLY UNDERGOING A MAJOR REWRITE
+
 TLDR: trying to make this in Satin+Metal ↓
 ![Screenshot](./Screen-Shot-2021-01-18.png)
 
@@ -44,7 +46,7 @@ I’m hoping to be able to render at least 200k blocks. I think it should be pos
 **Nice to haves:**
 
 - Interactive blocks (show a popup on hover with tweet details)
-	- note: I can workaround using an overlay in SwiftUI if I can't figure it out
+  - note: I can workaround using an overlay in SwiftUI if I can't figure it out
 
 ## Scope
 
@@ -65,9 +67,9 @@ golOS is a game about playing your own life as an RPG. It uses visualizations of
 
 I discovered [Visa](http://twitter.com/visakanv) through Twitter because he’s shared a lot of ideas about a thing like this. We both think it would be really cool to be able to visualize _all_ your tweets in a single interface and explore them that way.
 
-
 ---
 
 Other things:
+
 - [CHANGELOG](./CHANGELOG.md)
 - [DEV NOTES](./DEVNOTES.md)
