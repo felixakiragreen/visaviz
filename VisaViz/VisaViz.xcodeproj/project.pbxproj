@@ -13,6 +13,11 @@
 		1D02B40A28B7EEC500BACE7A /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B40928B7EEC500BACE7A /* Tweet.swift */; };
 		1D02B40C28B7F09600BACE7A /* TweetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B40B28B7F09600BACE7A /* TweetListView.swift */; };
 		1D02B40E28B7F0AA00BACE7A /* TweetArchiveAtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B40D28B7F0AA00BACE7A /* TweetArchiveAtom.swift */; };
+		1D02B41028B7F78000BACE7A /* TweetCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B40F28B7F78000BACE7A /* TweetCanvasView.swift */; };
+		1D02B41228B7FF9700BACE7A /* TweetVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B41128B7FF9700BACE7A /* TweetVisual.swift */; };
+		1D02B41628B8000600BACE7A /* Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B41528B8000600BACE7A /* Hue.swift */; };
+		1D02B41828B8008800BACE7A /* TweetVisualsAtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B41728B8008800BACE7A /* TweetVisualsAtom.swift */; };
+		1D02B41A28B8039E00BACE7A /* Collection+optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B41928B8039E00BACE7A /* Collection+optional.swift */; };
 		1D3F13E62892B5370008F2EF /* VisaVizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F13E52892B5370008F2EF /* VisaVizApp.swift */; };
 		1D3F13E82892B5370008F2EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F13E72892B5370008F2EF /* ContentView.swift */; };
 		1D3F13EA2892B5390008F2EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D3F13E92892B5390008F2EF /* Assets.xcassets */; };
@@ -28,6 +33,11 @@
 		1D02B40928B7EEC500BACE7A /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		1D02B40B28B7F09600BACE7A /* TweetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListView.swift; sourceTree = "<group>"; };
 		1D02B40D28B7F0AA00BACE7A /* TweetArchiveAtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetArchiveAtom.swift; sourceTree = "<group>"; };
+		1D02B40F28B7F78000BACE7A /* TweetCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCanvasView.swift; sourceTree = "<group>"; };
+		1D02B41128B7FF9700BACE7A /* TweetVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetVisual.swift; sourceTree = "<group>"; };
+		1D02B41528B8000600BACE7A /* Hue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hue.swift; sourceTree = "<group>"; };
+		1D02B41728B8008800BACE7A /* TweetVisualsAtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetVisualsAtom.swift; sourceTree = "<group>"; };
+		1D02B41928B8039E00BACE7A /* Collection+optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+optional.swift"; sourceTree = "<group>"; };
 		1D3F13E22892B5370008F2EF /* VisaViz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisaViz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3F13E52892B5370008F2EF /* VisaVizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaVizApp.swift; sourceTree = "<group>"; };
 		1D3F13E72892B5370008F2EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +64,7 @@
 			children = (
 				1D3F13F72892B5820008F2EF /* CanvasTestView.swift */,
 				1D02B40B28B7F09600BACE7A /* TweetListView.swift */,
+				1D02B40F28B7F78000BACE7A /* TweetCanvasView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -63,11 +74,30 @@
 			children = (
 				1D02B40628B7EA7600BACE7A /* tweet50.js */,
 				1D02B40528B7EA7600BACE7A /* tweet500.js */,
-				1D02B40928B7EEC500BACE7A /* Tweet.swift */,
-				1D02B40D28B7F0AA00BACE7A /* TweetArchiveAtom.swift */,
+				1D02B41428B7FFA700BACE7A /* Quarks */,
+				1D02B41328B7FF9C00BACE7A /* Atoms */,
 				1D02B40328B7E84600BACE7A /* TweetArchiveStore.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1D02B41328B7FF9C00BACE7A /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				1D02B40D28B7F0AA00BACE7A /* TweetArchiveAtom.swift */,
+				1D02B41728B8008800BACE7A /* TweetVisualsAtom.swift */,
+			);
+			name = Atoms;
+			sourceTree = "<group>";
+		};
+		1D02B41428B7FFA700BACE7A /* Quarks */ = {
+			isa = PBXGroup;
+			children = (
+				1D02B40928B7EEC500BACE7A /* Tweet.swift */,
+				1D02B41128B7FF9700BACE7A /* TweetVisual.swift */,
+				1D02B41528B8000600BACE7A /* Hue.swift */,
+			);
+			name = Quarks;
 			sourceTree = "<group>";
 		};
 		1D3F13D92892B5370008F2EF = {
@@ -93,6 +123,7 @@
 				1D3F13E72892B5370008F2EF /* ContentView.swift */,
 				1D02B40128B7E6A700BACE7A /* Views */,
 				1D02B40228B7E6AC00BACE7A /* Model */,
+				1D02B41928B8039E00BACE7A /* Collection+optional.swift */,
 				1D3F13E92892B5390008F2EF /* Assets.xcassets */,
 				1D3F13EB2892B5390008F2EF /* VisaViz.entitlements */,
 				1D3F13EC2892B5390008F2EF /* Preview Content */,
@@ -186,11 +217,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D02B41628B8000600BACE7A /* Hue.swift in Sources */,
+				1D02B41A28B8039E00BACE7A /* Collection+optional.swift in Sources */,
+				1D02B41228B7FF9700BACE7A /* TweetVisual.swift in Sources */,
+				1D02B41028B7F78000BACE7A /* TweetCanvasView.swift in Sources */,
 				1D02B40C28B7F09600BACE7A /* TweetListView.swift in Sources */,
 				1D3F13E82892B5370008F2EF /* ContentView.swift in Sources */,
 				1D02B40A28B7EEC500BACE7A /* Tweet.swift in Sources */,
 				1D3F13F82892B5820008F2EF /* CanvasTestView.swift in Sources */,
 				1D02B40428B7E84600BACE7A /* TweetArchiveStore.swift in Sources */,
+				1D02B41828B8008800BACE7A /* TweetVisualsAtom.swift in Sources */,
 				1D3F13E62892B5370008F2EF /* VisaVizApp.swift in Sources */,
 				1D02B40E28B7F0AA00BACE7A /* TweetArchiveAtom.swift in Sources */,
 			);
