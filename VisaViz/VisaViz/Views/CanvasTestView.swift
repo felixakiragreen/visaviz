@@ -13,7 +13,7 @@ struct CanvasTestView: View {
 			Canvas { context, size in
 				let containerWidth = size.width
 				
-				let count = 500
+				let count = 100
 				let columnCount = count
 				let rowCount = count
 				
@@ -47,7 +47,8 @@ struct CanvasTestView: View {
 				}
 			}
 		}
-		.frame(width: 2000, height: 2000)
+		// .frame(width: 2000, height: 2000)
+		.frame(width: 500, height: 500)
 		// .frame(maxWidth: .infinity, maxHeight: .infinity)
 	}
 }
