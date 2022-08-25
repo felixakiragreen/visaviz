@@ -13,6 +13,9 @@ struct TweetListView: View {
 	@WatchStateObject(TweetArchiveAtom())
 	var archive
 	
+	@Watch(TopColorsAtom())
+	var topColors
+	
 	var body: some View {
 		VStack {
 			HStack {
@@ -26,6 +29,16 @@ struct TweetListView: View {
 					// print("replies", archive.replyCount.sorted(by: {
 					// 	$0.value > $1.value
 					// }))
+				}
+			}
+			HStack {
+				HStack(spacing: 4) {
+					ForEach(topColors.sorted(by: { $0.value.1 > $1.value.1 }), id: \.value.0) { tc in
+						RoundedRectangle(cornerRadius: 4, style: .continuous)
+							.foregroundColor(Color(tc.value.0, 400))
+							.frame(width: 16, height: 16)
+						Text("\(tc.key) (\(tc.value.1))")
+					}
 				}
 			}
 			// ForEach(archive.allTweets) { tweet in
