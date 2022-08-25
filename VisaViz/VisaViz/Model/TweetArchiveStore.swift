@@ -10,15 +10,16 @@ import Foundation
 @MainActor
 class TweetArchiveStore: ObservableObject {
 
-	
 	@Published
 	var allTweets: [Tweet] = []
+	
+	@Published
+	var replyCount: [String: Int] = [:]
 	
 	enum ArchiveError: Error {
 		case fileNotFound
 		case invalidString
 		case invalidData
-		// case decodingFail
 	}
 	
 	private static func fileURL(name: String) throws -> URL {
@@ -48,8 +49,8 @@ class TweetArchiveStore: ObservableObject {
 				throw ArchiveError.invalidData
 			}
 			
-			print("jsonString", jsonString)
-			print("jsonData", jsonData)
+			// print("jsonString", jsonString)
+			// print("jsonData", jsonData)
 			
 			let decoder = JSONDecoder()
 			decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -61,37 +62,22 @@ class TweetArchiveStore: ObservableObject {
 			
 			let decodedData = try decoder.decode([Tweet].self, from: jsonData)
 			
-			allTweets = decodedData
+			allTweets = decodedData.sorted(by: { $0.createdAt < $1.createdAt })
 			
 		} catch {
 			print("error: \(error)")
 		}
-		
-		// if let localData = readLocalFile(forName: "tweet") {
-		// 	print(localData)
-		// 	if let jsonData = parse(jsonData: localData) {
-		// 		/// FOR PERFORMANCE TESTING
-		// 		//				populate(allTweets: jsonData.dropLast(350))
-		//
-		// 		populate(allTweets: jsonData)
-		// 	}
-		// }
-		/// Experiments with async loading for performance???
-		//		DispatchQueue.global(qos: .background).async { [weak self] in
-		//			guard let data = try? Data(contentsOf: Self.fileURL) else {
-		//				#if DEBUG
-		//					DispatchQueue.main.async {
-		//						self?.daily = DailyAnnotation.testData
-		//					}
-		//				#endif
-		//				return
-		//			}
-		//			guard let dailyAnnotations = try? JSONDecoder().decode([DailyAnnotation].self, from: data) else {
-		//				fatalError("Can't decode saved scrum data.")
-		//			}
-		//			DispatchQueue.main.async {
-		//				self?.daily = dailyAnnotations
-		//			}
-		//		}
+	}
+	
+	func generateReplies() {
+		for tweetIndex in allTweets.indices {
+			if let repliedTo = allTweets[tweetIndex].replyUserName {
+				if replyCount[repliedTo] == nil {
+					replyCount[repliedTo] = 1
+				} else {
+					replyCount[repliedTo]! += 1
+				}
+			}
+		}
 	}
 }
