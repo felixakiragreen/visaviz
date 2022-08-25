@@ -10,10 +10,10 @@ import Foundation
 
 
 struct TopColorsAtom: ValueAtom, KeepAlive, Hashable {
-	func value(context: Context) -> [String:Hue] {
+	func value(context: Context) -> [String:(Hue, Int)] {
 		let archive = context.watch(TweetArchiveAtom())
 		
-		var _topColors: [String:Hue] = [:]
+		var _topColors: [String:(Hue, Int)] = [:]
 		
 		let topInteracted = archive.replyCount
 			.sorted(by: {
@@ -23,9 +23,10 @@ struct TopColorsAtom: ValueAtom, KeepAlive, Hashable {
 		
 		for index in topInteracted.indices {
 			let username = topInteracted[index].key
+			let count = topInteracted[index].value
 			let hue = Hue.allCases[index + 1]
 			
-			_topColors[username] = hue
+			_topColors[username] = (hue, count)
 		}
 		
 		return _topColors
@@ -46,7 +47,7 @@ struct TweetVisualsAtom: ValueAtom, KeepAlive, Hashable {
 				_visuals.append(
 					TweetVisual(
 						id: tweet.id,
-						hue: topColors[username]!
+						hue: topColors[username]?.0 ?? .grey
 					)
 				)
 			} else {
