@@ -15,16 +15,30 @@ struct TweetListView: View {
 	
 	var body: some View {
 		VStack {
-			Text("hey")
-			Text("tweets: \(archive.allTweets.count)")
-		}
-		.onAppear {
-			appear()
+			HStack {
+				Text("tweets: \(archive.allTweets.count)")
+				Button("Load") {
+					loadFromFile()
+				}
+				Button("Replies") {
+					archive.generateReplies()
+					
+					// print("replies", archive.replyCount.sorted(by: {
+					// 	$0.value > $1.value
+					// }))
+				}
+			}
+			// ForEach(archive.allTweets) { tweet in
+			// 	HStack {
+			// 		Text("id: \(tweet.id)")
+			// 		Text("fullText: \(tweet.fullText)")
+			// 	}
+			// }
 		}
 	}
 	
 	@MainActor
-	func appear() {
+	func loadFromFile() {
 		Task {
 			await archive.load()
 		}
