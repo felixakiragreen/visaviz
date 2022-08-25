@@ -11,12 +11,20 @@ struct Tweet: Hashable, Identifiable, Codable {
 	var id: String
 	var fullText: String
 	var createdAt: Date
+	
+	var replyUserName: String?
+	var replyUserId: String?
+	var replyTweetId: String?
+	var threadId: String?
 
 	enum CodingKeys: String, CodingKey {
 		case tweet
 		case id
 		case fullText
 		case createdAt
+		case inReplyToScreenName
+		case inReplyToUserId
+		case inReplyToStatusId
 	}
 
 	init(from decoder: Decoder) throws {
@@ -33,6 +41,10 @@ struct Tweet: Hashable, Identifiable, Codable {
 		id = try tweet.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
 		fullText = try tweet.decodeIfPresent(String.self, forKey: .fullText) ?? "no full text"
 		createdAt = try tweet.decodeIfPresent(Date.self, forKey: .createdAt) ?? Date()
+		
+		self.replyUserName = try? tweet.decodeIfPresent(String.self, forKey: .inReplyToScreenName)
+		self.replyUserId = try? tweet.decodeIfPresent(String.self, forKey: .inReplyToUserId)
+		self.replyTweetId = try? tweet.decodeIfPresent(String.self, forKey: .inReplyToStatusId)
 	}
 
 	func encode(to encoder: Encoder) throws {
