@@ -11,6 +11,7 @@ struct ContentView: View {
 	var body: some View {
 		VStack {
 			ScrollView {
+				TweetListView()
 				CanvasTestView()
 			}
 			.frame(maxWidth: .infinity, maxHeight: .infinity)
