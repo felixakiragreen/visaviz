@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct TweetVisual: Hashable, Identifiable {
+	var id: String
+	
+	var hue: Hue
+	
+	// TODO: x & y position
+}
