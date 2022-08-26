@@ -9,28 +9,44 @@ import Atoms
 import SwiftUI
 
 struct TweetListView: View {
-	
 	@WatchStateObject(TweetArchiveAtom())
 	var archive
-	
+
 	@Watch(TopColorsAtom())
 	var topColors
-	
+
+	@WatchState(GridAtom())
+	var grid
+
+	@State private var columnCount: Double = 0
+
 	var body: some View {
 		VStack {
 			HStack {
-				Text("tweets: \(archive.allTweets.count)")
+				Text("Tweets: \(archive.allTweets.count)")
+
 				Button("Load") {
 					loadFromFile()
 				}
 				Button("Replies") {
 					archive.generateReplies()
-					
+
 					// print("replies", archive.replyCount.sorted(by: {
 					// 	$0.value > $1.value
 					// }))
 				}
+				Text("Columns: \(Int(columnCount))")
 			}
+			Slider(value: $columnCount, in: 50 ... 500, step: 10, onEditingChanged: {
+				// closure value will be false when editing is done
+				if $0 == false {
+					grid.columns = Int(columnCount)
+				}
+			})
+				.padding(.vertical)
+				.onAppear {
+					columnCount = Double(grid.columns)
+				}
 			HStack {
 				HStack(spacing: 4) {
 					ForEach(topColors.sorted(by: { $0.value.1 > $1.value.1 }), id: \.value.0) { tc in
@@ -49,7 +65,7 @@ struct TweetListView: View {
 			// }
 		}
 	}
-	
+
 	@MainActor
 	func loadFromFile() {
 		Task {
