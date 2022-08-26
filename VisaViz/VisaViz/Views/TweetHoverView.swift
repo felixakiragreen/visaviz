@@ -10,32 +10,93 @@ import SwiftUI
 
 struct TweetHoverView: View {
 	
+	@WatchStateObject(TweetArchiveAtom())
+	var archive
+	
 	@WatchState(GridAtom())
 	var grid
 	
-	var hover: CGPoint?
+	var hover: CGPoint
+	
+	var container: CGSize = CGSize(width: 300, height: 200)
 	
 	var body: some View {
 		VStack {
-			if let hover {
-				Text("Hover \(hover.x), \(hover.y)")
+			let slot = getCellSlot()
+			// Text("Hover \(hover.x), \(hover.y)")
+			// Text("Slot \(slot.0), \(slot.1)")
+
+			if let tweetIndex = getTweetIndex(),
+				let tweet = archive.allTweets[tweetIndex] {
+				Text("index:\(tweetIndex) id:\(tweet.id)")
+					.font(.caption2)
+				Text("\(tweet.fullText)")
 			}
 		}
+		.padding()
+		.frame(width: container.width, height: container.height)
+		.background(
+			RoundedRectangle(cornerRadius: 16, style: .continuous)
+				.fill(.ultraThinMaterial)
+		)
 		.position(getPosition())
 	}
 	
 	func getPosition() -> CGPoint {
-		if let hover {
-			return CGPoint(x: hover.x, y: hover.y)
-		}
+		let isLeft = hover.x < grid.containerWidth / 2
+		let isTop = hover.y < grid.containerHeight / 2
 		
-		return .zero
+		let forLeft = hover.x + container.width / 2
+		let forRight = hover.x - container.width / 2
+		let forTop = hover.y + container.height / 2
+		let forBottom = hover.y - container.height / 2
+
+		if isTop {
+			if isLeft {
+				return CGPoint(x: forLeft, y: forTop)
+			} else {
+				return CGPoint(x: forRight, y: forTop)
+			}
+		} else {
+			if isLeft {
+				return CGPoint(x: forLeft, y: forBottom)
+			} else {
+				return CGPoint(x: forRight, y: forBottom)
+			}
+		}
+	}
+	
+	func getCellSlot() -> (Int, Int) {
+		let columnIndex = Int(floor(
+			hover.x / grid.cellWidth
+		))
+		let rowIndex = Int(floor(
+			hover.y / grid.cellWidth
+		))
+		
+		return (columnIndex, rowIndex)
+	}
+	
+	func getTweetIndex() -> Int? {
+		let slot = getCellSlot()
+		let columnIndex = slot.0
+		let rowIndex = slot.1
+		
+		let index = columnIndex + (rowIndex * grid.columns)
+		
+		if index < archive.allTweets.count {
+			return index
+		}
+	
+		return nil
 	}
 }
 
 struct TweetHoverView_Previews: PreviewProvider {
 	static var previews: some View {
-		TweetHoverView()
+		TweetHoverView(
+			hover: CGPoint(x: 200, y: 200)
+		)
 			.embedAtomRoot()
 			.preferredColorScheme(.dark)
 	}
