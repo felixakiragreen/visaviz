@@ -16,7 +16,7 @@ struct ContentView: View {
 
 	var body: some View {
 		VStack {
-			TweetListView()
+			ControlsView()
 				.padding()
 
 			ZStack {
@@ -40,7 +40,9 @@ struct ContentView: View {
 					hover = location
 				})
 				
-				TweetHoverView(hover: hover)
+				if hover != nil {
+					TweetHoverView(hover: hover!)
+				}
 			}
 		}
 		// .background(Color(.red, 400).opacity(0.2))
