@@ -21,7 +21,7 @@ struct TweetCanvasView: View {
 			Canvas { context, size in
 				let containerWidth = size.width
 
-				let count = 32
+				let count = 100
 				let columnCount = count
 				let rowCount = count
 
@@ -56,7 +56,7 @@ struct TweetCanvasView: View {
 				}
 			} // Canvas
 		} // VStack
-		.frame(width: 500, height: 500)
+		.frame(width: 600, height: 600)
 		// .frame(maxWidth: .infinity, maxHeight: .infinity)
 	}
 }
