@@ -19,27 +19,29 @@ struct ContentView: View {
 			TweetListView()
 				.padding()
 
-			GeometryReader { geo in
-				ScrollView {
-					TweetCanvasView(
-						containerWidth: geo.size.width,
-						hover: hover
-					)
-					.frame(maxWidth: .infinity, minHeight: geo.size.height)
+			ZStack {
+				GeometryReader { geo in
+					ScrollView {
+						TweetCanvasView(
+							container: geo.size,
+							hover: hover
+						)
+						.frame(maxWidth: .infinity, minHeight: geo.size.height)
+					}
 				}
+				.frame(maxWidth: .infinity, maxHeight: .infinity)
+				.mouseMove(isInside: { inside in
+					// print("is inside: \(inside)")
+					if inside == false {
+						hover = nil
+					}
+				}, onMove: { location in
+					// print("location: \(location)")
+					hover = location
+				})
+				
+				TweetHoverView(hover: hover)
 			}
-			.frame(maxWidth: .infinity, maxHeight: .infinity)
-			.mouseMove(isInside: { inside in
-				print("is inside: \(inside)")
-				if inside == false {
-					hover = nil
-				}
-			}, onMove: { location in
-				print("location: \(location)")
-				hover = location
-			})
-			
-			TweetHoverView(hover: hover)
 		}
 		// .background(Color(.red, 400).opacity(0.2))
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
