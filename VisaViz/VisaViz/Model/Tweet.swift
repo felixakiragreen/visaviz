@@ -9,8 +9,12 @@ import Foundation
 
 struct Tweet: Hashable, Identifiable, Codable {
 	var id: String
+	var idInt: Int
 	var fullText: String
 	var createdAt: Date
+	
+	var favoriteCount: Int
+	var retweetCount: Int
 	
 	var replyUserName: String?
 	var replyUserId: String?
@@ -22,6 +26,8 @@ struct Tweet: Hashable, Identifiable, Codable {
 		case id
 		case fullText
 		case createdAt
+		case favoriteCount
+		case retweetCount
 		case inReplyToScreenName
 		case inReplyToUserId
 		case inReplyToStatusId
@@ -38,13 +44,19 @@ struct Tweet: Hashable, Identifiable, Codable {
 		// self.fullText = try tweet.decode(String.self, forKey: .fullText)
 		// self.createdAt = try tweet.decode(Date.self, forKey: .createdAt)
 
-		id = try tweet.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
-		fullText = try tweet.decodeIfPresent(String.self, forKey: .fullText) ?? "no full text"
+		let tryId = try tweet.decodeIfPresent(String.self, forKey: .id)
+		
+		id = tryId ?? UUID().uuidString
+		idInt = (tryId != nil) ? Int(tryId!) ?? 0 : 0
+		fullText = try tweet.decodeIfPresent(String.self, forKey: .fullText) ?? ""
 		createdAt = try tweet.decodeIfPresent(Date.self, forKey: .createdAt) ?? Date()
 		
-		self.replyUserName = try? tweet.decodeIfPresent(String.self, forKey: .inReplyToScreenName)
-		self.replyUserId = try? tweet.decodeIfPresent(String.self, forKey: .inReplyToUserId)
-		self.replyTweetId = try? tweet.decodeIfPresent(String.self, forKey: .inReplyToStatusId)
+		favoriteCount = Int(try tweet.decode(String.self, forKey: .favoriteCount)) ?? 0
+		retweetCount = Int(try tweet.decode(String.self, forKey: .retweetCount)) ?? 0
+		
+		replyUserName = try? tweet.decodeIfPresent(String.self, forKey: .inReplyToScreenName)
+		replyUserId = try? tweet.decodeIfPresent(String.self, forKey: .inReplyToUserId)
+		replyTweetId = try? tweet.decodeIfPresent(String.self, forKey: .inReplyToStatusId)
 	}
 
 	func encode(to encoder: Encoder) throws {
