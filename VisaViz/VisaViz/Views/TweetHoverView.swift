@@ -20,10 +20,16 @@ struct TweetHoverView: View {
 			if let hover {
 				Text("Hover \(hover.x), \(hover.y)")
 			}
-			if hover == nil {
-				Text("No hover")
-			}
 		}
+		.position(getPosition())
+	}
+	
+	func getPosition() -> CGPoint {
+		if let hover {
+			return CGPoint(x: hover.x, y: hover.y)
+		}
+		
+		return .zero
 	}
 }
 
