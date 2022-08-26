@@ -28,12 +28,24 @@ struct GridParams: Hashable {
 	var cellWidth: CGFloat = 0
 	var cellPadding: CGFloat = 0
 
+	@inlinable
 	mutating func calcRows(count: Int) {
 		print("calcRows, c: \(count)")
 		cellCount = count
 		let rowsMax = Int(
 			ceil(
 				Double(count) / Double(columns)
+			)
+		)
+		rows = max(GridParams.minRows, rowsMax)
+	}
+	
+	@inlinable
+	mutating func recalcRows() {
+		print("recalcRows")
+		let rowsMax = Int(
+			ceil(
+				Double(cellCount) / Double(columns)
 			)
 		)
 		rows = max(GridParams.minRows, rowsMax)
