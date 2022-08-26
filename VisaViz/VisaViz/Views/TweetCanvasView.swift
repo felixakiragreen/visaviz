@@ -19,22 +19,21 @@ struct TweetCanvasView: View {
 	var grid
 	
 	var containerWidth: CGFloat
+	var hover: CGPoint?
 
 	var body: some View {
-		// .overlay(
-		// 	GeometryReader { geo in
-		// 		Color.clear.onAppear {
-		// 			contentSize = geo.size
-		// 		}
-		// 	}
-		// )
 		VStack {
 			let columnCount = grid.columns
-			let rowCountMax = Int(ceil(Double(visuals.count) / Double(columnCount)))
-			let rowCount = max(10, rowCountMax)
+			let rowCount = grid.rows
 			
-			let cellSize = containerWidth / CGFloat(columnCount)
-			let cellPadding = cellSize / 10
+			let cellSize = grid.cellWidth
+			let cellPadding = grid.cellPadding
+
+			// let rowCountMax = Int(ceil(Double(visuals.count) / Double(columnCount)))
+			// let rowCount = max(10, rowCountMax)
+			//
+			// let cellSize = containerWidth / CGFloat(columnCount)
+			// let cellPadding = cellSize / 10
 			
 			Canvas { context, size in
 				for columnIndex in 0 ..< columnCount {
@@ -56,18 +55,23 @@ struct TweetCanvasView: View {
 				}
 			} // Canvas
 			.frame(minHeight: CGFloat(rowCount) * cellSize)
+			.onAppear {
+				grid.calcCells(width: containerWidth)
+			}
+			.onChange(of: containerWidth) {
+				if grid.containerWidth != $0 {
+					grid.calcCells(width: $0)
+				}
+			}
 		} // VStack
-		// .frame(width: 600, height: 600)
-		// .frame(maxWidth: .infinity, maxHeight: .infinity)
-		.background(Color(.orange, 400).opacity(0.2))
+		// .background(Color(.orange, 400).opacity(0.2))
 	}
 }
 
 struct TweetCanvasView_Previews: PreviewProvider {
 	static var previews: some View {
-		AtomRoot {
-			TweetCanvasView(containerWidth: 600)
-				.preferredColorScheme(.dark)
-		}
+		TweetCanvasView(containerWidth: 600)
+			.embedAtomRoot()
+			.preferredColorScheme(.dark)
 	}
 }
