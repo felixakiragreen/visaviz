@@ -30,20 +30,16 @@ struct TweetListView: View {
 				}
 				Button("Replies") {
 					archive.generateReplies()
-
-					// print("replies", archive.replyCount.sorted(by: {
-					// 	$0.value > $1.value
-					// }))
 				}
 				Text("Columns: \(Int(columnCount))")
 			}
 			Slider(value: $columnCount, in: 50 ... 500, step: 10, onEditingChanged: {
-				// closure value will be false when editing is done
+				/// closure value will be false when editing is done
 				if $0 == false {
 					grid.columns = Int(columnCount)
+					grid.recalcCells()
 				}
 			})
-				.padding(.vertical)
 				.onAppear {
 					columnCount = Double(grid.columns)
 				}
@@ -57,12 +53,6 @@ struct TweetListView: View {
 					}
 				}
 			}
-			// ForEach(archive.allTweets) { tweet in
-			// 	HStack {
-			// 		Text("id: \(tweet.id)")
-			// 		Text("fullText: \(tweet.fullText)")
-			// 	}
-			// }
 		}
 	}
 
@@ -76,9 +66,8 @@ struct TweetListView: View {
 
 struct TweetListView_Previews: PreviewProvider {
 	static var previews: some View {
-		AtomRoot {
-			TweetListView()
-				.preferredColorScheme(.dark)
-		}
+		TweetListView()
+			.embedAtomRoot()
+			.preferredColorScheme(.dark)
 	}
 }
