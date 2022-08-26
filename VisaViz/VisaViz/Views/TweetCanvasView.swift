@@ -18,7 +18,10 @@ struct TweetCanvasView: View {
 	@WatchState(GridAtom())
 	var grid
 	
-	var containerWidth: CGFloat
+	var container: CGSize
+	var containerWidth: CGFloat {
+		container.width
+	}
 	var hover: CGPoint?
 
 	var body: some View {
@@ -56,11 +59,11 @@ struct TweetCanvasView: View {
 			} // Canvas
 			.frame(minHeight: CGFloat(rowCount) * cellSize)
 			.onAppear {
-				grid.calcCells(width: containerWidth)
+				grid.calcCells(size: container)
 			}
-			.onChange(of: containerWidth) {
-				if grid.containerWidth != $0 {
-					grid.calcCells(width: $0)
+			.onChange(of: container) {
+				if grid.containerWidth != $0.width || grid.containerHeight != $0.height {
+					grid.calcCells(size: $0)
 				}
 			}
 		} // VStack
@@ -70,7 +73,7 @@ struct TweetCanvasView: View {
 
 struct TweetCanvasView_Previews: PreviewProvider {
 	static var previews: some View {
-		TweetCanvasView(containerWidth: 600)
+		TweetCanvasView(container: CGSize(width: 600, height: 480))
 			.embedAtomRoot()
 			.preferredColorScheme(.dark)
 	}
