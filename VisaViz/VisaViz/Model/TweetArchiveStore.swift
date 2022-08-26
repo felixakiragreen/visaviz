@@ -33,7 +33,7 @@ class TweetArchiveStore: ObservableObject {
 	func load() async {
 		
 		do {
-			let fileURL = try TweetArchiveStore.fileURL(name: "tweet50")
+			let fileURL = try TweetArchiveStore.fileURL(name: "tweet500")
 			
 			let (data, _) = try await URLSession.shared.data(from: fileURL)
 			
@@ -70,14 +70,16 @@ class TweetArchiveStore: ObservableObject {
 	}
 	
 	func generateReplies() {
+		var _replyCount: [String: Int] = [:]
 		for tweetIndex in allTweets.indices {
 			if let repliedTo = allTweets[tweetIndex].replyUserName {
-				if replyCount[repliedTo] == nil {
-					replyCount[repliedTo] = 1
+				if _replyCount[repliedTo] == nil {
+					_replyCount[repliedTo] = 1
 				} else {
-					replyCount[repliedTo]! += 1
+					_replyCount[repliedTo]! += 1
 				}
 			}
 		}
+		replyCount = _replyCount
 	}
 }
