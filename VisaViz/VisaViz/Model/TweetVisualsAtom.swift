@@ -38,6 +38,7 @@ struct TweetVisualsAtom: ValueAtom, KeepAlive, Hashable {
 	func value(context: Context) -> [TweetVisual] {
 		let archive = context.watch(TweetArchiveAtom())
 		let topColors = context.watch(TopColorsAtom())
+		var gridState = context.state(GridAtom())
 		
 		var _visuals: [TweetVisual] = []
 		
@@ -58,6 +59,11 @@ struct TweetVisualsAtom: ValueAtom, KeepAlive, Hashable {
 					)
 				)
 			}
+		}
+		
+		/// update the cell count when visuals update
+		if gridState.wrappedValue.cellCount != _visuals.count {
+			gridState.wrappedValue.calcRows(count: _visuals.count)
 		}
 		
 		return _visuals
