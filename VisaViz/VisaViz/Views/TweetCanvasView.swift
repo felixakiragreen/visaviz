@@ -53,6 +53,8 @@ struct TweetCanvasView: View {
 							let color = Color(visuals[index].hue, 400)
 
 							context.fill(cellPath, with: .color(color))
+						} else {
+							context.fill(cellPath, with: .color(Color(.grey, 800)))
 						}
 					}
 				}
