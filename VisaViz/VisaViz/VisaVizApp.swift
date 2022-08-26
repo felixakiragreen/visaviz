@@ -12,9 +12,8 @@ import SwiftUI
 struct VisaVizApp: App {
 	var body: some Scene {
 		WindowGroup {
-			AtomRoot {
-				ContentView()
-			}
+			ContentView()
+				.embedAtomRoot()
 		}
 	}
 }
