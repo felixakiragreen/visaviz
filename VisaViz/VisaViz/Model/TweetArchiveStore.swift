@@ -70,6 +70,7 @@ class TweetArchiveStore: ObservableObject {
 	}
 	
 	func generateReplies() {
+		/// mutating directly cause the view to be updated 9000+ times
 		var _replyCount: [String: Int] = [:]
 		for tweetIndex in allTweets.indices {
 			if let repliedTo = allTweets[tweetIndex].replyUserName {
@@ -80,6 +81,7 @@ class TweetArchiveStore: ObservableObject {
 				}
 			}
 		}
+		/// doing it this way means it only happens once
 		replyCount = _replyCount
 	}
 }
