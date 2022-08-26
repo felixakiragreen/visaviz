@@ -1,5 +1,5 @@
 //
-//  TweetListView.swift
+//  ControlsView.swift
 //  VisaViz
 //
 //  Created by Felix Akira Green on 8/25/22.
@@ -8,7 +8,7 @@
 import Atoms
 import SwiftUI
 
-struct TweetListView: View {
+struct ControlsView: View {
 	@WatchStateObject(TweetArchiveAtom())
 	var archive
 
@@ -37,6 +37,7 @@ struct TweetListView: View {
 				/// closure value will be false when editing is done
 				if $0 == false {
 					grid.columns = Int(columnCount)
+					grid.recalcRows()
 					grid.recalcCells()
 				}
 			})
@@ -64,9 +65,9 @@ struct TweetListView: View {
 	}
 }
 
-struct TweetListView_Previews: PreviewProvider {
+struct ControlsView_Previews: PreviewProvider {
 	static var previews: some View {
-		TweetListView()
+		ControlsView()
 			.embedAtomRoot()
 			.preferredColorScheme(.dark)
 	}
