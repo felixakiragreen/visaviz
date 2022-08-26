@@ -18,6 +18,7 @@
 		1D02B41628B8000600BACE7A /* Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B41528B8000600BACE7A /* Hue.swift */; };
 		1D02B41828B8008800BACE7A /* TweetVisualsAtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B41728B8008800BACE7A /* TweetVisualsAtom.swift */; };
 		1D02B41A28B8039E00BACE7A /* Collection+optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B41928B8039E00BACE7A /* Collection+optional.swift */; };
+		1D02B41C28B913F200BACE7A /* GridAtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B41B28B913F200BACE7A /* GridAtom.swift */; };
 		1D3F13E62892B5370008F2EF /* VisaVizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F13E52892B5370008F2EF /* VisaVizApp.swift */; };
 		1D3F13E82892B5370008F2EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F13E72892B5370008F2EF /* ContentView.swift */; };
 		1D3F13EA2892B5390008F2EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D3F13E92892B5390008F2EF /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		1D02B41528B8000600BACE7A /* Hue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hue.swift; sourceTree = "<group>"; };
 		1D02B41728B8008800BACE7A /* TweetVisualsAtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetVisualsAtom.swift; sourceTree = "<group>"; };
 		1D02B41928B8039E00BACE7A /* Collection+optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+optional.swift"; sourceTree = "<group>"; };
+		1D02B41B28B913F200BACE7A /* GridAtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridAtom.swift; sourceTree = "<group>"; };
 		1D3F13E22892B5370008F2EF /* VisaViz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisaViz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3F13E52892B5370008F2EF /* VisaVizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaVizApp.swift; sourceTree = "<group>"; };
 		1D3F13E72892B5370008F2EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				1D02B40D28B7F0AA00BACE7A /* TweetArchiveAtom.swift */,
 				1D02B41728B8008800BACE7A /* TweetVisualsAtom.swift */,
+				1D02B41B28B913F200BACE7A /* GridAtom.swift */,
 			);
 			name = Atoms;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D02B41628B8000600BACE7A /* Hue.swift in Sources */,
+				1D02B41C28B913F200BACE7A /* GridAtom.swift in Sources */,
 				1D02B41A28B8039E00BACE7A /* Collection+optional.swift in Sources */,
 				1D02B41228B7FF9700BACE7A /* TweetVisual.swift in Sources */,
 				1D02B41028B7F78000BACE7A /* TweetCanvasView.swift in Sources */,
