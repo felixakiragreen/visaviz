@@ -32,6 +32,16 @@ struct ControlsView: View {
 					archive.generateReplies()
 				}
 				Text("Columns: \(Int(columnCount))")
+				
+				Button("max?") {
+					let max = archive.computeMax()
+					print("max: \(max)")
+				}
+				
+				Button("histogram?") {
+					let histogram = archive.computeHistogram()
+					print("histogram: \(histogram.sorted(by: { $0.key < $1.key } ).map({ "\($0.key).\($0.value)" }))")
+				}
 			}
 			Slider(value: $columnCount, in: 50 ... 500, step: 10, onEditingChanged: {
 				/// closure value will be false when editing is done
