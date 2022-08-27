@@ -21,8 +21,7 @@ struct GridParams: Hashable {
 	
 	static let minRows = 10
 
-	var containerWidth: CGFloat = 0
-	var containerHeight: CGFloat = 0
+	var container: CGSize = .zero
 	var cellCount: Int = 0
 	
 	var cellWidth: CGFloat = 0
@@ -54,16 +53,15 @@ struct GridParams: Hashable {
 	@inlinable
 	mutating func calcCells(size: CGSize) {
 		print("calcCells, w:\(size.width) h:\(size.height)")
-		containerWidth = size.width
-		containerHeight = size.height
+		container = size
 		cellWidth = size.width / CGFloat(columns)
 		cellPadding = cellWidth / 10
 	}
 	
 	@inlinable
 	mutating func recalcCells() {
-		print("recalcCells, w: \(containerWidth)")
-		cellWidth = containerWidth / CGFloat(columns)
+		print("recalcCells, w: \(container.width)")
+		cellWidth = container.width / CGFloat(columns)
 		cellPadding = cellWidth / 10
 	}
 }
