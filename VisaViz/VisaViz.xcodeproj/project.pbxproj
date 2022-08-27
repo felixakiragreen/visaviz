@@ -34,7 +34,7 @@
 		1DD83B9528B9ACCA0017A5F3 /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9428B9ACCA0017A5F3 /* TweetView.swift */; };
 		1DD83B9728B9B0220017A5F3 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9628B9B0220017A5F3 /* DateFormatter.swift */; };
 		1DD83B9928BA59100017A5F3 /* OffsettableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9828BA59100017A5F3 /* OffsettableScrollView.swift */; };
-		1DD83B9B28BA617D0017A5F3 /* InteractionAtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9A28BA617D0017A5F3 /* InteractionAtom.swift */; };
+		1DD83B9B28BA617D0017A5F3 /* ScrollAtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9A28BA617D0017A5F3 /* ScrollAtom.swift */; };
 		1DD83B9D28BA624F0017A5F3 /* CG+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9C28BA624F0017A5F3 /* CG+Hashable.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +67,7 @@
 		1DD83B9428B9ACCA0017A5F3 /* TweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetView.swift; sourceTree = "<group>"; };
 		1DD83B9628B9B0220017A5F3 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		1DD83B9828BA59100017A5F3 /* OffsettableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsettableScrollView.swift; sourceTree = "<group>"; };
-		1DD83B9A28BA617D0017A5F3 /* InteractionAtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionAtom.swift; sourceTree = "<group>"; };
+		1DD83B9A28BA617D0017A5F3 /* ScrollAtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollAtom.swift; sourceTree = "<group>"; };
 		1DD83B9C28BA624F0017A5F3 /* CG+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG+Hashable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +114,7 @@
 				1D02B40D28B7F0AA00BACE7A /* TweetArchiveAtom.swift */,
 				1D02B41728B8008800BACE7A /* TweetVisualsAtom.swift */,
 				1D02B41B28B913F200BACE7A /* GridAtom.swift */,
-				1DD83B9A28BA617D0017A5F3 /* InteractionAtom.swift */,
+				1DD83B9A28BA617D0017A5F3 /* ScrollAtom.swift */,
 			);
 			name = Atoms;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 				1D02B42328B925E800BACE7A /* MouseMove.swift in Sources */,
 				1DD83B9528B9ACCA0017A5F3 /* TweetView.swift in Sources */,
 				1D3F13E62892B5370008F2EF /* VisaVizApp.swift in Sources */,
-				1DD83B9B28BA617D0017A5F3 /* InteractionAtom.swift in Sources */,
+				1DD83B9B28BA617D0017A5F3 /* ScrollAtom.swift in Sources */,
 				1D02B41F28B91F9A00BACE7A /* MouseInside.swift in Sources */,
 				1D02B40E28B7F0AA00BACE7A /* TweetArchiveAtom.swift in Sources */,
 			);
