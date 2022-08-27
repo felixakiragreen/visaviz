@@ -84,4 +84,15 @@ class TweetArchiveStore: ObservableObject {
 		/// doing it this way means it only happens once
 		replyCount = _replyCount
 	}
+	
+	func computeMax() -> Int {
+		var _max: Int = 0
+		for tweet in allTweets {
+			let val = tweet.favoriteCount * tweet.retweetCount
+			if val > _max {
+				_max = val
+			}
+		}
+		return _max
+	}
 }
