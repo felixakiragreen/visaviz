@@ -13,6 +13,7 @@ struct ContentView: View {
 	var archive
 
 	@State var hover: CGPoint?
+	@State var scroll: CGFloat = 0.0
 
 	var body: some View {
 		VStack {
@@ -21,7 +22,9 @@ struct ContentView: View {
 
 			ZStack {
 				GeometryReader { geo in
-					ScrollView {
+					OffsettableScrollView { point in
+						scroll = point.y
+					} content: {
 						TweetCanvasView(
 							container: geo.size,
 							hover: hover
@@ -41,7 +44,7 @@ struct ContentView: View {
 				})
 				
 				if hover != nil {
-					TweetHoverView(hover: hover!)
+					TweetHoverView(hover: hover!, scroll: scroll)
 				}
 			}
 		}
