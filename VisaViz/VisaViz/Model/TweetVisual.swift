@@ -11,6 +11,7 @@ struct TweetVisual: Hashable, Identifiable {
 	var id: String
 	
 	var hue: Hue
+	var lit: Int // lightness
 	
 	// TODO: x & y position
 }
