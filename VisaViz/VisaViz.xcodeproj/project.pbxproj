@@ -30,6 +30,9 @@
 		1D3F13EE2892B5390008F2EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D3F13ED2892B5390008F2EF /* Preview Assets.xcassets */; };
 		1D3F13F62892B5690008F2EF /* Atoms in Frameworks */ = {isa = PBXBuildFile; productRef = 1D3F13F52892B5690008F2EF /* Atoms */; };
 		1D3F13F82892B5820008F2EF /* CanvasTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F13F72892B5820008F2EF /* CanvasTestView.swift */; };
+		1DD83B9328B9428D0017A5F3 /* tweet.js in Resources */ = {isa = PBXBuildFile; fileRef = 1DD83B9228B9428D0017A5F3 /* tweet.js */; };
+		1DD83B9528B9ACCA0017A5F3 /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9428B9ACCA0017A5F3 /* TweetView.swift */; };
+		1DD83B9728B9B0220017A5F3 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9628B9B0220017A5F3 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		1D3F13EB2892B5390008F2EF /* VisaViz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VisaViz.entitlements; sourceTree = "<group>"; };
 		1D3F13ED2892B5390008F2EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1D3F13F72892B5820008F2EF /* CanvasTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasTestView.swift; sourceTree = "<group>"; };
+		1DD83B9228B9428D0017A5F3 /* tweet.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = tweet.js; path = ../../../old/MetalExperiments/Assets/Data/tweet.js; sourceTree = "<group>"; };
+		1DD83B9428B9ACCA0017A5F3 /* TweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetView.swift; sourceTree = "<group>"; };
+		1DD83B9628B9B0220017A5F3 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 				1D02B40B28B7F09600BACE7A /* ControlsView.swift */,
 				1D02B40F28B7F78000BACE7A /* TweetCanvasView.swift */,
 				1D02B42428B934B900BACE7A /* TweetHoverView.swift */,
+				1DD83B9428B9ACCA0017A5F3 /* TweetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -85,6 +92,7 @@
 		1D02B40228B7E6AC00BACE7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1DD83B9228B9428D0017A5F3 /* tweet.js */,
 				1D02B40628B7EA7600BACE7A /* tweet50.js */,
 				1D02B40528B7EA7600BACE7A /* tweet500.js */,
 				1D02B41428B7FFA700BACE7A /* Quarks */,
@@ -122,6 +130,7 @@
 				1D02B42028B924C700BACE7A /* TrackingMouse.swift */,
 				1D02B42228B925E800BACE7A /* MouseMove.swift */,
 				1D02B42628B934E700BACE7A /* EmbedAtom.swift */,
+				1DD83B9628B9B0220017A5F3 /* DateFormatter.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -230,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D3F13EE2892B5390008F2EF /* Preview Assets.xcassets in Resources */,
+				1DD83B9328B9428D0017A5F3 /* tweet.js in Resources */,
 				1D02B40728B7EA7600BACE7A /* tweet500.js in Resources */,
 				1D3F13EA2892B5390008F2EF /* Assets.xcassets in Resources */,
 				1D02B40828B7EA7600BACE7A /* tweet50.js in Resources */,
@@ -249,6 +259,7 @@
 				1D02B41A28B8039E00BACE7A /* Collection+optional.swift in Sources */,
 				1D02B42528B934B900BACE7A /* TweetHoverView.swift in Sources */,
 				1D02B41228B7FF9700BACE7A /* TweetVisual.swift in Sources */,
+				1DD83B9728B9B0220017A5F3 /* DateFormatter.swift in Sources */,
 				1D02B41028B7F78000BACE7A /* TweetCanvasView.swift in Sources */,
 				1D02B40C28B7F09600BACE7A /* ControlsView.swift in Sources */,
 				1D3F13E82892B5370008F2EF /* ContentView.swift in Sources */,
@@ -258,6 +269,7 @@
 				1D02B42128B924C700BACE7A /* TrackingMouse.swift in Sources */,
 				1D02B41828B8008800BACE7A /* TweetVisualsAtom.swift in Sources */,
 				1D02B42328B925E800BACE7A /* MouseMove.swift in Sources */,
+				1DD83B9528B9ACCA0017A5F3 /* TweetView.swift in Sources */,
 				1D3F13E62892B5370008F2EF /* VisaVizApp.swift in Sources */,
 				1D02B41F28B91F9A00BACE7A /* MouseInside.swift in Sources */,
 				1D02B40E28B7F0AA00BACE7A /* TweetArchiveAtom.swift in Sources */,
