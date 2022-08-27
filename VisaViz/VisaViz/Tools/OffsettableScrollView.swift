@@ -5,6 +5,9 @@
 //  Created by Felix Akira Green on 8/27/22.
 //
 
+/// Copied from https://betterprogramming.pub/swiftui-calculate-scroll-offset-in-scrollviews-c3b121f0b0dc
+/// Modified by me
+
 import SwiftUI
 
 private struct OffsetPreferenceKey: PreferenceKey {
