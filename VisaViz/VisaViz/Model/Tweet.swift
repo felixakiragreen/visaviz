@@ -92,7 +92,7 @@ struct Tweet: Hashable, Identifiable, Codable {
 	}
 
 	func computeLit(max: Int) -> Int {
-		let val = favoriteCount + retweetCount
+		let val = favoriteCount * retweetCount
 		let x = Double(val)
 		let a = Double(1)
 		let b = Double(max)
