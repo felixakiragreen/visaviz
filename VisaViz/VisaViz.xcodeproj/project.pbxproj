@@ -33,6 +33,7 @@
 		1DD83B9328B9428D0017A5F3 /* tweet.js in Resources */ = {isa = PBXBuildFile; fileRef = 1DD83B9228B9428D0017A5F3 /* tweet.js */; };
 		1DD83B9528B9ACCA0017A5F3 /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9428B9ACCA0017A5F3 /* TweetView.swift */; };
 		1DD83B9728B9B0220017A5F3 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9628B9B0220017A5F3 /* DateFormatter.swift */; };
+		1DD83B9928BA59100017A5F3 /* OffsettableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9828BA59100017A5F3 /* OffsettableScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		1DD83B9228B9428D0017A5F3 /* tweet.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = tweet.js; path = ../../../old/MetalExperiments/Assets/Data/tweet.js; sourceTree = "<group>"; };
 		1DD83B9428B9ACCA0017A5F3 /* TweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetView.swift; sourceTree = "<group>"; };
 		1DD83B9628B9B0220017A5F3 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		1DD83B9828BA59100017A5F3 /* OffsettableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsettableScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				1D02B42228B925E800BACE7A /* MouseMove.swift */,
 				1D02B42628B934E700BACE7A /* EmbedAtom.swift */,
 				1DD83B9628B9B0220017A5F3 /* DateFormatter.swift */,
+				1DD83B9828BA59100017A5F3 /* OffsettableScrollView.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				1D02B40A28B7EEC500BACE7A /* Tweet.swift in Sources */,
 				1D3F13F82892B5820008F2EF /* CanvasTestView.swift in Sources */,
 				1D02B40428B7E84600BACE7A /* TweetArchiveStore.swift in Sources */,
+				1DD83B9928BA59100017A5F3 /* OffsettableScrollView.swift in Sources */,
 				1D02B42128B924C700BACE7A /* TrackingMouse.swift in Sources */,
 				1D02B41828B8008800BACE7A /* TweetVisualsAtom.swift in Sources */,
 				1D02B42328B925E800BACE7A /* MouseMove.swift in Sources */,
