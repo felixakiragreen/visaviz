@@ -95,4 +95,6 @@ class TweetArchiveStore: ObservableObject {
 		}
 		return _max
 	}
+	
+	// func computeHistogram() {}
 }
