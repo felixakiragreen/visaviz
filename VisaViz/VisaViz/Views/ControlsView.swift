@@ -28,20 +28,20 @@ struct ControlsView: View {
 				Button("Load") {
 					loadFromFile()
 				}
-				Button("Replies") {
+				Button("Colorize") {
 					archive.generateReplies()
 				}
 				Text("Columns: \(Int(columnCount))")
 				
-				Button("max?") {
-					let max = archive.computeMax()
-					print("max: \(max)")
-				}
+				// Button("max?") {
+				// 	let max = archive.computeMax()
+				// 	print("max: \(max)")
+				// }
 				
-				Button("histogram?") {
-					let histogram = archive.computeHistogram()
-					print("histogram: \(histogram.sorted(by: { $0.key < $1.key } ).map({ "\($0.key).\($0.value)" }))")
-				}
+				// Button("histogram?") {
+				// 	let histogram = archive.computeHistogram()
+				// 	print("histogram: \(histogram.sorted(by: { $0.key < $1.key } ).map({ "\($0.key).\($0.value)" }))")
+				// }
 			}
 			Slider(value: $columnCount, in: 50 ... 500, step: 10, onEditingChanged: {
 				/// closure value will be false when editing is done
