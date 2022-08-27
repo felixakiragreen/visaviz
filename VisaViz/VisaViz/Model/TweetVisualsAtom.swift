@@ -38,24 +38,27 @@ struct TweetVisualsAtom: ValueAtom, KeepAlive, Hashable {
 	func value(context: Context) -> [TweetVisual] {
 		let archive = context.watch(TweetArchiveAtom())
 		let topColors = context.watch(TopColorsAtom())
-		var gridState = context.state(GridAtom())
-		
+		let gridState = context.state(GridAtom())
+
 		var _visuals: [TweetVisual] = []
 		
+		let max = archive.computeMax()
 		for tweet in archive.allTweets {
 			if let username = tweet.replyUserName,
 				topColors[username] != nil {
 				_visuals.append(
 					TweetVisual(
 						id: tweet.id,
-						hue: topColors[username]?.0 ?? .grey
+						hue: topColors[username]?.0 ?? .grey,
+						lit: tweet.computeLit(max: max)
 					)
 				)
 			} else {
 				_visuals.append(
 					TweetVisual(
 						id: tweet.id,
-						hue: .grey
+						hue: .grey,
+						lit: 0
 					)
 				)
 			}
