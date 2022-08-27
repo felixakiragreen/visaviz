@@ -45,7 +45,7 @@ struct ContentView: View {
 				}
 			}
 		}
-		// .background(Color(.red, 400).opacity(0.2))
+		.background(Color(.grey, 900))
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 	}
 }
