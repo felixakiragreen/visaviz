@@ -50,11 +50,13 @@ struct TweetCanvasView: View {
 
 						let index = columnIndex + (rowIndex * columnCount)
 						if visuals[optional: index] != nil {
-							let color = Color(visuals[index].hue, 400)
+							let tweet = visuals[index]
+							let lit = 700 - (tweet.lit * 100)
+							let color = Color(tweet.hue, lit)
 
 							context.fill(cellPath, with: .color(color))
 						} else {
-							context.fill(cellPath, with: .color(Color(.grey, 800)))
+							// context.fill(cellPath, with: .color(Color(.grey, 800)))
 						}
 					}
 				}
