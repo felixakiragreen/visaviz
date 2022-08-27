@@ -20,6 +20,7 @@ struct TweetHoverView: View {
 	var grid
 	
 	var hover: CGPoint
+	var scroll: CGFloat
 	
 	var container: CGSize = CGSize(width: 300, height: 200)
 	
@@ -65,7 +66,7 @@ struct TweetHoverView: View {
 			hover.x / grid.cellWidth
 		))
 		let rowIndex = Int(floor(
-			hover.y / grid.cellWidth
+			(hover.y - scroll) / grid.cellWidth
 		))
 		
 		return (columnIndex, rowIndex)
@@ -89,7 +90,8 @@ struct TweetHoverView: View {
 struct TweetHoverView_Previews: PreviewProvider {
 	static var previews: some View {
 		TweetHoverView(
-			hover: CGPoint(x: 200, y: 200)
+			hover: CGPoint(x: 200, y: 200),
+			scroll: 0
 		)
 			.embedAtomRoot()
 			.preferredColorScheme(.dark)
