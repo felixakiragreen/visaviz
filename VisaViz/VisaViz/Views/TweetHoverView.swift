@@ -13,6 +13,9 @@ struct TweetHoverView: View {
 	@WatchStateObject(TweetArchiveAtom())
 	var archive
 	
+	@Watch(TweetVisualsAtom())
+	var visuals
+	
 	@WatchState(GridAtom())
 	var grid
 	
@@ -21,25 +24,16 @@ struct TweetHoverView: View {
 	var container: CGSize = CGSize(width: 300, height: 200)
 	
 	var body: some View {
-		VStack {
-			let slot = getCellSlot()
-			// Text("Hover \(hover.x), \(hover.y)")
-			// Text("Slot \(slot.0), \(slot.1)")
-
-			if let tweetIndex = getTweetIndex(),
-				let tweet = archive.allTweets[tweetIndex] {
-				Text("index:\(tweetIndex) id:\(tweet.id)")
-					.font(.caption2)
-				Text("\(tweet.fullText)")
-			}
+		if let tweetIndex = getTweetIndex() {
+			let tweet = archive.allTweets[tweetIndex]
+			let vis = visuals[tweetIndex]
+			TweetView(
+				tweet: tweet,
+				lit: vis.lit,
+				size: container
+			)
+				.position(getPosition())
 		}
-		.padding()
-		.frame(width: container.width, height: container.height)
-		.background(
-			RoundedRectangle(cornerRadius: 16, style: .continuous)
-				.fill(.ultraThinMaterial)
-		)
-		.position(getPosition())
 	}
 	
 	func getPosition() -> CGPoint {
