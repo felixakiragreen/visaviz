@@ -24,44 +24,106 @@ struct TweetHoverView: View {
 	var hover: CGPoint
 
 	var container = CGSize(width: 300, height: 200)
-
+	
+	@State private var window: CGSize = .zero
+	
 	var body: some View {
 		if let tweetIndex = getTweetIndex() {
 			let tweet = archive.allTweets[tweetIndex]
 			let vis = visuals[tweetIndex]
-			TweetView(
-				tweet: tweet,
-				lit: vis.lit,
-				size: container
+			
+			ZStack(alignment: .topLeading) {
+				ZStack {
+					TweetView(
+						tweet: tweet,
+						vis: vis,
+						size: container
+					)
+				}
+				.frame(size: getQuadrantSize(), alignment: getQuadrantAlignment())
+				.offset(getQuadrantOffset())
+			}
+			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+			.background(
+				GeometryReader { geo in
+					Color.clear
+						.onAppear {
+							window = geo.size
+						}
+						.onChange(of: geo.size) { newSize in
+							window = newSize
+						}
+				}
 			)
-			.position(getPosition())
+		
+			RoundedRectangle(cornerRadius: 4, style: .continuous)
+				.foregroundColor(vis.clr)
+				.frame(size: 16)
+				.position(hover)
+				.allowsHitTesting(false)
 		}
 	}
-
-	func getPosition() -> CGPoint {
+	
+	enum Quadrant {
+		case topLeft, topRight, bottomLeft, bottomRight
+	}
+	
+	func getHoverQuadrant() -> Quadrant {
 		let isLeft = hover.x < grid.container.width / 2
 		let isTop = hover.y < grid.container.height / 2
-
-		let forLeft = hover.x + container.width / 2
-		let forRight = hover.x - container.width / 2
-		let forTop = hover.y + container.height / 2
-		let forBottom = hover.y - container.height / 2
-
+		
 		if isTop {
-			if isLeft {
-				return CGPoint(x: forLeft, y: forTop)
-			}
-			else {
-				return CGPoint(x: forRight, y: forTop)
-			}
+			return isLeft ? .topLeft : .topRight
 		}
 		else {
-			if isLeft {
-				return CGPoint(x: forLeft, y: forBottom)
-			}
-			else {
-				return CGPoint(x: forRight, y: forBottom)
-			}
+			return isLeft ? .bottomLeft : .bottomRight
+		}
+	}
+	
+	func getQuadrantOffset() -> CGSize {
+		let quadrant = getHoverQuadrant()
+		
+		let forRight: CGFloat = 0
+		let forLeft: CGFloat = hover.x
+		let forBottom: CGFloat = 0
+		let forTop: CGFloat = hover.y
+		
+		switch quadrant {
+			case .topLeft: return CGSize(width: forLeft, height: forTop)
+			case .topRight: return CGSize(width: forRight, height: forTop)
+			case .bottomLeft: return CGSize(width: forLeft, height: forBottom)
+			case .bottomRight: return CGSize(width: forRight, height: forBottom)
+		}
+	}
+	
+	func getQuadrantSize() -> CGSize {
+		let quadrant = getHoverQuadrant()
+		
+		if window == .zero {
+			return .zero
+		}
+		
+		let forLeft: CGFloat = window.width - hover.x
+		let forRight: CGFloat = hover.x
+		let forTop: CGFloat = window.height - hover.y
+		let forBottom: CGFloat = hover.y
+		
+		switch quadrant {
+			case .topLeft: return CGSize(width: forLeft, height: forTop)
+			case .topRight: return CGSize(width: forRight, height: forTop)
+			case .bottomLeft: return CGSize(width: forLeft, height: forBottom)
+			case .bottomRight: return CGSize(width: forRight, height: forBottom)
+		}
+	}
+	
+	func getQuadrantAlignment() -> Alignment {
+		let quadrant = getHoverQuadrant()
+		
+		switch quadrant {
+			case .topLeft: return .topLeading
+			case .topRight: return .topTrailing
+			case .bottomLeft: return .bottomLeading
+			case .bottomRight: return .bottomTrailing
 		}
 	}
 
