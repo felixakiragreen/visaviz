@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct TweetVisual: Hashable, Identifiable {
 	var id: String
@@ -14,4 +15,8 @@ struct TweetVisual: Hashable, Identifiable {
 	var lit: Int // lightness
 	
 	// TODO: x & y position
+	
+	var clr: Color {
+		Color(hue, 700 - (lit * 100))
+	}
 }
