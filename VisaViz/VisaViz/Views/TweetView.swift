@@ -10,7 +10,7 @@ import SwiftUI
 struct TweetView: View {
 	var tweet: Tweet
 
-	var lit: Int
+	var vis: TweetVisual
 
 	var size: CGSize
 
@@ -28,6 +28,7 @@ struct TweetView: View {
 				.frame(maxWidth: .infinity, alignment: .leading)
 
 			Spacer()
+				.frame(height: 16)
 
 			HStack {
 				Text("\(DateFormatter.fullDateTime.string(from: tweet.createdAt))")
@@ -40,16 +41,20 @@ struct TweetView: View {
 				Text("\(tweet.favoriteCount)")
 				Text("\(Image(systemName: "arrow.2.squarepath"))")
 					.foregroundColor(Color(.blue, 400))
-				Text("\(lit)")
+				Text("\(vis.lit)")
 			}
-			// .font(.caption2)
-			// }
 		}
 		.padding()
-		.frame(width: size.width, height: size.height)
+		.frame(maxWidth: size.width)
 		.background(
 			RoundedRectangle(cornerRadius: 16, style: .continuous)
 				.fill(.ultraThinMaterial)
+				.overlay(
+					RoundedRectangle(cornerRadius: 16, style: .continuous)
+						.inset(by: -2)
+						.strokeBorder(lineWidth: 2)
+						.foregroundColor(vis.clr)
+				)
 		)
 	}
 }
@@ -66,7 +71,7 @@ struct TweetView_Previews: PreviewProvider {
 				favoriteCount: 20,
 				retweetCount: 0
 			),
-			lit: 400,
+			vis: TweetVisual(id: "1", hue: .blue, lit: 4),
 			size: CGSize(width: 300, height: 200)
 		)
 		.embedAtomRoot()
