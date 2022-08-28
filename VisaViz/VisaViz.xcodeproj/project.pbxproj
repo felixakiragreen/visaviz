@@ -36,6 +36,7 @@
 		1DD83B9928BA59100017A5F3 /* OffsettableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9828BA59100017A5F3 /* OffsettableScrollView.swift */; };
 		1DD83B9B28BA617D0017A5F3 /* ScrollAtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9A28BA617D0017A5F3 /* ScrollAtom.swift */; };
 		1DD83B9D28BA624F0017A5F3 /* CG+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9C28BA624F0017A5F3 /* CG+Hashable.swift */; };
+		1DD83B9F28BBA1AD0017A5F3 /* View+frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9E28BBA1AD0017A5F3 /* View+frame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		1DD83B9828BA59100017A5F3 /* OffsettableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsettableScrollView.swift; sourceTree = "<group>"; };
 		1DD83B9A28BA617D0017A5F3 /* ScrollAtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollAtom.swift; sourceTree = "<group>"; };
 		1DD83B9C28BA624F0017A5F3 /* CG+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG+Hashable.swift"; sourceTree = "<group>"; };
+		1DD83B9E28BBA1AD0017A5F3 /* View+frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+frame.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				1DD83B9628B9B0220017A5F3 /* DateFormatter.swift */,
 				1DD83B9828BA59100017A5F3 /* OffsettableScrollView.swift */,
 				1DD83B9C28BA624F0017A5F3 /* CG+Hashable.swift */,
+				1DD83B9E28BBA1AD0017A5F3 /* View+frame.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				1D02B41628B8000600BACE7A /* Hue.swift in Sources */,
 				1D02B41C28B913F200BACE7A /* GridAtom.swift in Sources */,
 				1D02B41A28B8039E00BACE7A /* Collection+optional.swift in Sources */,
+				1DD83B9F28BBA1AD0017A5F3 /* View+frame.swift in Sources */,
 				1D02B42528B934B900BACE7A /* TweetHoverView.swift in Sources */,
 				1D02B41228B7FF9700BACE7A /* TweetVisual.swift in Sources */,
 				1DD83B9728B9B0220017A5F3 /* DateFormatter.swift in Sources */,
