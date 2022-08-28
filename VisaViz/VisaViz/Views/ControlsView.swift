@@ -19,15 +19,14 @@ struct ControlsView: View {
 	var grid
 
 	@State private var columnCount: Double = 0
-
+	
 	var body: some View {
 		VStack {
 			HStack {
+				LoadFileButton()
+				
 				Text("Tweets: \(archive.allTweets.count)")
 
-				Button("Load") {
-					loadFromFile()
-				}
 				Button("Colorize") {
 					archive.generateReplies()
 				}
