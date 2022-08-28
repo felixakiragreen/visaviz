@@ -31,11 +31,18 @@ class TweetArchiveStore: ObservableObject {
 	}
 	
 	func load() async {
-		
 		do {
 			let fileURL = try TweetArchiveStore.fileURL(name: "tweet500")
 			
-			let (data, _) = try await URLSession.shared.data(from: fileURL)
+			await loadFileURL(file: fileURL)
+		} catch {
+			print("error: \(error)")
+		}
+	}
+	
+	func loadFileURL(file: URL) async {
+		do {
+			let (data, _) = try await URLSession.shared.data(from: file)
 			
 			let string = String(decoding: data, as: UTF8.self)
 			
