@@ -69,7 +69,6 @@ struct TweetCanvasView: View {
 							} else {
 								// context.fill(cellPath, with: .color(Color(.grey, 800)))
 							}
-							
 						}
 						/// else if not in view, DO NOT RENDER
 						else {
@@ -80,9 +79,11 @@ struct TweetCanvasView: View {
 			} // Canvas
 			.frame(minHeight: CGFloat(rowCount) * cellSize)
 			.onAppear {
+				print("TweetCanvasView.onAppear(\(size))")
 				grid.calcCells(size: size)
 			}
 			.onChange(of: size) {
+				print("TweetCanvasView.onChanged(\(size))")
 				if grid.container != $0 {
 					grid.calcCells(size: $0)
 				}
