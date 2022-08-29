@@ -41,7 +41,9 @@ struct TweetView: View {
 				Text("\(tweet.favoriteCount)")
 				Text("\(Image(systemName: "arrow.2.squarepath"))")
 					.foregroundColor(Color(.blue, 400))
-				Text("\(vis.lit)")
+				Text("\(tweet.retweetCount)")
+				
+				Text(" {\(vis.lit)}")
 			}
 		}
 		.padding()
