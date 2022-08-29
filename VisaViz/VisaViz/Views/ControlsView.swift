@@ -24,60 +24,56 @@ struct ControlsView: View {
 	@State private var histogram: [(Int, Int)] = []
 
 	var body: some View {
-		VStack {
-			HStack {
-				LoadFileButton()
-
-				Text("Tweets: \(archive.allTweets.count)")
-
-				Button("Colorize") {
-					archive.generateReplies()
-				}
-			
-
-				// Button("max?") {
-				// 	let max = archive.computeMax()
-				// 	print("max: \(max)")
-				// }
-
-				Button("Histogram") {
-					let _histogram = archive.computeHistogram()
-					histogram = _histogram.sorted(by: { $0.key < $1.key })
+		HStack(alignment: .top) {
+			VStack {
+				HStack {
+					// LoadFileButton()
 					
-					// print("histogram: \(histogram.map { "\($0.0).\($0.1)" })")
-				}
-
-				// HStack {
-				// 	Text("Levels: \(Histogram.shared.lightLevels)")
-				// 	Button("+") {
-				// 		Histogram.shared.lightLevels += 1
-				// 	}
-				// 	Button("-") {
-				// 		Histogram.shared.lightLevels -= 1
-				// 	}
-				// }
-			}
-
-			HStack {
-				Text("Columns: \(Int(columnCount))")
-					.frame(width: 120)
-				
-				Slider(value: $columnCount, in: 50 ... 500, step: 10, onEditingChanged: {
-					/// closure value will be false when editing is done
-					if $0 == false {
-						grid.columns = Int(columnCount)
-						grid.recalcRows()
-						grid.recalcCells()
+					LoadArchiveButton()
+					
+					Text("Tweets: \(archive.allTweets.count)")
+					
+					Button("Colorize") {
+						archive.generateReplies()
 					}
-				})
-				.onAppear {
-					columnCount = Double(grid.columns)
+					
+					// Button("max?") {
+					// 	let max = archive.computeMax()
+					// 	print("max: \(max)")
+					// }
+					
+					Button("Histogram") {
+						let _histogram = archive.computeHistogram()
+						histogram = _histogram.sorted(by: { $0.key < $1.key })
+						
+						// print("histogram: \(histogram.map { "\($0.0).\($0.1)" })")
+					}
 				}
+				
+				HStack {
+					Text("Columns: \(Int(columnCount))")
+						.frame(width: 120)
+					
+					Slider(value: $columnCount, in: 50 ... 500, step: 10, onEditingChanged: {
+						/// closure value will be false when editing is done
+						if $0 == false {
+							grid.columns = Int(columnCount)
+							grid.recalcRows()
+							grid.recalcCells()
+						}
+					})
+					.onAppear {
+						columnCount = Double(grid.columns)
+					}
+				}
+				
+				interactionsView
+				
+				histogramView
 			}
-
-			interactionsView
+			.frame(maxWidth: .infinity)
 			
-			histogramView
+			AccountView()
 		}
 	}
 
