@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+
+
 struct TweetVisual: Hashable, Identifiable {
 	var id: String
 	
@@ -17,6 +19,7 @@ struct TweetVisual: Hashable, Identifiable {
 	// TODO: x & y position
 	
 	var clr: Color {
-		Color(hue, 700 - (lit * 100))
+		// Color(hue, 700 - (lit * 100))
+		Color(hue, Histogram.shared.baseLightLevel - (lit * 100))
 	}
 }
