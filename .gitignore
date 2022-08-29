@@ -1,5 +1,6 @@
-# tweet.json
+
 Pods/
+builds/
 
 .DS_Store
-UserInterfaceState.xcuserstate
+*.xcuserstate
