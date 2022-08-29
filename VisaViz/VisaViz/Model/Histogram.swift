@@ -17,4 +17,8 @@ class Histogram {
 
 	// Privated initializer access
 	private init() {}
+	
+	func getLightness(lvl: Int) -> Int {
+		baseLightLevel - (lvl * 100)
+	}
 }
