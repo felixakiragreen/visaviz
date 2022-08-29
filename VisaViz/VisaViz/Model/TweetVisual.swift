@@ -20,6 +20,6 @@ struct TweetVisual: Hashable, Identifiable {
 	
 	var clr: Color {
 		// Color(hue, 700 - (lit * 100))
-		Color(hue, Histogram.shared.baseLightLevel - (lit * 100))
+		Color(hue, Histogram.shared.getLightness(lvl: lit))
 	}
 }
