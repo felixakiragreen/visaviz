@@ -58,7 +58,7 @@ struct TweetVisualsAtom: ValueAtom, KeepAlive, Hashable {
 					TweetVisual(
 						id: tweet.id,
 						hue: .grey,
-						lit: 0
+						lit: tweet.computeLit(max: max)
 					)
 				)
 			}
