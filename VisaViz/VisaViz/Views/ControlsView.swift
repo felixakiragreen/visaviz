@@ -19,27 +19,37 @@ struct ControlsView: View {
 	var grid
 
 	@State private var columnCount: Double = 0
-	
+
 	var body: some View {
 		VStack {
 			HStack {
 				LoadFileButton()
-				
+
 				Text("Tweets: \(archive.allTweets.count)")
 
 				Button("Colorize") {
 					archive.generateReplies()
 				}
 				Text("Columns: \(Int(columnCount))")
-				
-				// Button("max?") {
-				// 	let max = archive.computeMax()
-				// 	print("max: \(max)")
-				// }
-				
-				// Button("histogram?") {
-				// 	let histogram = archive.computeHistogram()
-				// 	print("histogram: \(histogram.sorted(by: { $0.key < $1.key } ).map({ "\($0.key).\($0.value)" }))")
+
+				Button("max?") {
+					let max = archive.computeMax()
+					print("max: \(max)")
+				}
+
+				Button("histogram?") {
+					let histogram = archive.computeHistogram()
+					print("histogram: \(histogram.sorted(by: { $0.key < $1.key }).map { "\($0.key).\($0.value)" })")
+				}
+
+				// HStack {
+				// 	Text("Levels: \(Histogram.shared.lightLevels)")
+				// 	Button("+") {
+				// 		Histogram.shared.lightLevels += 1
+				// 	}
+				// 	Button("-") {
+				// 		Histogram.shared.lightLevels -= 1
+				// 	}
 				// }
 			}
 			Slider(value: $columnCount, in: 50 ... 500, step: 10, onEditingChanged: {
@@ -54,8 +64,8 @@ struct ControlsView: View {
 					columnCount = Double(grid.columns)
 				}
 			HStack {
-				HStack(spacing: 4) {
-					ForEach(topColors.sorted(by: { $0.value.1 > $1.value.1 }), id: \.value.0) { tc in
+				ForEach(topColors.sorted(by: { $0.value.1 > $1.value.1 }), id: \.value.0) { tc in
+					HStack(spacing: 4) {
 						RoundedRectangle(cornerRadius: 4, style: .continuous)
 							.foregroundColor(Color(tc.value.0, 400))
 							.frame(width: 16, height: 16)
