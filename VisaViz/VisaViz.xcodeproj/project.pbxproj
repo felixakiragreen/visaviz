@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1D02B40428B7E84600BACE7A /* TweetArchiveStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B40328B7E84600BACE7A /* TweetArchiveStore.swift */; };
-		1D02B40728B7EA7600BACE7A /* tweet500.js in Resources */ = {isa = PBXBuildFile; fileRef = 1D02B40528B7EA7600BACE7A /* tweet500.js */; };
-		1D02B40828B7EA7600BACE7A /* tweet50.js in Resources */ = {isa = PBXBuildFile; fileRef = 1D02B40628B7EA7600BACE7A /* tweet50.js */; };
 		1D02B40A28B7EEC500BACE7A /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B40928B7EEC500BACE7A /* Tweet.swift */; };
 		1D02B40C28B7F09600BACE7A /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B40B28B7F09600BACE7A /* ControlsView.swift */; };
 		1D02B40E28B7F0AA00BACE7A /* TweetArchiveAtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02B40D28B7F0AA00BACE7A /* TweetArchiveAtom.swift */; };
@@ -38,12 +36,15 @@
 		1DD83B9F28BBA1AD0017A5F3 /* View+frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9E28BBA1AD0017A5F3 /* View+frame.swift */; };
 		1DD83BA128BBA9BB0017A5F3 /* LoadFileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BA028BBA9BB0017A5F3 /* LoadFileButton.swift */; };
 		1DD83BA328BD1A770017A5F3 /* Histogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BA228BD1A770017A5F3 /* Histogram.swift */; };
+		1DD83BA728BD460C0017A5F3 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BA628BD460C0017A5F3 /* EmptyView.swift */; };
+		1DD83BA928BD4D410017A5F3 /* LoadArchiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BA828BD4D410017A5F3 /* LoadArchiveButton.swift */; };
+		1DD83BAB28BD73B70017A5F3 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BAA28BD73B70017A5F3 /* Account.swift */; };
+		1DD83BAD28BD789F0017A5F3 /* ArchiveLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BAC28BD789F0017A5F3 /* ArchiveLoadedView.swift */; };
+		1DD83BAF28BD791D0017A5F3 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BAE28BD791D0017A5F3 /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D02B40328B7E84600BACE7A /* TweetArchiveStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetArchiveStore.swift; sourceTree = "<group>"; };
-		1D02B40528B7EA7600BACE7A /* tweet500.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tweet500.js; sourceTree = "<group>"; };
-		1D02B40628B7EA7600BACE7A /* tweet50.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tweet50.js; sourceTree = "<group>"; };
 		1D02B40928B7EEC500BACE7A /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		1D02B40B28B7F09600BACE7A /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		1D02B40D28B7F0AA00BACE7A /* TweetArchiveAtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetArchiveAtom.swift; sourceTree = "<group>"; };
@@ -73,6 +74,11 @@
 		1DD83B9E28BBA1AD0017A5F3 /* View+frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+frame.swift"; sourceTree = "<group>"; };
 		1DD83BA028BBA9BB0017A5F3 /* LoadFileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFileButton.swift; sourceTree = "<group>"; };
 		1DD83BA228BD1A770017A5F3 /* Histogram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Histogram.swift; sourceTree = "<group>"; };
+		1DD83BA628BD460C0017A5F3 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		1DD83BA828BD4D410017A5F3 /* LoadArchiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadArchiveButton.swift; sourceTree = "<group>"; };
+		1DD83BAA28BD73B70017A5F3 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		1DD83BAC28BD789F0017A5F3 /* ArchiveLoadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveLoadedView.swift; sourceTree = "<group>"; };
+		1DD83BAE28BD791D0017A5F3 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,12 +96,16 @@
 		1D02B40128B7E6A700BACE7A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1D3F13F72892B5820008F2EF /* CanvasTestView.swift */,
+				1DD83BAC28BD789F0017A5F3 /* ArchiveLoadedView.swift */,
 				1D02B40B28B7F09600BACE7A /* ControlsView.swift */,
 				1D02B40F28B7F78000BACE7A /* TweetCanvasView.swift */,
 				1D02B42428B934B900BACE7A /* TweetHoverView.swift */,
 				1DD83B9428B9ACCA0017A5F3 /* TweetView.swift */,
 				1DD83BA028BBA9BB0017A5F3 /* LoadFileButton.swift */,
+				1DD83BA628BD460C0017A5F3 /* EmptyView.swift */,
+				1DD83BA828BD4D410017A5F3 /* LoadArchiveButton.swift */,
+				1D3F13F72892B5820008F2EF /* CanvasTestView.swift */,
+				1DD83BAE28BD791D0017A5F3 /* AccountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -103,8 +113,6 @@
 		1D02B40228B7E6AC00BACE7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1D02B40628B7EA7600BACE7A /* tweet50.js */,
-				1D02B40528B7EA7600BACE7A /* tweet500.js */,
 				1D02B41428B7FFA700BACE7A /* Quarks */,
 				1D02B41328B7FF9C00BACE7A /* Atoms */,
 				1D02B40328B7E84600BACE7A /* TweetArchiveStore.swift */,
@@ -130,6 +138,7 @@
 				1D02B41128B7FF9700BACE7A /* TweetVisual.swift */,
 				1D02B41528B8000600BACE7A /* Hue.swift */,
 				1DD83BA228BD1A770017A5F3 /* Histogram.swift */,
+				1DD83BAA28BD73B70017A5F3 /* Account.swift */,
 			);
 			name = Quarks;
 			sourceTree = "<group>";
@@ -254,9 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D3F13EE2892B5390008F2EF /* Preview Assets.xcassets in Resources */,
-				1D02B40728B7EA7600BACE7A /* tweet500.js in Resources */,
 				1D3F13EA2892B5390008F2EF /* Assets.xcassets in Resources */,
-				1D02B40828B7EA7600BACE7A /* tweet50.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,14 +276,18 @@
 			files = (
 				1D02B42728B934E700BACE7A /* EmbedAtom.swift in Sources */,
 				1D02B41628B8000600BACE7A /* Hue.swift in Sources */,
+				1DD83BAD28BD789F0017A5F3 /* ArchiveLoadedView.swift in Sources */,
 				1D02B41C28B913F200BACE7A /* GridAtom.swift in Sources */,
 				1D02B41A28B8039E00BACE7A /* Collection+optional.swift in Sources */,
 				1DD83B9F28BBA1AD0017A5F3 /* View+frame.swift in Sources */,
 				1D02B42528B934B900BACE7A /* TweetHoverView.swift in Sources */,
 				1D02B41228B7FF9700BACE7A /* TweetVisual.swift in Sources */,
 				1DD83B9728B9B0220017A5F3 /* DateFormatter.swift in Sources */,
+				1DD83BA928BD4D410017A5F3 /* LoadArchiveButton.swift in Sources */,
+				1DD83BAB28BD73B70017A5F3 /* Account.swift in Sources */,
 				1DD83B9D28BA624F0017A5F3 /* CG+Hashable.swift in Sources */,
 				1D02B41028B7F78000BACE7A /* TweetCanvasView.swift in Sources */,
+				1DD83BA728BD460C0017A5F3 /* EmptyView.swift in Sources */,
 				1DD83BA328BD1A770017A5F3 /* Histogram.swift in Sources */,
 				1DD83BA128BBA9BB0017A5F3 /* LoadFileButton.swift in Sources */,
 				1D02B40C28B7F09600BACE7A /* ControlsView.swift in Sources */,
@@ -292,6 +303,7 @@
 				1D3F13E62892B5370008F2EF /* VisaVizApp.swift in Sources */,
 				1DD83B9B28BA617D0017A5F3 /* ScrollAtom.swift in Sources */,
 				1D02B41F28B91F9A00BACE7A /* MouseInside.swift in Sources */,
+				1DD83BAF28BD791D0017A5F3 /* AccountView.swift in Sources */,
 				1D02B40E28B7F0AA00BACE7A /* TweetArchiveAtom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +433,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = VisaViz;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -432,15 +446,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = wtf.ambition.VisaViz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -457,6 +472,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = VisaViz;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -468,15 +485,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = wtf.ambition.VisaViz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
