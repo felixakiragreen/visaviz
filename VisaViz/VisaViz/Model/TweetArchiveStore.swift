@@ -26,6 +26,9 @@ class TweetArchiveStore: ObservableObject {
 	@Published var archivePath: URL?
 	
 	@Published var isLoaded: Bool = false
+	var isNotLoaded: Bool {
+		!isLoaded
+	}
 	@Published var anyError: Error?
 
 	enum ArchiveError: Error {
