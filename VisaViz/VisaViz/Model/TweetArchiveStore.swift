@@ -40,6 +40,10 @@ class TweetArchiveStore: ObservableObject {
 		}
 	}
 	
+	// TODO: function for pulling data/tweet.js
+	// data/account.js
+	// func load
+	
 	func loadFileURL(file: URL) async {
 		do {
 			let (data, _) = try await URLSession.shared.data(from: file)
@@ -95,7 +99,7 @@ class TweetArchiveStore: ObservableObject {
 	func computeMax() -> Int {
 		var _max: Int = 0
 		for tweet in allTweets {
-			let val = tweet.favoriteCount * tweet.retweetCount
+			let val = tweet.popularity
 			if val > _max {
 				_max = val
 			}
@@ -103,5 +107,19 @@ class TweetArchiveStore: ObservableObject {
 		return _max
 	}
 	
-	// func computeHistogram() {}
+	func computeHistogram() -> [Int: Int] {
+		let max = computeMax()
+		var _histogram: [Int:Int] = [:]
+		
+		for tweet in allTweets {
+			let lit = tweet.computeLit(max: max)
+			if _histogram[lit] == nil {
+				_histogram[lit] = 1
+			} else {
+				_histogram[lit]! += 1
+			}
+		}
+		
+		return _histogram
+	}
 }
