@@ -90,15 +90,19 @@ struct Tweet: Hashable, Identifiable, Codable {
 		try container.encode(fullText, forKey: CodingKeys.fullText)
 		try container.encode(createdAt, forKey: CodingKeys.createdAt)
 	}
+	
+	var popularity: Int {
+		(favoriteCount + 1) * (retweetCount + 1)
+	}
 
 	func computeLit(max: Int) -> Int {
-		let val = favoriteCount * retweetCount
-		let x = Double(val)
+		let x = Double(popularity)
 		let a = Double(1)
 		let b = Double(max)
+		let n = Double(Histogram.shared.lightLevels)
 
 		let level: Double = log(x / a + 1) / log(b / a + 1)
-		let lit = Int(ceil(level * 6))
+		let lit = Int(ceil(level * n))
 
 		return lit
 	}
