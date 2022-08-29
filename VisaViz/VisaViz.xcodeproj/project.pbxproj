@@ -37,6 +37,7 @@
 		1DD83B9D28BA624F0017A5F3 /* CG+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9C28BA624F0017A5F3 /* CG+Hashable.swift */; };
 		1DD83B9F28BBA1AD0017A5F3 /* View+frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83B9E28BBA1AD0017A5F3 /* View+frame.swift */; };
 		1DD83BA128BBA9BB0017A5F3 /* LoadFileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BA028BBA9BB0017A5F3 /* LoadFileButton.swift */; };
+		1DD83BA328BD1A770017A5F3 /* Histogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BA228BD1A770017A5F3 /* Histogram.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		1DD83B9C28BA624F0017A5F3 /* CG+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG+Hashable.swift"; sourceTree = "<group>"; };
 		1DD83B9E28BBA1AD0017A5F3 /* View+frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+frame.swift"; sourceTree = "<group>"; };
 		1DD83BA028BBA9BB0017A5F3 /* LoadFileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFileButton.swift; sourceTree = "<group>"; };
+		1DD83BA228BD1A770017A5F3 /* Histogram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Histogram.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				1D02B40928B7EEC500BACE7A /* Tweet.swift */,
 				1D02B41128B7FF9700BACE7A /* TweetVisual.swift */,
 				1D02B41528B8000600BACE7A /* Hue.swift */,
+				1DD83BA228BD1A770017A5F3 /* Histogram.swift */,
 			);
 			name = Quarks;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				1DD83B9728B9B0220017A5F3 /* DateFormatter.swift in Sources */,
 				1DD83B9D28BA624F0017A5F3 /* CG+Hashable.swift in Sources */,
 				1D02B41028B7F78000BACE7A /* TweetCanvasView.swift in Sources */,
+				1DD83BA328BD1A770017A5F3 /* Histogram.swift in Sources */,
 				1DD83BA128BBA9BB0017A5F3 /* LoadFileButton.swift in Sources */,
 				1D02B40C28B7F09600BACE7A /* ControlsView.swift in Sources */,
 				1D3F13E82892B5370008F2EF /* ContentView.swift in Sources */,
