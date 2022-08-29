@@ -10,87 +10,32 @@ import Foundation
 /// https://unicode-org.github.io/icu/userguide/format_parse/datetime/#datetime-format-syntax
 
 extension DateFormatter {
-	// /// short & sweet date time → 31@21:30
-	// static let justDateTime: DateFormatter = {
-	// 	let df = DateFormatter()
-	// 	df.dateFormat = "dd@HH:mm"
-	// 	return df
-	// }()
-	//
-	// /// holocene year month day → 12022 Mar 09
-	// static let fullDate: DateFormatter = {
-	// 	let df = DateFormatter()
-	// 	df.dateFormat = "'1'y MMM dd"
-	//
-	// 	return df
-	// }()
-	//
-	// /// dates for string keys → 20220309
-	// static let keyDate: DateFormatter = {
-	// 	let df = DateFormatter()
-	// 	df.dateFormat = "yMMdd"
-	//
-	// 	return df
-	// }()
-	//
-	// /// date for title bar title → Mon, 9 Mar
-	// static let title: DateFormatter = {
-	// 	let df = DateFormatter()
-	// 	df.dateFormat = "eee, d MMM"
-	//
-	// 	return df
-	// }()
-	
-	/// ISO → 2022.03.09@21:30
-	static let isoDateTime: DateFormatter = {
+
+	/// bare → 2022.03.09@21:30
+	static let bare: DateFormatter = {
 		let df = DateFormatter()
 		df.dateFormat = "y.MM.dd@HH:mm"
 		return df
 	}()
 	
-	static let fullDateTime: DateFormatter = {
+	/// Full → 2022 Mar 09 @ 21:30
+	static let full: DateFormatter = {
 		let df = DateFormatter()
 		df.dateFormat = "y MMM dd @ HH:mm"
 		return df
 	}()
 	
-	// /// 24 hour time → 21:30
-	// static let justTime: DateFormatter = {
-	// 	let df = DateFormatter()
-	// 	df.dateFormat = "HH:mm"
-	// 	
-	// 	return df
-	// }()
-	// 
-	// /// first letter of week day  → M, T, W, &c
-	// static let justWeekday: DateFormatter = {
-	// 	let df = DateFormatter()
-	// 	df.dateFormat = "ccccc"
-	// 	
-	// 	return df
-	// }()
-	// 
-	// /// 3 letter abbreviation of week day → Mon, Tue, Wed, &c
-	// static let justWeekdayAbbr: DateFormatter = {
-	// 	let df = DateFormatter()
-	// 	df.dateFormat = "ccc"
-	// 	
-	// 	return df
-	// }()
-	// 
-	// /// day of month number → 9, 18, 27, &c
-	// static let justDay: DateFormatter = {
-	// 	let df = DateFormatter()
-	// 	df.dateFormat = "d"
-	// 	
-	// 	return df
-	// }()
-	// 
-	// /// 3 letter abbreviation of month → Jan, Feb, Mar, &c
-	// static let justMonthAbbr: DateFormatter = {
-	// 	let df = DateFormatter()
-	// 	df.dateFormat = "MMM"
-	// 	
-	// 	return df
-	// }()
+	/// The weird format Twitter tweets use → Mon Aug 22 18:27:44 +0000 2016
+	static let tweet: DateFormatter = {
+		let df = DateFormatter()
+		df.dateFormat = "EEE MMM dd HH:mm:ss Z yyyy"
+		return df
+	}()
+	
+	/// ISO → 2008-10-20T11:06:33.000Z
+	static let iso: DateFormatter = {
+		let df = DateFormatter()
+		df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+		return df
+	}()
 }
