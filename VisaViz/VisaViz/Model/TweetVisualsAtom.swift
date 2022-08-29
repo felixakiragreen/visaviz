@@ -9,11 +9,12 @@ import Atoms
 import Foundation
 
 
-struct TopColorsAtom: ValueAtom, KeepAlive, Hashable {
+struct MostInteractionsByColorAtom: ValueAtom, KeepAlive, Hashable {
 	func value(context: Context) -> [String:(Hue, Int)] {
 		let archive = context.watch(TweetArchiveAtom())
 		
-		var _topColors: [String:(Hue, Int)] = [:]
+		/// username: (color, count)
+		var _acc: [String:(Hue, Int)] = [:]
 		
 		let topInteracted = archive.replyCount
 			.sorted(by: {
@@ -26,10 +27,10 @@ struct TopColorsAtom: ValueAtom, KeepAlive, Hashable {
 			let count = topInteracted[index].value
 			let hue = Hue.allCases[index + 1]
 			
-			_topColors[username] = (hue, count)
+			_acc[username] = (hue, count)
 		}
 		
-		return _topColors
+		return _acc
 	}
 }
 
@@ -37,16 +38,16 @@ struct TopColorsAtom: ValueAtom, KeepAlive, Hashable {
 struct TweetVisualsAtom: ValueAtom, KeepAlive, Hashable {
 	func value(context: Context) -> [TweetVisual] {
 		let archive = context.watch(TweetArchiveAtom())
-		let topColors = context.watch(TopColorsAtom())
+		let topColors = context.watch(MostInteractionsByColorAtom())
 		let gridState = context.state(GridAtom())
 
-		var _visuals: [TweetVisual] = []
+		var _acc: [TweetVisual] = []
 		
 		let max = archive.computeMax()
 		for tweet in archive.allTweets {
 			if let username = tweet.replyUserName,
 				topColors[username] != nil {
-				_visuals.append(
+				_acc.append(
 					TweetVisual(
 						id: tweet.id,
 						hue: topColors[username]?.0 ?? .grey,
@@ -54,7 +55,7 @@ struct TweetVisualsAtom: ValueAtom, KeepAlive, Hashable {
 					)
 				)
 			} else {
-				_visuals.append(
+				_acc.append(
 					TweetVisual(
 						id: tweet.id,
 						hue: .grey,
@@ -65,11 +66,11 @@ struct TweetVisualsAtom: ValueAtom, KeepAlive, Hashable {
 		}
 		
 		/// update the cell count when visuals update
-		if gridState.wrappedValue.cellCount != _visuals.count {
-			gridState.wrappedValue.calcRows(count: _visuals.count)
+		if gridState.wrappedValue.cellCount != _acc.count {
+			gridState.wrappedValue.calcRows(count: _acc.count)
 		}
 		
-		return _visuals
+		return _acc
 	}
 }
 
