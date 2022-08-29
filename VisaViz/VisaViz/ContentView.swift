@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
 	@WatchStateObject(TweetArchiveAtom())
 	var archive
-	
+
 	@WatchState(ScrollAtom())
 	var scroll
 
@@ -24,16 +24,17 @@ struct ContentView: View {
 
 			ZStack {
 				GeometryReader { geo in
-					OffsettableScrollView { point in
+					OffsettableScrollView(onOffsetChange: { point in
 						scroll = point.y
-					} content: {
+					}) {
 						TweetCanvasView(
 							size: geo.size
 						)
 						.frame(maxWidth: .infinity, minHeight: geo.size.height)
 					}
-				}
+				} // GeometryReader
 				.frame(maxWidth: .infinity, maxHeight: .infinity)
+				
 				.mouseMove(isInside: { inside in
 					// print("is inside: \(inside)")
 					if inside == false {
@@ -43,14 +44,12 @@ struct ContentView: View {
 					// print("location: \(location)")
 					hover = location
 				})
-				
+
 				if hover != nil {
 					TweetHoverView(hover: hover!)
 				}
-				
-				// Text("scroll \(scroll)")
-			}
-		}
+			} // ZStack
+		} // VStack
 		.background(Color(.grey, 900))
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 	}
@@ -63,3 +62,7 @@ struct ContentView_Previews: PreviewProvider {
 			.preferredColorScheme(.dark)
 	}
 }
+
+// let pasteboard = NSPasteboard.general
+// pasteboard.clearContents()
+// pasteboard.setString("string to copy", forType: .string)
