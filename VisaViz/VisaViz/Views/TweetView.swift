@@ -43,7 +43,7 @@ struct TweetView: View {
 					.foregroundColor(Color(.blue, 400))
 				Text("\(tweet.retweetCount)")
 				
-				Text(" {\(vis.lit)}")
+				// Text(" {\(vis.lit)}")
 			}
 		}
 		.padding()
