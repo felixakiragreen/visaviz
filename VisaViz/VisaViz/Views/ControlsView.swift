@@ -12,13 +12,16 @@ struct ControlsView: View {
 	@WatchStateObject(TweetArchiveAtom())
 	var archive
 
-	@Watch(TopColorsAtom())
-	var topColors
+	@Watch(MostInteractionsByColorAtom())
+	var interactions
 
 	@WatchState(GridAtom())
 	var grid
 
 	@State private var columnCount: Double = 0
+	
+	/// (bin: Int, count: Int)
+	@State private var histogram: [(Int, Int)] = []
 
 	var body: some View {
 		VStack {
@@ -38,8 +41,10 @@ struct ControlsView: View {
 				}
 
 				Button("histogram?") {
-					let histogram = archive.computeHistogram()
-					print("histogram: \(histogram.sorted(by: { $0.key < $1.key }).map { "\($0.key).\($0.value)" })")
+					let _histogram = archive.computeHistogram()
+					histogram = _histogram.sorted(by: { $0.key < $1.key })
+					
+					print("histogram: \(histogram.map { "\($0.0).\($0.1)" })")
 				}
 
 				// HStack {
@@ -52,6 +57,7 @@ struct ControlsView: View {
 				// 	}
 				// }
 			}
+
 			Slider(value: $columnCount, in: 50 ... 500, step: 10, onEditingChanged: {
 				/// closure value will be false when editing is done
 				if $0 == false {
@@ -63,16 +69,10 @@ struct ControlsView: View {
 				.onAppear {
 					columnCount = Double(grid.columns)
 				}
-			HStack {
-				ForEach(topColors.sorted(by: { $0.value.1 > $1.value.1 }), id: \.value.0) { tc in
-					HStack(spacing: 4) {
-						RoundedRectangle(cornerRadius: 4, style: .continuous)
-							.foregroundColor(Color(tc.value.0, 400))
-							.frame(width: 16, height: 16)
-						Text("\(tc.key) (\(tc.value.1))")
-					}
-				}
-			}
+
+			interactionsView
+			
+			histogramView
 		}
 	}
 
@@ -80,6 +80,40 @@ struct ControlsView: View {
 	func loadFromFile() {
 		Task {
 			await archive.load()
+		}
+	}
+	
+	
+	var interactionsView: some View {
+		HStack(spacing: 16) {
+			ForEach(interactions.sorted(by: { $0.value.1 > $1.value.1 }), id: \.value.0) { tc in
+				HStack(spacing: 4) {
+					RoundedRectangle(cornerRadius: 4, style: .continuous)
+						.foregroundColor(Color(tc.value.0, 400))
+						.frame(width: 16, height: 16)
+					Text("\(tc.key)")
+						.foregroundColor(Color(tc.value.0, 200))
+					Text("\(tc.value.1)")
+						.foregroundColor(Color(.grey, 400))
+						.font(.system(.body, design: .monospaced))
+				}
+			}
+		}
+	}
+	
+	var histogramView: some View {
+		HStack(spacing: 16) {
+			ForEach(histogram.sorted(by: { $0.0 < $1.0 }), id: \.0) { hb in
+				HStack(spacing: 4) {
+					RoundedRectangle(cornerRadius: 4, style: .continuous)
+						.foregroundColor(Color(.grey, Histogram.shared.getLightness(lvl: hb.0)))
+						.frame(width: 16, height: 16)
+					// Text("\(hb.0)")
+					Text("\(hb.1)")
+						.foregroundColor(Color(.grey, 400))
+						.font(.system(.body, design: .monospaced))
+				}
+			}
 		}
 	}
 }
