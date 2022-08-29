@@ -22,7 +22,7 @@ struct Tweet: Hashable, Identifiable, Codable {
 	var threadId: String?
 
 	enum CodingKeys: String, CodingKey {
-		case tweet
+		case tweet // for nested data only
 		case id
 		case fullText
 		case createdAt
