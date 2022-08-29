@@ -33,18 +33,18 @@ struct ControlsView: View {
 				Button("Colorize") {
 					archive.generateReplies()
 				}
-				Text("Columns: \(Int(columnCount))")
+			
 
-				Button("max?") {
-					let max = archive.computeMax()
-					print("max: \(max)")
-				}
+				// Button("max?") {
+				// 	let max = archive.computeMax()
+				// 	print("max: \(max)")
+				// }
 
-				Button("histogram?") {
+				Button("Histogram") {
 					let _histogram = archive.computeHistogram()
 					histogram = _histogram.sorted(by: { $0.key < $1.key })
 					
-					print("histogram: \(histogram.map { "\($0.0).\($0.1)" })")
+					// print("histogram: \(histogram.map { "\($0.0).\($0.1)" })")
 				}
 
 				// HStack {
@@ -58,17 +58,22 @@ struct ControlsView: View {
 				// }
 			}
 
-			Slider(value: $columnCount, in: 50 ... 500, step: 10, onEditingChanged: {
-				/// closure value will be false when editing is done
-				if $0 == false {
-					grid.columns = Int(columnCount)
-					grid.recalcRows()
-					grid.recalcCells()
-				}
-			})
+			HStack {
+				Text("Columns: \(Int(columnCount))")
+					.frame(width: 120)
+				
+				Slider(value: $columnCount, in: 50 ... 500, step: 10, onEditingChanged: {
+					/// closure value will be false when editing is done
+					if $0 == false {
+						grid.columns = Int(columnCount)
+						grid.recalcRows()
+						grid.recalcCells()
+					}
+				})
 				.onAppear {
 					columnCount = Double(grid.columns)
 				}
+			}
 
 			interactionsView
 			
@@ -82,7 +87,6 @@ struct ControlsView: View {
 			await archive.load()
 		}
 	}
-	
 	
 	var interactionsView: some View {
 		HStack(spacing: 16) {
