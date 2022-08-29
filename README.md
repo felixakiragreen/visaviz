@@ -9,3 +9,23 @@ Exploring data
 ## How
 
 ## What
+
+---
+
+Screenshot
+
+---
+
+### Future
+
+Roadmap
+
+#### Deferred items
+
+-
+
+### Past
+
+Story
+
+Chronology
