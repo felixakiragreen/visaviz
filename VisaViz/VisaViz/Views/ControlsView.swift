@@ -22,6 +22,10 @@ struct ControlsView: View {
 	
 	/// (bin: Int, count: Int)
 	@State private var histogram: [(Int, Int)] = []
+	
+	
+	@State private var isColorized: Bool = false
+	@State private var showHistogram: Bool = false
 
 	var body: some View {
 		HStack(alignment: .top) {
@@ -33,21 +37,33 @@ struct ControlsView: View {
 					
 					Text("Tweets: \(archive.allTweets.count)")
 					
-					Button("Colorize") {
-						archive.generateReplies()
+					Button(isColorized ? "De-colorize" : "Colorize") {
+						if isColorized {
+							archive.replyCount = [:]
+						} else {
+							archive.generateReplies()
+						}
+						isColorized.toggle()
 					}
+					.disabled(archive.isNotLoaded)
 					
 					// Button("max?") {
 					// 	let max = archive.computeMax()
 					// 	print("max: \(max)")
 					// }
 					
-					Button("Histogram") {
-						let _histogram = archive.computeHistogram()
-						histogram = _histogram.sorted(by: { $0.key < $1.key })
-						
-						// print("histogram: \(histogram.map { "\($0.0).\($0.1)" })")
+					Button(showHistogram ? "Hide Histogram" : "Histogram") {
+						if showHistogram {
+							histogram = []
+						} else {
+							let _histogram = archive.computeHistogram()
+							histogram = _histogram.sorted(by: { $0.key < $1.key })
+							
+							// print("histogram: \(histogram.map { "\($0.0).\($0.1)" })")
+						}
+						showHistogram.toggle()
 					}
+					.disabled(archive.isNotLoaded)
 				}
 				
 				HStack {
