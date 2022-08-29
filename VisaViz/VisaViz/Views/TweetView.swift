@@ -31,7 +31,7 @@ struct TweetView: View {
 				.frame(height: 16)
 
 			HStack {
-				Text("\(DateFormatter.fullDateTime.string(from: tweet.createdAt))")
+				Text("\(DateFormatter.full.string(from: tweet.createdAt))")
 					.foregroundColor(Color(.grey, 400))
 
 				Spacer()
