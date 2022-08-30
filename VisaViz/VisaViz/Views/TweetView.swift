@@ -14,16 +14,13 @@ struct TweetView: View {
 
 	var size: CGSize
 
+	let tweetTappedPublisher = NotificationCenter.default
+		.publisher(for: .TweetTapped)
+
+	@State var showCopyToClipboard = false
+
 	var body: some View {
 		VStack {
-			// let slot = getCellSlot()
-			// Text("Hover \(hover.x), \(hover.y)")
-			// Text("Slot \(slot.0), \(slot.1)")
-
-			// if let tweetIndex = getTweetIndex(),
-			// 	let tweet = archive.allTweets[tweetIndex] {
-			// Text("id:\(tweet.id)")
-			// 	.font(.caption2)
 			Text("\(tweet.fullText)")
 				.frame(maxWidth: .infinity, alignment: .leading)
 
@@ -42,7 +39,7 @@ struct TweetView: View {
 				Text("\(Image(systemName: "arrow.2.squarepath"))")
 					.foregroundColor(Color(.blue, 400))
 				Text("\(tweet.retweetCount)")
-				
+
 				// Text(" {\(vis.lit)}")
 			}
 		}
@@ -58,6 +55,35 @@ struct TweetView: View {
 						.foregroundColor(vis.clr)
 				)
 		)
+		.overlay(
+			ZStack {
+				if showCopyToClipboard {
+					VStack {
+						Text("Tweet URL Copied to Clipboard")
+					}
+					.padding(8)
+					.background(
+						RoundedRectangle(cornerRadius: 8, style: .continuous)
+						.fill(.ultraThinMaterial)
+					)
+					.offset(x: 0, y: -36)
+					.transition(.move(edge: .bottom).combined(with: .opacity))
+				}
+			}
+			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+			.animation(.interactiveSpring(), value: showCopyToClipboard)
+		)
+		.onReceive(tweetTappedPublisher) { notification in
+			print("received.TweetTapped", notification)
+			if let index = notification.object as? Int {
+				print("index of tweet", index)
+				showCopyToClipboard = true
+				Task {
+					try? await Task.sleep(seconds: 2.0)
+					showCopyToClipboard = false
+				}
+			}
+		}
 	}
 }
 
