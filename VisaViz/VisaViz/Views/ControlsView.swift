@@ -22,8 +22,7 @@ struct ControlsView: View {
 	
 	/// (bin: Int, count: Int)
 	@State private var histogram: [(Int, Int)] = []
-	
-	
+
 	@State private var isColorized: Bool = false
 	@State private var showHistogram: Bool = false
 
@@ -33,7 +32,7 @@ struct ControlsView: View {
 				HStack {
 					// LoadFileButton()
 					
-					LoadArchiveButton()
+					// LoadArchiveButton()
 					
 					Text("Tweets: \(archive.allTweets.count)")
 					
