@@ -2,5 +2,8 @@
 Pods/
 builds/
 
+# old/**/**/**/**/tweet.js
+old/MetalExperiments/Assets/Data/tweet.js
+
 .DS_Store
 *.xcuserstate
