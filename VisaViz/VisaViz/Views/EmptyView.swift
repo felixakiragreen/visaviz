@@ -37,7 +37,7 @@ struct EmptyView: View {
 				}
 				
 				VStack(spacing: 4) {
-					Text("Then unzip it, click \(Image(systemName: "arrow.down")) this button, and select the entire folder")
+					Text("Then unzip it, click \(Image(systemName: "arrow.down")) this, and select the entire folder")
 					LoadArchiveButton()
 				}
 			}
