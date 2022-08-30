@@ -47,7 +47,16 @@ struct OffsettableScrollView<Content: View>: View {
 		GeometryReader { proxy in
 			Color.clear.preference(
 				key: OffsetPreferenceKey.self,
-				value: proxy.frame(in: .named("ScrollViewOrigin")).origin
+				// value: proxy.frame(in: .named("ScrollViewOrigin")).origin
+				value: CGPoint(
+					/// This is causing:
+					/// Bound preference OffsetPreferenceKey tried to update multiple times per frame.
+					// TODO: figure out better solution
+					// x: proxy.frame(in: .named("ScrollViewOrigin")).minX,
+					x: 0,
+					y: proxy.frame(in: .named("ScrollViewOrigin")).minY
+				)
+					
 			)
 		}
 		.frame(width: 0, height: 0)
