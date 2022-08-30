@@ -18,10 +18,13 @@ struct ContentView: View {
 				.padding()
 
 			VStack {
-				if archive.isLoaded {
-					ArchiveLoadedView()
-				} else {
+				if archive.isNotLoaded {
 					EmptyView()
+				}
+				GeometryReader { geo in
+					ArchiveLoadedView(
+						window: geo.size
+					)
 				}
 			}
 			.frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -41,6 +44,3 @@ struct ContentView_Previews: PreviewProvider {
 	}
 }
 
-// let pasteboard = NSPasteboard.general
-// pasteboard.clearContents()
-// pasteboard.setString("string to copy", forType: .string)
