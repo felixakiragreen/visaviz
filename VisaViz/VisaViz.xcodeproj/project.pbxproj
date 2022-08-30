@@ -41,6 +41,8 @@
 		1DD83BAB28BD73B70017A5F3 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BAA28BD73B70017A5F3 /* Account.swift */; };
 		1DD83BAD28BD789F0017A5F3 /* ArchiveLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BAC28BD789F0017A5F3 /* ArchiveLoadedView.swift */; };
 		1DD83BAF28BD791D0017A5F3 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BAE28BD791D0017A5F3 /* AccountView.swift */; };
+		1DD83BB128BD98F10017A5F3 /* MouseOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BB028BD98F10017A5F3 /* MouseOver.swift */; };
+		1DD83BB328BDA2830017A5F3 /* Task+sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD83BB228BDA2830017A5F3 /* Task+sleep.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,8 @@
 		1DD83BAA28BD73B70017A5F3 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1DD83BAC28BD789F0017A5F3 /* ArchiveLoadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveLoadedView.swift; sourceTree = "<group>"; };
 		1DD83BAE28BD791D0017A5F3 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		1DD83BB028BD98F10017A5F3 /* MouseOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseOver.swift; sourceTree = "<group>"; };
+		1DD83BB228BDA2830017A5F3 /* Task+sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+sleep.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 				1D02B41528B8000600BACE7A /* Hue.swift */,
 				1DD83BA228BD1A770017A5F3 /* Histogram.swift */,
 				1DD83BAA28BD73B70017A5F3 /* Account.swift */,
+				1DD83BB028BD98F10017A5F3 /* MouseOver.swift */,
 			);
 			name = Quarks;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				1DD83B9C28BA624F0017A5F3 /* CG+Hashable.swift */,
 				1DD83B9E28BBA1AD0017A5F3 /* View+frame.swift */,
 				1DD83B9828BA59100017A5F3 /* OffsettableScrollView.swift */,
+				1DD83BB228BDA2830017A5F3 /* Task+sleep.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -276,6 +282,7 @@
 			files = (
 				1D02B42728B934E700BACE7A /* EmbedAtom.swift in Sources */,
 				1D02B41628B8000600BACE7A /* Hue.swift in Sources */,
+				1DD83BB328BDA2830017A5F3 /* Task+sleep.swift in Sources */,
 				1DD83BAD28BD789F0017A5F3 /* ArchiveLoadedView.swift in Sources */,
 				1D02B41C28B913F200BACE7A /* GridAtom.swift in Sources */,
 				1D02B41A28B8039E00BACE7A /* Collection+optional.swift in Sources */,
@@ -289,6 +296,7 @@
 				1D02B41028B7F78000BACE7A /* TweetCanvasView.swift in Sources */,
 				1DD83BA728BD460C0017A5F3 /* EmptyView.swift in Sources */,
 				1DD83BA328BD1A770017A5F3 /* Histogram.swift in Sources */,
+				1DD83BB128BD98F10017A5F3 /* MouseOver.swift in Sources */,
 				1DD83BA128BBA9BB0017A5F3 /* LoadFileButton.swift in Sources */,
 				1D02B40C28B7F09600BACE7A /* ControlsView.swift in Sources */,
 				1D3F13E82892B5370008F2EF /* ContentView.swift in Sources */,
