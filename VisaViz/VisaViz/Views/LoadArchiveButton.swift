@@ -27,6 +27,8 @@ struct LoadArchiveButton: View {
 				Text("Open Archive")
 			}
 		)
+		.controlSize(.large)
+		.buttonStyle(.borderedProminent)
 		.disabled(isLoaderPresented)
 		.onChange(of: isLoaderPresented, perform: { presented in
 			// binding changed from false to true
@@ -37,7 +39,7 @@ struct LoadArchiveButton: View {
 				panel.canChooseFiles = false
 				panel.begin { response in
 					if response == .OK {
-						print("response", panel.urls)
+						// print("response", panel.urls)
 						loadArchive(url: panel.urls[0])
 					}
 					// reset the isPresented variable to false
@@ -49,7 +51,7 @@ struct LoadArchiveButton: View {
 	
 	@MainActor
 	func loadArchive(url: URL) {
-		print("loadArchive", url)
+		// print("loadArchive", url)
 		Task {
 			await archive.loadArchive(path: url)
 		}
