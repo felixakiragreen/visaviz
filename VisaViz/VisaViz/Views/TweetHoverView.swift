@@ -21,9 +21,9 @@ struct TweetHoverView: View {
 	var container = CGSize(width: 300, height: 200)
 
 	var body: some View {
-		if let tweetIndex = getTweetIndex() {
-			let tweet = archive.allTweets[tweetIndex]
-			let vis = visuals[tweetIndex]
+		if let tweetIndex = getTweetIndex(),
+			let tweet = archive.allTweets[optional: tweetIndex],
+			let vis = visuals[optional: tweetIndex] {
 
 			ZStack(alignment: .topLeading) {
 				ZStack {
