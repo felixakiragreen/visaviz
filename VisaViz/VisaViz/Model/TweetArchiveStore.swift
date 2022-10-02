@@ -106,7 +106,7 @@ class TweetArchiveStore: ObservableObject {
 	}
 	
 	//
-	// Tweets (data/tweet.js)
+	// Tweets (data/tweet.js, data/tweet-part1.js, +)
 	//
 	
 	func loadAllTweets() async throws {
@@ -116,13 +116,13 @@ class TweetArchiveStore: ObservableObject {
 
 		let url = try tweetURL(path: archivePath)
 		
-		print("url", url)
+		// print("url", url)
 	
 		try await loadTweets(url: url)
 		
 		var i = 1
 		while let partUrl = tweetPartitionedURL(path: archivePath, part: i), i < 20 {
-			print("partUrl", partUrl)
+			// print("partUrl", partUrl)
 			do {
 				try await loadTweets(url: partUrl)
 				i += 1
@@ -136,7 +136,7 @@ class TweetArchiveStore: ObservableObject {
 	}
 	
 	func loadTweets(url: URL) async throws {
-		print("loadTweets:", url)
+		// print("loadTweets:", url)
 
 		let (data, _) = try await URLSession.shared.data(from: url)
 		let decodedData = try await decodeTweetData(data: data)
