@@ -82,7 +82,7 @@ class TweetArchiveStore: ObservableObject {
 			
 			try await loadAccount()
 			
-			try await loadTweets()
+			try await loadAllTweets()
 			
 			isLoaded = true
 		}
@@ -109,23 +109,60 @@ class TweetArchiveStore: ObservableObject {
 	// Tweets (data/tweet.js)
 	//
 	
-	func loadTweets() async throws {
-		guard archivePath != nil else {
+	func loadAllTweets() async throws {
+		guard let archivePath else {
 			throw ArchiveError.archivePathNotFound
 		}
 
-		let url = try tweetURL(path: archivePath!)
-	
-		let (data, _) = try await URLSession.shared.data(from: url)
+		let url = try tweetURL(path: archivePath)
 		
+		print("url", url)
+	
+		try await loadTweets(url: url)
+		
+		var i = 1
+		while let partUrl = tweetPartitionedURL(path: archivePath, part: i), i < 20 {
+			print("partUrl", partUrl)
+			do {
+				try await loadTweets(url: partUrl)
+				i += 1
+			} catch {
+				break
+			}
+		}
+		
+		// sort all at the end
+		allTweets = allTweets.sorted(by: { $0.createdAt < $1.createdAt })
+	}
+	
+	func loadTweets(url: URL) async throws {
+		print("loadTweets:", url)
+
+		let (data, _) = try await URLSession.shared.data(from: url)
 		let decodedData = try await decodeTweetData(data: data)
 		
-		allTweets = decodedData.sorted(by: { $0.createdAt < $1.createdAt })
+		allTweets.append(contentsOf: decodedData)
 	}
 	
 	private func tweetURL(path: URL) throws -> URL {
 		guard let url = URL(string: "data/tweet.js", relativeTo: path) else {
 			throw ArchiveError.createURLFailure
+		}
+		
+		return url
+	}
+	
+	private func tweetPartitionedURL(path: URL, part: Int) throws -> URL {
+		guard let url = URL(string: "data/tweet-part\(part).js", relativeTo: path) else {
+			throw ArchiveError.createURLFailure
+		}
+		
+		return url
+	}
+	
+	private func tweetPartitionedURL(path: URL, part: Int) -> URL? {
+		guard let url = URL(string: "data/tweet-part\(part).js", relativeTo: path) else {
+			return nil
 		}
 		
 		return url
